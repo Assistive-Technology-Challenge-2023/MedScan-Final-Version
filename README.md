@@ -30,4 +30,4 @@ flutter pub get
 
 </pre>
 
-4. Add the database from this [link](https://drive.switch.ch/index.php/apps/files/?dir=/ATC%20P2&fileid=5975444117) to the assets directory
+4. Add the database from this [link](https://drive.switch.ch/index.php/f/6264340761) to the assets directory
