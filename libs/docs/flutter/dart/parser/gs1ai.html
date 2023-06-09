@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GS1 AI &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="DL/ID" href="dlid.html" />
+    <link rel="prev" title="HIBC" href="hibc.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="formats.html">Supported Data Formats</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hibc.html">HIBC</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GS1 AI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sample-usage-for-gs1-parser-and-barcode-capture">Sample usage for GS1 parser and Barcode Capture</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exposed-fields">Exposed Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extensions">Extensions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nhs">NHS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#parser-options">Parser Options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dlid.html">DL/ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mrtd.html">MRTD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swissqr.html">Swiss QR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vin.html">VIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="us_usid.html">US Uniformed Services</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">ScanditParser</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="formats.html">Supported Data Formats</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hibc.html">HIBC</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">GS1 AI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exposed-fields">Exposed Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extensions">Extensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parser-options">Parser Options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dlid.html">DL/ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mrtd.html">MRTD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="swissqr.html">Swiss QR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vin.html">VIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us_usid.html">US Uniformed Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="result-object.html">Result Object Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="formats.html">Supported Data Formats</a> &raquo;</li>
+      <li>GS1 AI</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="gs1-ai">
+<h1>GS1 AI<a class="headerlink" href="#gs1-ai" title="Permalink to this headline"></a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<p>The parser supports version 20.0 of the GS1 Application Identifier (AI) definitions standard. The latest version of the AI definitions is available in <a class="reference external" href="http://www.gs1.org/docs/barcodes/GS1_General_Specifications.pdf">Section 3 GS1 Application Identifier definitions</a>.</p>
+<div class="section" id="sample-usage-for-gs1-parser-and-barcode-capture">
+<h3>Sample usage for GS1 parser and Barcode Capture<a class="headerlink" href="#sample-usage-for-gs1-parser-and-barcode-capture" title="Permalink to this headline"></a></h3>
+</div>
+<p>First, you need to create a <a class="reference internal" href="../core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="DataCaptureContext class">DataCaptureContext</a>, access a <a class="reference internal" href="../core/api/camera.html#class-scandit.datacapture.core.Camera" title="Camera class">Camera</a> and create GS1 parser:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataCaptureContext</span><span class="p">.</span><span class="n">forLicenseKey</span><span class="p">(</span><span class="s1">&#39;-- ENTER YOUR SCANDIT LICENSE KEY HERE --&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="n">camera</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Camera</span><span class="p">.</span><span class="n">defaultCamera</span><span class="o">!</span><span class="p">;</span><span class="w"></span>
+<span class="n">context</span><span class="p">.</span><span class="n">setFrameSource</span><span class="p">(</span><span class="n">camera</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">const</span><span class="w"> </span><span class="n">cameraSettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CameraSettings</span><span class="p">();</span><span class="w"></span>
+<span class="n">cameraSettings</span><span class="p">.</span><span class="n">preferredResolution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VideoResolution</span><span class="p">.</span><span class="n">fullHd</span><span class="p">;</span><span class="w"></span>
+<span class="n">camera</span><span class="p">.</span><span class="n">applySettings</span><span class="p">(</span><span class="n">cameraSettings</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">var</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BarcodeCaptureSettings</span><span class="p">();</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="n">barcodeCapture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BarcodeCapture</span><span class="p">.</span><span class="n">forContext</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">var</span><span class="w"> </span><span class="n">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">Parser</span><span class="p">.</span><span class="n">forContextAndFormat</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">ParserDataFormat</span><span class="p">.</span><span class="n">gs1Ai</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Then, you need to implement <a class="reference internal" href="../barcode-capture/api/barcode-capture-listener.html#interface-scandit.datacapture.barcode.IBarcodeCaptureListener" title="BarcodeCaptureListener interface">BarcodeCaptureListener</a>:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="nd">@override</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">didScan</span><span class="p">(</span><span class="n">BarcodeCapture</span><span class="w"> </span><span class="n">barcodeCapture</span><span class="p">,</span><span class="w"> </span><span class="n">BarcodeCaptureSession</span><span class="w"> </span><span class="n">session</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">parsedData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parser</span><span class="p">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">barcode</span><span class="p">.</span><span class="n">Data</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/*</span>
+<span class="cm">   * Extract the fields relevant to your use case. Below, for example, we extract a batch/lot number,</span>
+<span class="cm">   * which has the type String, and an expiry date, which is represented as a map with keys</span>
+<span class="cm">   * &quot;year&quot;, &quot;month&quot;, &quot;day&quot;.</span>
+<span class="cm">   */</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">serialNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">fieldsByName</span><span class="p">[</span><span class="s1">&#39;10&#39;</span><span class="p">].</span><span class="n">parsed</span><span class="p">.</span><span class="n">toString</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parsedData</span><span class="p">.</span><span class="n">fieldsByName</span><span class="p">[</span><span class="s1">&#39;17&#39;</span><span class="p">].</span><span class="n">parsed</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">dynamic</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Do something with the extracted fields.</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Finally, add the listener to the mode to receive scan results:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">barcodeCapture</span><span class="p">.</span><span class="n">addListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>For details, go to the <a class="reference internal" href="api.html"><span class="doc">API docs</span></a>.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h2>
+<p>Parsing the following code (without the quotes):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;1719060010SCANDIT123&quot;</span>
+</pre></div>
+</div>
+<p>will result in the following JSON output:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;17&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;month&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;year&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">2019</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;190600&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;10&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;SCANDIT123&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;SCANDIT123&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>And parsing the following code with <cite>strictMode</cite> disabled:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;00001834560000000018&quot;</span>
+</pre></div>
+</div>
+<p>will result in the following JSON output:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;001834560000000018&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;issues&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;check digit mismatch. Expected 8 but got 2.&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;001834560000000018&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exposed-fields">
+<h2>Exposed Fields<a class="headerlink" href="#exposed-fields" title="Permalink to this headline"></a></h2>
+<p>The name of the fields correspond to the AI number. The following fields have their content parsed. Fields which are not in this list can still be accessed, but only the raw string is available.</p>
+<ul class="simple">
+<li><p>“00”: parsed data is a dictionary, always contains alphanumeric subfields “extensionDigit” and “SSCC”.</p></li>
+<li><p>“01”, “02”: parsed data is a dictionary, always contains “GTIN” field. It sometimes contains integer field “indicator” (if non-zero).</p></li>
+<li><p>“10”: parsed data is a string (batch/lot number)</p></li>
+<li><p>“11”, “12”, “13”, “15”, “16”, “17”: parsed data is a dictionary, always contains integer fields “year” (YYYY), “month” (MM) and sometimes “day” (DD)</p></li>
+<li><p>“20”: parsed data is an integer (the variant)</p></li>
+<li><p>“21”: parsed data is a string (the serial number)</p></li>
+<li><p>“30”: parsed data is an integer (count of items, between 0 and 99999999)</p></li>
+<li><p>“31ab”, “32ab”, “33ab”, “34ab”, “35ab”, “36ab” for some numbers a and b:
+These AI’s are represented by two fields in our result: The field “31ab” and the fields “31ax”. For example: The AI “3222” has the fields “3222” and “322x”
+The parsed data is a string of the floating point number (e.g. “3202000150” has the parsed data “1.50”)</p></li>
+<li><p>“37”: parsed data is an integer (count of items, between 0 and 99999999)</p></li>
+<li><p>“400”: parsed data is a string (customer’s purchase order number)</p></li>
+<li><p>“401”: parsed data is a string (global identification number for consignment)</p></li>
+<li><p>“402”: parsed data is a string (global shipment identification number)</p></li>
+<li><p>“403”: parsed data is a string (routing code)</p></li>
+<li><p>“410”: parsed data is a string (ship to / deliver to global location number)</p></li>
+<li><p>“411”: parsed data is a string (bill to / invoice to global location number)</p></li>
+<li><p>“412”: parsed data is a string (purchased from global location number)</p></li>
+<li><p>“413”: parsed data is a string (ship for / deliver for - forward to global location number)</p></li>
+<li><p>“414”: parsed data is a string (identification of a physical location - global location number)</p></li>
+<li><p>“415”: parsed data is a string (global location number of the invoicing party)</p></li>
+<li><p>“416”: parsed data is a string (global location number of the production or service location)</p></li>
+<li><p>“420”: parsed data is a string (ship to / deliver to postal code within a single postal authority)</p></li>
+<li><p>“421”: parsed data is a dictionary, always contains “countryCode” and “postalCode” fields (ship to / deliver to postal code with three-digit ISO country code)</p></li>
+<li><p>“422”: parsed data is a string (country of origin of a trade item / ISO 3166)</p></li>
+<li><p>“423”: parsed data is an array (countries of initial processing / ISO 3166)</p></li>
+<li><p>“424”: parsed data is a string (country of processing / ISO 3166)</p></li>
+<li><p>“425”: parsed data is an array (countries of disassembly / ISO 3166)</p></li>
+<li><p>“426”: parsed data is a string (country covering full process chain / ISO 3166)</p></li>
+<li><p>“427”: parsed data is a string (country subdivision of origin code for a trade item / ISO 3166-2)</p></li>
+<li><p>“7003”: parsed data is a dictionary, always contains integer fields “year” (YYYY), “month” (MM), “day” (DD), “hour” (HH), “minute” (MM).</p></li>
+<li><p>“8017”: parsed data is a dictionary, always contains string subfield “GSRN”.</p></li>
+<li><p>“8018”: parsed data is a dictionary, always contains string subfield “GSRN”.</p></li>
+<li><p>“91”-“99”: parsed data is a string (when standardExtension option is not set)</p></li>
+</ul>
+</div>
+<div class="section" id="extensions">
+<h2>Extensions<a class="headerlink" href="#extensions" title="Permalink to this headline"></a></h2>
+<div class="section" id="nhs">
+<h3>NHS<a class="headerlink" href="#nhs" title="Permalink to this headline"></a></h3>
+<p>Based on Automatic Identification and Data Capture (AIDC) for Patient Identification. Standard Number: ISB 1077.
+When the standardExtension option is set to “nhs” we parse the following specific fields:</p>
+<ul class="simple">
+<li><p>“91”: parsed data is a dictionary, always contains alphanumeric subfield “organisationCode”, “patientHospitalNumber”. Might also contain numeric subfied “organisationPrefix”.</p></li>
+<li><p>“92”: parsed data is a dictionary, always contains alphanumeric subfield “numberOfBabiesIndicator” and alphabetic subfields “babyOfLastName” and “babyOfFirstName”.</p></li>
+<li><p>“93”: parsed data is a dictionary, always contains alphabetic subfield “lastName”, “firstName” and alphanumeric “dateOfBirth”. Might also contain alphanumeric “timeOfBirth”.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="parser-options">
+<h2>Parser Options<a class="headerlink" href="#parser-options" title="Permalink to this headline"></a></h2>
+<p>Following options can be set to fine-tune the behavior of the parser:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>“strictMode”: boolean (default:true)</dt><dd><p>Controls the strictness of the parser. When strictMode is set to true, every error in the input (invalid checksum, invalid characters etc.) is treated as an error. Parsing is aborted upon encountering the first error. When strictMode is set to false, parsing continues for non-critical errors. The encountered problems can be queried for each field separately via the issues property.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“standardExtension”: string (no default value)</dt><dd><p>Option to enable extensions of the GS1 standard. This configures how certain AIs are interpreted (e.g, ‘company internal information’ on AIs 91 to 99). See section ‘Extensions’ for more details. Currently only “nhs” is supported.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“allowMachineReadableCodes”: boolean (default:true)</dt><dd><p>Makes the parser accept codes which are encoded in machine readable format (i.e. AI numbers not encapsulated in parenthesis).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“allowHumanReadableCodes”: boolean (default:false)</dt><dd><p>Makes the parser accept codes which are encoded in human readable format (i.e. AI numbers encapsulated in parenthesis).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“outputHumanReadableString”: boolean (default: false)</dt><dd><p>Adds the additional field “humanReadableString” at the end of the resulting JSON string. This field contains the code in human readable form (i.e. AI number encapsulated in parenthesis).</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

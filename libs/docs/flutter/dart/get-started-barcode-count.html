@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Started With MatrixScan Count &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Get Started With Barcode Selection" href="get-started-barcode-selection.html" />
+    <link rel="prev" title="Add AR Overlays in MatrixScan" href="add-augmented-reality-overlay.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Get Started With MatrixScan Count</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-matrixscan-count">What is MatrixScan Count?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ui-overview">UI Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supported-devices">Supported Devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supported-symbologies">Supported Symbologies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-start-guide">Quick Start Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-new-data-capture-context-instance">1. Create A New Data Capture Context Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-the-barcode-count-mode">2. Configure The Barcode Count Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#obtain-camera-instance-and-set-frame-source-used">3. Obtain Camera Instance And Set Frame Source Used</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#register-the-listener-to-be-informed-when-scanned-phase-is-over">4. Register The Listener To Be Informed When Scanned Phase Is Over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-capture-view-and-ar-overlays">5. Set Capture View And AR Overlays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-up-the-camera-so-that-it-switches-on-when-you-are-in-scanning-view">6. Set Up The Camera So That It Switches On When You Are In Scanning View</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#store-and-retrieve-scanned-barcodes">7. Store And Retrieve Scanned Barcodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reset-barcode-count-mode">8. Reset Barcode Count Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-and-exit-callbacks">9. List And Exit Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-settings">Advanced Settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scanning-against-a-list">Scanning Against A List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#strap-mode">Strap Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filtering">Filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clear-screen-button">Clear Screen Button</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notifications">Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disable-ui-elements">Disable UI Elements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Get Started With MatrixScan Count</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="get-started-with-matrixscan-count">
+<h1>Get Started With MatrixScan Count<a class="headerlink" href="#get-started-with-matrixscan-count" title="Permalink to this headline"></a></h1>
+<div class="section" id="what-is-matrixscan-count">
+<h2>What is MatrixScan Count?<a class="headerlink" href="#what-is-matrixscan-count" title="Permalink to this headline"></a></h2>
+<p>MatrixScan Count is an out-of-the-box scan and count solution for counting and receiving multiple items at once, in which user interface (UI) elements and interactions are built into a workflow.</p>
+<div class="section" id="ui-overview">
+<h3>UI Overview<a class="headerlink" href="#ui-overview" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>MatrixScan Count leans on the familiar paradigm of a camera, including a shutter button that the user operates in order to initiate scanning.</p></li>
+<li><p>The user is initially guided to “Tap shutter to scan items”.</p></li>
+<li><p>A loading indicator is present for a split second, indicating to hold still while scanning is in progress.</p></li>
+<li><p>An initial calibration may be triggered after the scanning phase if the user stands too far away from or too close to the items.</p></li>
+<li><p>Feedback is overlaid as augmented reality (AR) icons on top of scanned barcodes. A button counter badge and progress bar provide further confirmation of scan. Additionally, AR icons can be used to indicate codes that are unscannable, or items that should not be present.</p></li>
+<li><p>The counter badge simply counts the number of codes scanned.</p></li>
+<li><p>The progress bar replaces the counter badge if the user is are scanning against a list of expected codes (for example, against an item list or manifest). It shows how many of the expected codes have been detected.</p></li>
+<li><p>Upon completing the scanning process, if all items have been successfully scanned, you can advance the user to the next scan automatically. Next steps may be finalizing order receipt if all items are present, reviewing the scan list to identify items that shouldn’t be present, or moving on to the next order (<em>Note: The SDK does not include a UI for reviewing the scan list, but a recommended UI for this process can be seen in our Receiving Sample</em>).</p></li>
+</ul>
+<p>MatrixScan Count is implemented through functionality provided by <a class="reference internal" href="barcode-capture/api/barcode-count.html#class-scandit.datacapture.barcode.count.BarcodeCount" title="BarcodeCount class">BarcodeCount</a>.</p>
+</div>
+<div class="section" id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>The Scandit Data Capture SDK. <a class="reference internal" href="add-sdk.html"><span class="doc">Check out this guide</span></a>.</p></li>
+<li><p>A valid Scandit Data Capture SDK license key including MatrixScan AR add-on. You can sign up for a free test account at <a class="reference external" href="https://ssl.scandit.com/">ssl.scandit.com</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="supported-devices">
+<h3>Supported Devices<a class="headerlink" href="#supported-devices" title="Permalink to this headline"></a></h3>
+<p>Runs on iOS and selected Android devices. <a class="reference external" href="https://support.scandit.com/hc/en-us/requests/new">Contact support</a> for more details.</p>
+</div>
+<div class="section" id="supported-symbologies">
+<h3>Supported Symbologies<a class="headerlink" href="#supported-symbologies" title="Permalink to this headline"></a></h3>
+<p>MatrixScan Count supports all symbologies except DotCode, MaxiCode and postal codes (KIX, RM4SCC).</p>
+</div>
+</div>
+<div class="section" id="quick-start-guide">
+<h2>Quick Start Guide<a class="headerlink" href="#quick-start-guide" title="Permalink to this headline"></a></h2>
+<p>Barcode Count is a data capture mode that implements MatrixScan Count. In this guide you will learn step by step how to add Barcode Count to your application.</p>
+<p>Roughly, the steps are:</p>
+<ol class="arabic simple">
+<li><p>Create a new Data Capture Context instance</p></li>
+<li><p>Configure the Barcode Count Mode</p></li>
+<li><p>Obtain camera instance and set frame source used</p></li>
+<li><p>Register the listener to be informed when scanned phase is over</p></li>
+<li><p>Set capture view and AR overlays</p></li>
+<li><p>Set up the camera so that it switches on when you are in scanning view</p></li>
+<li><p>Store and retrieve scanned barcodes</p></li>
+<li><p>Reset Barcode Count mode</p></li>
+<li><p>List and Exit callbacks</p></li>
+</ol>
+</div>
+<div class="section" id="create-a-new-data-capture-context-instance">
+<h2>1. Create A New Data Capture Context Instance<a class="headerlink" href="#create-a-new-data-capture-context-instance" title="Permalink to this headline"></a></h2>
+<p>The first step to add capture capabilities to your application is to create a new <a class="reference internal" href="core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="Data Capture Context class">Data Capture Context</a>. The context expects a valid Scandit Data Capture SDK license key during construction.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">dataCaptureContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataCaptureContext</span><span class="p">.</span><span class="n">forLicenseKey</span><span class="p">(</span><span class="s1">&#39;-- ENTER YOUR SCANDIT LICENSE KEY HERE --&#39;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-the-barcode-count-mode">
+<h2>2. Configure The Barcode Count Mode<a class="headerlink" href="#configure-the-barcode-count-mode" title="Permalink to this headline"></a></h2>
+<p>The main entry point for the Barcode Count Mode is the <a class="reference internal" href="barcode-capture/api/barcode-count.html#class-scandit.datacapture.barcode.count.BarcodeCount" title="BarcodeCount class">BarcodeCount</a> object.
+It is configured through <a class="reference internal" href="barcode-capture/api/barcode-count-settings.html#class-scandit.datacapture.barcode.count.BarcodeCountSettings" title="BarcodeCountSettings class">BarcodeCountSettings</a> and allows you to register one or more listeners that are informed whenever a scan phase has finished.</p>
+<p>For this tutorial, we will set up Barcode Count for tracking EAN13 codes.
+Change this to the correct symbologies for your use case (for example, Code 128, Code 39…).</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeCountSettings</span><span class="p">();</span><span class="w"></span>
+<span class="n">settings</span><span class="p">.</span><span class="n">enableSymbology</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="n">ean13Upca</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>If you are sure that your environment will only have unique barcodes (i.e. no duplicated values), you can also enable <a class="reference internal" href="barcode-capture/api/barcode-count-settings.html#property-scandit.datacapture.barcode.count.BarcodeCountSettings.ExpectsOnlyUniqueBarcodes" title="BarcodeCountSettings.expectsOnlyUniqueBarcodes property">BarcodeCountSettings.expectsOnlyUniqueBarcodes</a>.
+This option improves scanning performance as long as you are sure that no duplicates will be present.
+Next, create a <a class="reference internal" href="barcode-capture/api/barcode-count.html#class-scandit.datacapture.barcode.count.BarcodeCount" title="BarcodeCount class">BarcodeCount</a> instance with the <a class="reference internal" href="core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="Data Capture Context class">Data Capture Context</a> and the settings initialized in the previous step:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">barcodeCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BarcodeCount</span><span class="p">.</span><span class="n">forContext</span><span class="p">(</span><span class="n">dataCaptureContext</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="obtain-camera-instance-and-set-frame-source-used">
+<h2>3. Obtain Camera Instance And Set Frame Source Used<a class="headerlink" href="#obtain-camera-instance-and-set-frame-source-used" title="Permalink to this headline"></a></h2>
+<p>Our recommended camera settings should be used to achieve the best performance and user experience.
+The following couple of lines show how to get the recommended settings for MatrixScan Count and create the camera from it:</p>
+<p>Because the frame source is configurable, the data capture context must be told which frame source to use. This is done with a call to <a class="reference internal" href="core/api/data-capture-context.html#method-scandit.datacapture.core.DataCaptureContext.SetFrameSourceAsync" title="DataCaptureContext.setFrameSource() method">DataCaptureContext.setFrameSource()</a>:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">dataCaptureContext</span><span class="p">.</span><span class="n">setFrameSource</span><span class="p">(</span><span class="n">camera</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="register-the-listener-to-be-informed-when-scanned-phase-is-over">
+<h2>4. Register The Listener To Be Informed When Scanned Phase Is Over<a class="headerlink" href="#register-the-listener-to-be-informed-when-scanned-phase-is-over" title="Permalink to this headline"></a></h2>
+<p>To keep track of the barcodes that have been scanned, implement the <a class="reference internal" href="barcode-capture/api/barcode-count-listener.html#interface-scandit.datacapture.barcode.count.IBarcodeCountListener" title="BarcodeCountListener interface">BarcodeCountListener</a> interface and register the listener.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">barcodeCount</span><span class="p">.</span><span class="n">addListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="barcode-capture/api/barcode-count-listener.html#method-scandit.datacapture.barcode.count.IBarcodeCountListener.OnScan" title="BarcodeCountListener.didScan() method">BarcodeCountListener.didScan()</a> is called when the scan phase has finished and results can be retrieved from <a class="reference internal" href="barcode-capture/api/barcode-count-session.html#class-scandit.datacapture.barcode.count.BarcodeCountSession" title="BarcodeCountSession class">BarcodeCountSession</a>.</p>
+</div>
+<div class="section" id="set-capture-view-and-ar-overlays">
+<h2>5. Set Capture View And AR Overlays<a class="headerlink" href="#set-capture-view-and-ar-overlays" title="Permalink to this headline"></a></h2>
+<p>MatrixScan Count’s built-in AR user interface includes buttons and overlays that guide the user through the capturing process.
+By adding a <a class="reference internal" href="barcode-capture/api/ui/barcode-count-view.html#class-scandit.datacapture.barcode.count.ui.BarcodeCountView" title="BarcodeCountView class">BarcodeCountView</a> the scanning interface (camera preview and scanning UI elements) will be added automatically to your application.</p>
+<p>Add a <a class="reference internal" href="barcode-capture/api/ui/barcode-count-view.html#class-scandit.datacapture.barcode.count.ui.BarcodeCountView" title="BarcodeCountView class">BarcodeCountView</a> to your view hierarchy:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">barcodeCountView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BarcodeCountView</span><span class="p">.</span><span class="n">forContextWithMode</span><span class="p">(</span><span class="n">dataCaptureContext</span><span class="p">,</span><span class="w"> </span><span class="n">barcodeCount</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-up-the-camera-so-that-it-switches-on-when-you-are-in-scanning-view">
+<h2>6. Set Up The Camera So That It Switches On When You Are In Scanning View<a class="headerlink" href="#set-up-the-camera-so-that-it-switches-on-when-you-are-in-scanning-view" title="Permalink to this headline"></a></h2>
+<p>The camera is not automatically turned on when you are in a scanning view.
+You need to set up the camera so that it switches on when needed and it switches off when not needed anymore.
+Similarly <a class="reference internal" href="barcode-capture/api/barcode-count.html#class-scandit.datacapture.barcode.count.BarcodeCount" title="BarcodeCount class">BarcodeCount</a> should also be enabled and disabled.
+For instance, you should switch off the camera when the <a class="reference internal" href="barcode-capture/api/ui/barcode-count-view.html#class-scandit.datacapture.barcode.count.ui.BarcodeCountView" title="BarcodeCountView class">BarcodeCountView</a> is not visible anymore (including when the app goes in the background), similarly you want to switch on the camera when the <a class="reference internal" href="barcode-capture/api/ui/barcode-count-view.html#class-scandit.datacapture.barcode.count.ui.BarcodeCountView" title="BarcodeCountView class">BarcodeCountView</a> is visible (including when the app goes to the foreground).
+One way to achieve this is the following:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="nd">@override</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">didChangeAppLifecycleState</span><span class="p">(</span><span class="n">AppLifecycleState</span><span class="w"> </span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">AppLifecycleState</span><span class="p">.</span><span class="n">resumed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">       </span><span class="n">camera</span><span class="p">.</span><span class="n">switchToDesiredState</span><span class="p">(</span><span class="n">FrameSourceState</span><span class="p">.</span><span class="kd">on</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">AppLifecycleState</span><span class="p">.</span><span class="n">paused</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">       </span><span class="n">camera</span><span class="p">.</span><span class="n">switchToDesiredState</span><span class="p">(</span><span class="n">FrameSourceState</span><span class="p">.</span><span class="n">off</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="section" id="store-and-retrieve-scanned-barcodes">
+<h3>7. Store And Retrieve Scanned Barcodes<a class="headerlink" href="#store-and-retrieve-scanned-barcodes" title="Permalink to this headline"></a></h3>
+<p>The values captured as part of the scanning process are part of the <a class="reference internal" href="barcode-capture/api/barcode-count-session.html#class-scandit.datacapture.barcode.count.BarcodeCountSession" title="session class">session</a>, and the session is not accessible outside <a class="reference internal" href="barcode-capture/api/barcode-count-listener.html#method-scandit.datacapture.barcode.count.IBarcodeCountListener.OnScan" title="BarcodeCountListener.didScan() method">BarcodeCountListener.didScan()</a>.
+Therefore, we recommend that you store the values to present a list, for example when the user taps the list icon.
+To do this, make a copy of <a class="reference internal" href="barcode-capture/api/barcode-count-session.html#property-scandit.datacapture.barcode.count.BarcodeCountSession.RecognizedBarcodes" title="BarcodeCountSession.recognizedBarcodes property">BarcodeCountSession.recognizedBarcodes</a>:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="nd">@override</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">didScan</span><span class="p">(</span><span class="n">BarcodeCount</span><span class="w"> </span><span class="n">barcodeCount</span><span class="p">,</span><span class="w"> </span><span class="n">BarcodeCountSession</span><span class="w"> </span><span class="n">session</span><span class="p">,</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">FrameData</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">Function</span><span class="p">()</span><span class="w"> </span><span class="n">getFrameData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">allRecognizedBarcodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="n">recognizedBarcodes</span><span class="p">.</span><span class="n">values</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="reset-barcode-count-mode">
+<h2>8. Reset Barcode Count Mode<a class="headerlink" href="#reset-barcode-count-mode" title="Permalink to this headline"></a></h2>
+<p>When the scanning process is over, you need to reset the mode to make it ready for the next process. This clears the list of barcodes scanned and all the AR overlays.</p>
+<p>To reset Barcode Count’s scanning process, you need to call the <a class="reference internal" href="barcode-capture/api/barcode-count.html#method-scandit.datacapture.barcode.count.BarcodeCount.Reset" title="BarcodeCount.reset() method">BarcodeCount.reset()</a> method.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">barcodeCount</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-and-exit-callbacks">
+<h2>9. List And Exit Callbacks<a class="headerlink" href="#list-and-exit-callbacks" title="Permalink to this headline"></a></h2>
+<p>The UI includes two icons (buttons) named “List” and “Exit”. The SDK provides the callbacks so you can add the desired action when those icons are tapped by the user.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="nd">@override</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">didTapListButton</span><span class="p">(</span><span class="n">BarcodeCountView</span><span class="w"> </span><span class="n">view</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Show the current progress but the order is not completed</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nd">@override</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">didTapExitButton</span><span class="p">(</span><span class="n">BarcodeCountView</span><span class="w"> </span><span class="n">view</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// The order is completed</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="advanced-settings">
+<h2>Advanced Settings<a class="headerlink" href="#advanced-settings" title="Permalink to this headline"></a></h2>
+<div class="section" id="scanning-against-a-list">
+<h3>Scanning Against A List<a class="headerlink" href="#scanning-against-a-list" title="Permalink to this headline"></a></h3>
+<p>There is a function to set a list of expected barcodes if you are scanning against a manifest or item list. If this is used, a progress bar is added to the UI, so you can keep track of the process while scanning.</p>
+<p>When scanning against a list, the UI will also show red icons to mark scanned barcodes that aren’t present on the list.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">TargetBarcode</span><span class="o">&gt;</span><span class="w"> </span><span class="n">targetBarcodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span><span class="w"></span>
+<span class="n">targetBarcodes</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">TargetBarcode</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">));</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="n">captureList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BarcodeCountCaptureList</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">targetBarcodes</span><span class="p">);</span><span class="w"></span>
+<span class="n">barcodeCount</span><span class="p">.</span><span class="n">setBarcodeCountCaptureList</span><span class="p">(</span><span class="n">captureList</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="strap-mode">
+<h3>Strap Mode<a class="headerlink" href="#strap-mode" title="Permalink to this headline"></a></h3>
+<p>It can be difficult to reach the shutter button if the smart device is attached to the user’s wrist by a strap or similar. In this instance, you can enable a floating shutter button that can be positioned by the end user in a more ergonomically suitable position.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">barcodeCountView</span><span class="p">.</span><span class="n">shouldShowFloatingShutterButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filtering">
+<h3>Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline"></a></h3>
+<p>If you have several types of barcodes on your label/package, you may want to scan only one of them.</p>
+<p>In this case, you can filter the others out. This can be done by symbology, symbol count, or setting a regex.</p>
+<p>For example, you might want to scan only Code 128 barcodes and no PDF417 ones.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeCountSettings</span><span class="p">();</span><span class="w"></span>
+<span class="n">barcodeCountSettings</span><span class="p">.</span><span class="n">enableSymbologies</span><span class="p">(</span><span class="n">enabledSymbologies</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">Set</span><span class="o">&lt;</span><span class="n">Symbology</span><span class="o">&gt;</span><span class="w"> </span><span class="n">excludedSymbologies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="n">excludedSymbologies</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="n">pdf417</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="n">filterSettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">settings</span><span class="p">.</span><span class="n">filterSettings</span><span class="p">;</span><span class="w"></span>
+<span class="n">filterSettings</span><span class="p">.</span><span class="n">excludedSymbologies</span><span class="p">(</span><span class="n">excludedSymbologies</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Or, you want to exclude all the barcodes starting with 4 numbers:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeCountSettings</span><span class="p">();</span><span class="w"></span>
+
+<span class="kd">var</span><span class="w"> </span><span class="n">filterSettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">settings</span><span class="p">.</span><span class="n">filterSettings</span><span class="p">;</span><span class="w"></span>
+<span class="n">filterSettings</span><span class="p">.</span><span class="n">excludedCodesRegex</span><span class="p">(</span><span class="s2">&quot;^1234.*&quot;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="clear-screen-button">
+<h3>Clear Screen Button<a class="headerlink" href="#clear-screen-button" title="Permalink to this headline"></a></h3>
+<p>There are situations in which the user may find it helpful to clean up their screen (i.e. clear all the AR overlays) but keep the list of barcodes scanned.</p>
+<p>If this is the case, you can enable the “Clear screen” button.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">barcodeCountView</span><span class="p">.</span><span class="n">shouldShowClearHighlightsButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="notifications">
+<h3>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline"></a></h3>
+<p>If you want to be notified when a user taps on an overlay, you need to implement the
+<a class="reference internal" href="barcode-capture/api/ui/barcode-count-view-listener.html#method-scandit.datacapture.barcode.count.ui.IBarcodeCountViewListener.OnRecognizedBarcodeTapped" title="BarcodeCountViewListener.didTapRecognizedBarcode() method">BarcodeCountViewListener.didTapRecognizedBarcode()</a> and <a class="reference internal" href="barcode-capture/api/ui/barcode-count-view-listener.html#method-scandit.datacapture.barcode.count.ui.IBarcodeCountViewListener.OnUnrecognizedBarcodeTapped" title="BarcodeCountViewListener.didTapUnrecognizedBarcode() method">BarcodeCountViewListener.didTapUnrecognizedBarcode()</a> methods.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="nd">@override</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">didTapRecognizedBarcode</span><span class="p">(</span><span class="n">BarcodeCountView</span><span class="w"> </span><span class="n">view</span><span class="p">,</span><span class="w"> </span><span class="n">TrackedBarcode</span><span class="w"> </span><span class="n">trackedBarcode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Do something with the tapped barcode</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nd">@override</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">didTapUnrecognizedBarcode</span><span class="p">(</span><span class="n">BarcodeCountView</span><span class="w"> </span><span class="n">view</span><span class="p">,</span><span class="w"> </span><span class="n">TrackedBarcode</span><span class="w"> </span><span class="n">trackedBarcode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Do something with the tapped barcode</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="disable-ui-elements">
+<h3>Disable UI Elements<a class="headerlink" href="#disable-ui-elements" title="Permalink to this headline"></a></h3>
+<p>The UI is an integral part of MatrixScan Count and we do not recommend that you use it without it. However, if you wish to disable UI elements you can do it as follows.</p>
+<p>Disable buttons:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">barcodeCountView</span><span class="p">.</span><span class="n">shouldShowListButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+<span class="n">barcodeCountView</span><span class="p">.</span><span class="n">shouldShowExitButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+<span class="n">barcodeCountView</span><span class="p">.</span><span class="n">shouldShowShutterButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Disable feedback and hints:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">barcodeCountView</span><span class="p">.</span><span class="n">shouldShowUserGuidanceView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+<span class="n">barcodeCountView</span><span class="p">.</span><span class="n">shouldShowHints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

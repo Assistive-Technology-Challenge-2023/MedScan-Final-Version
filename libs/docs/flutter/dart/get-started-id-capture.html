@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Started With ID Capture &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="List of supported documents" href="id-capture/supported-documents.html" />
+    <link rel="prev" title="Get Started With Text Capture" href="get-started-text-capture.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Get Started With ID Capture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quick-overview">Quick overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initialize-the-id-plugin">Initialize the id plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#internal-dependencies">Internal dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#show-loading-status-with-default-ui">Show loading status with default UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#show-loading-status-with-custom-ui">Show loading status with custom UI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#create-the-data-capture-context">Create the Data Capture Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-the-camera">Add the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-id-capture-settings">Create ID Capture Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implement-the-listener">Implement the Listener</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-a-capture-view-to-visualize-the-scan-process">Use a Capture View to Visualize the Scan Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#turn-on-the-camera">Turn on the Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#capture-both-the-front-and-the-back-side-of-documents">Capture both the front and the back side of documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#detect-tampered-or-fake-documents">Detect Tampered or Fake Documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-documents">Supported documents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Get Started With ID Capture</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="get-started-with-id-capture">
+<h1>Get Started With ID Capture<a class="headerlink" href="#get-started-with-id-capture" title="Permalink to this headline"></a></h1>
+<div class="section" id="quick-overview">
+<h2>Quick overview<a class="headerlink" href="#quick-overview" title="Permalink to this headline"></a></h2>
+<p><em>ID Capture</em> provides the capability to scan personal identification documents, such as identity cards, passports or visas.
+In this guide you will learn step by step how to add ID Capture to your application. Roughly, the steps are:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using ID Capture at the same time as other modes (e.g. Barcode Capture or Text Capture) is currently not supported.</p>
+</div>
+<ul class="simple">
+<li><p>Create a <a class="reference internal" href="core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="DataCaptureContext class">DataCaptureContext</a>.</p></li>
+<li><p>Access a <a class="reference internal" href="core/api/camera.html#class-scandit.datacapture.core.Camera" title="Camera class">Camera</a>.</p></li>
+<li><p>Use <a class="reference internal" href="id-capture/api/id-capture-settings.html#class-scandit.datacapture.id.IdCaptureSettings" title="IdCaptureSettings class">IdCaptureSettings</a> to configure the scan process.</p></li>
+<li><p>Implement an <a class="reference internal" href="id-capture/api/id-capture-listener.html#interface-scandit.datacapture.id.IIdCaptureListener" title="IdCaptureListener interface">IdCaptureListener</a> to receive scan results.</p></li>
+<li><p>Set up <a class="reference internal" href="core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a> and <a class="reference internal" href="id-capture/api/ui/id-capture-overlay.html#class-scandit.datacapture.id.ui.IdCaptureOverlay" title="IdCaptureOverlay class">IdCaptureOverlay</a> to see the camera feed and the scan UI.</p></li>
+<li><p>Begin the scanning by adding an <a class="reference internal" href="id-capture/api/id-capture.html#class-scandit.datacapture.id.IdCapture" title="IdCapture class">IdCapture</a> to <a class="reference internal" href="core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="DataCaptureContext class">DataCaptureContext</a> and starting a camera.</p></li>
+</ul>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h2>
+<p>Before starting with adding a capture mode, make sure that you have a valid Scandit Data Capture SDK license key and that you added the necessary dependencies.
+If you have not done that yet, check out <a class="reference internal" href="add-sdk.html"><span class="doc">this guide</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can retrieve your Scandit Data Capture SDK license key, by signing in to your account at <a class="reference external" href="https://ssl.scandit.com/">ssl.scandit.com</a>.</p>
+</div>
+<div class="section" id="initialize-the-id-plugin">
+<h3>Initialize the id plugin<a class="headerlink" href="#initialize-the-id-plugin" title="Permalink to this headline"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Without initializing the id plugin, runtime crashes will occur. However, you don’t have to initialize the core plugin, as initializing the id plugin already does that for you, as presented in the snippet below.</p>
+</div>
+<p>Before accessing anything of the Scandit Data Capture SDK functionality. You have to initialize the id plugin.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">WidgetsFlutterBinding</span><span class="p">.</span><span class="n">ensureInitialized</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="kd">await</span><span class="w"> </span><span class="n">ScanditFlutterDataCaptureId</span><span class="p">.</span><span class="n">initialize</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">runApp</span><span class="p">(</span><span class="n">MyApp</span><span class="p">());</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="internal-dependencies">
+<h3>Internal dependencies<a class="headerlink" href="#internal-dependencies" title="Permalink to this headline"></a></h3>
+<p>Some of the Scandit Data Capture SDK modules depend on others to work:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Dependencies</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>ScanditCaptureCore</cite></p></td>
+<td><p>No dependencies</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>ScanditBarcodeCapture</cite></p></td>
+<td><ul class="simple">
+<li><p><cite>ScanditCaptureCore</cite></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><cite>ScanditParser</cite></p></td>
+<td><ul class="simple">
+<li><p><cite>ScanditCaptureCore</cite></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><cite>ScanditTextCapture</cite></p></td>
+<td><ul class="simple">
+<li><p><cite>ScanditCaptureCore</cite></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><cite>ScanditIdCapture</cite></p></td>
+<td><ul class="simple">
+<li><p><cite>ScanditCaptureCore</cite></p></li>
+<li><p>native iOS and Android libraries:
+<cite>ScanditOCR</cite> and <cite>ScanditTextCaptureBase</cite>
+(VIZ documents)</p></li>
+<li><p>native iOS and Android libraries:
+<cite>ScanditTextCapture</cite>
+(MRZ and VIZ documents)</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>When adding ScanditIdCapture to a Flutter project, certain native dependencies need to be added manually to your project, depending on the documents you want to scan.</p>
+<p>If you’re only scanning barcode based documents, you only need to add the ScanditIdCapture Flutter plugin.</p>
+<p>If you’re also scanning VIZ documents, you also need to add the <cite>ScanditOCR</cite> and <cite>ScanditTextCaptureBase</cite> native dependencies, as described in our <a class="reference external" href="https://docs.scandit.com/data-capture-sdk/ios/add-sdk.html">iOS</a> and <a class="reference external" href="https://docs.scandit.com/data-capture-sdk/android/add-sdk.html">Android</a> documentation.</p>
+<p>If you’re also scanning MRZ documents, you also need the native <cite>ScanditTextCapture</cite> dependency. You can add this as well as described in our <a class="reference external" href="https://docs.scandit.com/data-capture-sdk/ios/add-sdk.html">iOS</a> and <a class="reference external" href="https://docs.scandit.com/data-capture-sdk/android/add-sdk.html">Android</a> documentation.</p>
+<p>Alternatively, if you’re scanning both VIZ and MRZ documents, you can add the ScanditTextCapture Flutter (scandit-datacapture-flutter-text) plugin, which includes the native dependencies for both VIZ and MRZ documents.</p>
+<p>Please note that your license may support only a subset of ID Capture features. If you would like to use additional features please contact us at <a class="reference external" href="mailto:support&#37;&#52;&#48;scandit&#46;com">support<span>&#64;</span>scandit<span>&#46;</span>com</a>.</p>
+<div class="section" id="show-loading-status-with-default-ui">
+<h3>Show loading status with default UI<a class="headerlink" href="#show-loading-status-with-default-ui" title="Permalink to this headline"></a></h3>
+<p>To show some feedback to the user about the loading status you have two options: use the default UI provided with the SDK
+or subscribe to the loading status and update your own custom UI.
+Let’s see how we you can show the default UI first:</p>
+</div>
+<div class="section" id="show-loading-status-with-custom-ui">
+<h3>Show loading status with custom UI<a class="headerlink" href="#show-loading-status-with-custom-ui" title="Permalink to this headline"></a></h3>
+<p>You can also just subscribe for the <a class="reference internal" href="core/api/web/loading-status.html"><span class="doc">loading status</span></a> of the library by simply attaching a listener like this:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We suggest to serve the library files with the proper headers
+<cite>Content-Length</cite> and <cite>Content-Encoding</cite> if any compression is present.
+In case of totally missing information we will show an estimated progress</p>
+</div>
+</div>
+</div>
+<div class="section" id="create-the-data-capture-context">
+<h2>Create the Data Capture Context<a class="headerlink" href="#create-the-data-capture-context" title="Permalink to this headline"></a></h2>
+<p>The first step to add capture capabilities to your application is to create a new <a class="reference internal" href="core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="data capture context class">data capture context</a>. The context expects a valid Scandit Data Capture SDK license key during construction.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataCaptureContext</span><span class="p">.</span><span class="n">forLicenseKey</span><span class="p">(</span><span class="s2">&quot;-- ENTER YOUR SCANDIT LICENSE KEY HERE --&quot;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-the-camera">
+<h2>Add the Camera<a class="headerlink" href="#add-the-camera" title="Permalink to this headline"></a></h2>
+<p>You need to also create the <a class="reference internal" href="core/api/camera.html#class-scandit.datacapture.core.Camera" title="Camera class">Camera</a>:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">Camera</span><span class="o">?</span><span class="w"> </span><span class="n">camera</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Camera</span><span class="p">.</span><span class="n">defaultCamera</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">camera</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Use the settings recommended by id capture.</span><span class="w"></span>
+<span class="w">  </span><span class="n">camera</span><span class="p">.</span><span class="n">applySettings</span><span class="p">(</span><span class="n">IdCapture</span><span class="p">.</span><span class="n">recommendedCameraSettings</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">context</span><span class="p">.</span><span class="n">setFrameSource</span><span class="p">(</span><span class="n">camera</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-id-capture-settings">
+<h2>Create ID Capture Settings<a class="headerlink" href="#create-id-capture-settings" title="Permalink to this headline"></a></h2>
+<p>Use <a class="reference internal" href="id-capture/api/id-capture-settings.html#class-scandit.datacapture.id.IdCaptureSettings" title="IdCaptureSettings class">IdCaptureSettings</a> to configure the types of documents that you’d like to scan. Check <a class="reference internal" href="id-capture/api/id-document-type.html#enum-scandit.datacapture.id.IdDocumentType" title="IdDocumentType enum">IdDocumentType</a> for all the available options.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Using <a class="reference internal" href="id-capture/api/id-document-type.html#value-scandit.datacapture.id.IdDocumentType.DlViz" title="IdDocumentType.dlViz value">IdDocumentType.dlViz</a> or <a class="reference internal" href="id-capture/api/id-document-type.html#value-scandit.datacapture.id.IdDocumentType.IdCardViz" title="IdDocumentType.idCardViz value">IdDocumentType.idCardViz</a> together with any MRZ document (<a class="reference internal" href="id-capture/api/id-document-type.html#value-scandit.datacapture.id.IdDocumentType.IdCardMrz" title="IdDocumentType.idCardMrz value">IdDocumentType.idCardMrz</a>,
+<a class="reference internal" href="id-capture/api/id-document-type.html#value-scandit.datacapture.id.IdDocumentType.VisaMrz" title="IdDocumentType.visaMrz value">IdDocumentType.visaMrz</a>, <a class="reference internal" href="id-capture/api/id-document-type.html#value-scandit.datacapture.id.IdDocumentType.PassportMrz" title="IdDocumentType.passportMrz value">IdDocumentType.passportMrz</a>, <a class="reference internal" href="id-capture/api/id-document-type.html#value-scandit.datacapture.id.IdDocumentType.SwissDlMrz" title="IdDocumentType.swissDlMrz value">IdDocumentType.swissDlMrz</a>) while <a class="reference internal" href="id-capture/api/id-supported-document-sides.html#value-scandit.datacapture.id.SupportedSides.FrontAndBack" title="SupportedSides.frontAndBack value">SupportedSides.frontAndBack</a> is enabled is currently not supported.</p>
+</div>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IdCaptureSettings</span><span class="p">();</span><span class="w"></span>
+<span class="n">settings</span><span class="p">.</span><span class="n">supportedDocuments</span><span class="p">.</span><span class="n">addAll</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="n">IdDocumentType</span><span class="p">.</span><span class="n">idCardViz</span><span class="p">,</span><span class="w"> </span><span class="n">IdDocumentType</span><span class="p">.</span><span class="n">dlViz</span><span class="p">,</span><span class="w"> </span><span class="n">IdDocumentType</span><span class="p">.</span><span class="n">aamvaBarcode</span><span class="p">]);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="implement-the-listener">
+<h2>Implement the Listener<a class="headerlink" href="#implement-the-listener" title="Permalink to this headline"></a></h2>
+<p>To receive scan results, implement <a class="reference internal" href="id-capture/api/id-capture-listener.html#interface-scandit.datacapture.id.IIdCaptureListener" title="IdCaptureListener interface">IdCaptureListener</a>. A result is delivered as <a class="reference internal" href="id-capture/api/captured-id.html#class-scandit.datacapture.id.CapturedId" title="CapturedId class">CapturedId</a>. This class contains data common for all kinds of personal identification documents. For more specific information use its non-<em>null</em> result properties (for example <a class="reference internal" href="id-capture/api/captured-id.html#property-scandit.datacapture.id.CapturedId.AamvaBarcode" title="CapturedId.aamvaBarcode property">CapturedId.aamvaBarcode</a>).</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="nd">@override</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">didCaptureId</span><span class="p">(</span><span class="n">IdCapture</span><span class="w"> </span><span class="n">idCapture</span><span class="p">,</span><span class="w"> </span><span class="n">IdCaptureSession</span><span class="w"> </span><span class="n">session</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CapturedId</span><span class="o">?</span><span class="w"> </span><span class="n">capturedId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="n">newlyCapturedId</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Do something in case the capturedId is not null.</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Create a new ID Capture mode with the chosen settings. Then register the listener:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">idCapture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IdCapture</span><span class="p">.</span><span class="n">forContext</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">);</span><span class="w"></span>
+<span class="n">idCapture</span><span class="p">.</span><span class="n">addListener</span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-a-capture-view-to-visualize-the-scan-process">
+<h2>Use a Capture View to Visualize the Scan Process<a class="headerlink" href="#use-a-capture-view-to-visualize-the-scan-process" title="Permalink to this headline"></a></h2>
+<p>When using the built-in camera as frame source, you will typically want to display the camera preview on the screen together with UI elements that guide the user through the capturing process. To do that, add a <a class="reference internal" href="core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a> to your view hierarchy:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">dataCaptureView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataCaptureView</span><span class="p">.</span><span class="n">forContext</span><span class="p">(</span><span class="n">dataCaptureContext</span><span class="p">);</span><span class="w"></span>
+<span class="c1">// Add the dataCaptureView to your widget tree</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Then create an instance of <a class="reference internal" href="id-capture/api/ui/id-capture-overlay.html#class-scandit.datacapture.id.ui.IdCaptureOverlay" title="IdCaptureOverlay class">IdCaptureOverlay</a> attached to the view:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">overlay</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">IdCaptureOverlay</span><span class="p">.</span><span class="n">withIdCaptureForView</span><span class="p">(</span><span class="n">idCapture</span><span class="p">,</span><span class="w"> </span><span class="n">dataCaptureView</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The overlay chooses the displayed UI automatically, based on the selected <a class="reference internal" href="id-capture/api/id-capture-settings.html#class-scandit.datacapture.id.IdCaptureSettings" title="IdCaptureSettings class">IdCaptureSettings</a>.</p>
+</div>
+<div class="section" id="turn-on-the-camera">
+<h2>Turn on the Camera<a class="headerlink" href="#turn-on-the-camera" title="Permalink to this headline"></a></h2>
+<p>Finally, turn on the camera to start scanning:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">camera</span><span class="p">.</span><span class="n">switchToDesiredState</span><span class="p">(</span><span class="n">FrameSourceState</span><span class="p">.</span><span class="kd">on</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>And this is it. You can now scan documents.</p>
+</div>
+<div class="section" id="capture-both-the-front-and-the-back-side-of-documents">
+<h2>Capture both the front and the back side of documents<a class="headerlink" href="#capture-both-the-front-and-the-back-side-of-documents" title="Permalink to this headline"></a></h2>
+<p>By default, when <a class="reference internal" href="id-capture/api/id-document-type.html#value-scandit.datacapture.id.IdDocumentType.DlViz" title="IdDocumentType.dlViz value">IdDocumentType.dlViz</a> or <a class="reference internal" href="id-capture/api/id-document-type.html#value-scandit.datacapture.id.IdDocumentType.IdCardViz" title="IdDocumentType.idCardViz value">IdDocumentType.idCardViz</a> are selected, <em>Id Capture</em> scans only the front side of documents. Sometimes however, you may be interested in extracting combined information from both the front and the back side.</p>
+<p>Currently the combined result contains the following information:
+* AAMVA-compliant documents (for example US Driver’s Licenses): the human-readable front side of the document and the data encoded in the PDF417 barcode in the back;
+* European IDs: the human-readable sections of the front and the back side, and the data encoded in the Machine Readable Zone (MRZ);
+* Other documents: the human-readable section of the front and the back side (if present).</p>
+<p>First, enable scanning of both sides of documents in <a class="reference internal" href="id-capture/api/id-capture-settings.html#class-scandit.datacapture.id.IdCaptureSettings" title="IdCaptureSettings class">IdCaptureSettings</a>:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">settings</span><span class="p">.</span><span class="n">supportedDocuments</span><span class="p">.</span><span class="n">addAll</span><span class="p">([</span><span class="n">IdDocumentType</span><span class="p">.</span><span class="n">idCardViz</span><span class="p">,</span><span class="w"> </span><span class="n">IdDocumentType</span><span class="p">.</span><span class="n">dlViz</span><span class="p">]);</span><span class="w"></span>
+<span class="n">settings</span><span class="p">.</span><span class="n">supportedSides</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SupportedSides</span><span class="p">.</span><span class="n">frontAndBack</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Start by scanning the front side of a document. After you receive the result in <a class="reference internal" href="id-capture/api/id-capture-listener.html#interface-scandit.datacapture.id.IIdCaptureListener" title="IdCaptureListener interface">IdCaptureListener</a>, inspect <a class="reference internal" href="id-capture/api/viz-result.html#property-scandit.datacapture.id.VizResult.IsBackSideCaptureSupported" title="VizResult.isBackSideCaptureSupported property">VizResult.isBackSideCaptureSupported</a>. If scanning of the back side of your document is supported, flip the document and capture the back side as well. The next result that you receive is a combined result that contains the information from both sides. You may verify this by checking <a class="reference internal" href="id-capture/api/viz-result.html#property-scandit.datacapture.id.VizResult.CapturedSides" title="VizResult.capturedSides property">VizResult.capturedSides</a>. After both sides of the document are scanned, you may proceed with another document.</p>
+<p>Sometimes, you may not be interested in scanning the back side of a document, after you completed the front scan. For example, your user may decide to cancel the process. Internally, <em>Id Capture</em> maintains the state of the scan, that helps it to provide better combined results. To abandon capturing the back of a document, reset this state by calling:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">idCapture</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Otherwise, <em>Id Capture</em> may assume that the front side of a new document is actually the back side of an old one, and provide you with nonsensical results.</p>
+</div>
+<div class="section" id="detect-tampered-or-fake-documents">
+<h2>Detect Tampered or Fake Documents<a class="headerlink" href="#detect-tampered-or-fake-documents" title="Permalink to this headline"></a></h2>
+<p><em>Id Capture</em> helps to detect tampered or fake documents. This feature is currently limited to documents that follow the Driver License/Identification specification by American Association of Motor Vehicle Administrators (AAMVA).</p>
+<p>Use <a class="reference internal" href="id-capture/api/aamva-viz-barcode-comparison-verifier.html#class-scandit.datacapture.id.AamvaVizBarcodeComparisonVerifier" title="AamvaVizBarcodeComparisonVerifier class">AamvaVizBarcodeComparisonVerifier</a> to perform basic, on-device document verification by comparing the human-readable data from the front side with the data encoded in the barcode.</p>
+<p>This verifier may permit minor data divergence to compensate, for example, for a single character misread by OCR. While this verifier automatically detects many fraudulent documents, a failed check does not necessarily mean that the document is invalid. It is up to the user to subject such documents to additional scrutiny.</p>
+<p>The verification is performed in the front &amp; back scanning mode. Create the verifier and initialize <a class="reference internal" href="id-capture/api/id-capture.html#class-scandit.datacapture.id.IdCapture" title="IdCapture class">IdCapture</a> with the following settings:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">DataCaptureContext</span><span class="w"> </span><span class="n">dataCaptureContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataCaptureContext</span><span class="p">.</span><span class="n">forLicenseKey</span><span class="p">(</span><span class="s1">&#39;-- ENTER YOUR SCANDIT LICENSE KEY HERE --&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">AamvaVizBarcodeComparisonVerifier</span><span class="w"> </span><span class="n">verifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AamvaVizBarcodeComparisonVerifier</span><span class="p">.</span><span class="n">create</span><span class="p">()</span><span class="w"></span>
+
+<span class="n">IdCaptureSettings</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IdCaptureSettings</span><span class="p">()</span><span class="w"></span>
+<span class="n">settings</span><span class="p">.</span><span class="n">supportedDocuments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">IdDocumentType</span><span class="p">.</span><span class="n">dlViz</span><span class="p">]</span><span class="w"></span>
+<span class="n">settings</span><span class="p">.</span><span class="n">supportedSides</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SupportedSides</span><span class="p">.</span><span class="n">FrontAndBack</span><span class="w"></span>
+
+<span class="n">IdCapture</span><span class="w"> </span><span class="n">idCapture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IdCapture</span><span class="p">.</span><span class="n">forContext</span><span class="p">(</span><span class="n">dataCaptureContext</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Then proceed to capture the front side &amp; the back side of a document as usual. After you capture the back side and receive the combined result for both sides, you may run the verifier as follows:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="nd">@override</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">didCaptureId</span><span class="p">(</span><span class="n">IdCapture</span><span class="w"> </span><span class="n">idCapture</span><span class="p">,</span><span class="w"> </span><span class="n">IdCaptureSession</span><span class="w"> </span><span class="n">session</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">newlyCapturedId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">idCapture</span><span class="p">.</span><span class="n">isEnabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">CapturedId</span><span class="w"> </span><span class="n">capturedId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="n">newlyCapturedId</span><span class="o">!</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">vizResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">capturedId</span><span class="p">.</span><span class="n">viz</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vizResult</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">vizResult</span><span class="p">.</span><span class="n">capturedSides</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SupportedSides</span><span class="p">.</span><span class="n">frontAndBack</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">AamvaVizBarcodeComparisonVerifier</span><span class="w"> </span><span class="n">verifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AamvaVizBarcodeComparisonVerifier</span><span class="p">.</span><span class="n">create</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="n">verifier</span><span class="p">.</span><span class="n">verify</span><span class="p">(</span><span class="n">capturedId</span><span class="p">).</span><span class="n">then</span><span class="p">((</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">checksPassed</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="c1">// Nothing suspicious was detected.</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="k">else</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="c1">//  You may inspect the results of individual checks, if you wish:</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">datesOfBirthMatch</span><span class="p">.</span><span class="n">checkResult</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ComparisonCheckResult</span><span class="p">.</span><span class="n">failed</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="c1">// The holder&#39;s date of birth from the front side does not match the one encoded in the barcode.</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">          </span><span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The returned value allows you to query both the overall result of the verification and the results of individual checks. See <a class="reference internal" href="id-capture/api/aamva-viz-barcode-comparison-verifier.html#class-scandit.datacapture.id.AamvaVizBarcodeComparisonResult" title="AamvaVizBarcodeComparisonResult class">AamvaVizBarcodeComparisonResult</a> for details.</p>
+</div>
+<div class="section" id="supported-documents">
+<h2>Supported documents<a class="headerlink" href="#supported-documents" title="Permalink to this headline"></a></h2>
+<p>You can find the list of supported documents <a class="reference internal" href="id-capture/supported-documents.html"><span class="doc">here</span></a>.</p>
+<div class="admonition-what-s-next admonition">
+<p class="admonition-title">What’s next?</p>
+<p>To dive further into the Scandit Data Capture SDK we recommend the following articles:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="id-capture/overview.html"><span class="doc">ScanditIdCapture</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

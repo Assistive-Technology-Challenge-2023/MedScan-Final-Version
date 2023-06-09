@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barcode Symbologies &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Configure Which Barcodes Are Read" href="configure-barcodes.html" />
+    <link rel="prev" title="Get Started With Barcode Capture" href="get-started-barcode.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Barcode Symbologies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#supported-symbologies">Supported Symbologies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#retail-1d-symbologies">Retail 1D Symbologies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#industrial-1d-symbologies">Industrial 1D Symbologies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#legacy-1d-symbologies">Legacy 1D Symbologies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-symbologies">2D Symbologies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gs1-composite-codes">GS1 Composite Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#postal-code-symbologies">Postal Code Symbologies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#symbologies-details">Symbologies details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gs1-data-carriers">GS1 Data Carriers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#symbology-specific-notes">Symbology Specific Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Barcode Symbologies</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="barcode-symbologies">
+<h1>Barcode Symbologies<a class="headerlink" href="#barcode-symbologies" title="Permalink to this headline"></a></h1>
+<p>In this guide, you will learn about barcode symbologies and their use cases.</p>
+<div class="admonition-before-you-start admonition">
+<p class="admonition-title">Before you start…</p>
+<p>To get the most out of this guide, we recommend that you first take a look at the following guides:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="add-sdk.html"><span class="doc">Add the SDK to Your App</span></a></p></li>
+<li><p><a class="reference internal" href="get-started-barcode.html"><span class="doc">Get Started With Barcode Capture</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="supported-symbologies">
+<h2>Supported Symbologies<a class="headerlink" href="#supported-symbologies" title="Permalink to this headline"></a></h2>
+<div class="section" id="retail-1d-symbologies">
+<h3>Retail 1D Symbologies<a class="headerlink" href="#retail-1d-symbologies" title="Permalink to this headline"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 76%" />
+<col style="width: 24%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>European Article Number (EAN)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Also known as Japanese Article Number (JAN).</p></li>
+<li><p>Encodes a Global Trade Identification Number (GTIN).</p></li>
+<li><p>Contains 8 (EAN-8) or 13 (EAN-13) numerical digits.</p></li>
+<li><p>Last digit serves as a mod10 checksum.</p></li>
+<li><p>Additional data can be stored in an EAN-2 or EAN-5 add-on code.</p></li>
+<li><p>It has been standardised under ISO/IEC 15420.</p></li>
+<li><p>Relevant enum values: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Ean8" title="Symbology.ean8 value">Symbology.ean8</a>, <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Ean13Upca" title="Symbology.ean13Upca value">Symbology.ean13Upca</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/ean13.png" src="_images/ean13.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>Universal Product Code (UPC)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Encodes a Global Trade Identification Number (GTIN).</p></li>
+<li><p>Contains 6 (UPC-E) or 12 (UPC-A) numerical digits.</p></li>
+<li><p>Last digit serves as a mod10 checksum.</p></li>
+<li><p>Additional data can be stored in an EAN-2 or EAN-5 add-on code.</p></li>
+<li><p>It has been standardised under ISO/IEC 15420.</p></li>
+<li><p>Encodes a Global Trade Identification Number (GTIN).</p></li>
+<li><p>Relevant enum values: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Upce" title="Symbology.upce value">Symbology.upce</a>, <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Ean13Upca" title="Symbology.ean13Upca value">Symbology.ean13Upca</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/upca.png" src="_images/upca.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>EAN-2 / EAN-5 Add-On</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Encode additional product data like issue number, date or price.</p></li>
+<li><p>Can only be used in combination with an EAN-8, EAN-13, UPC-A or UPC-E code.</p></li>
+<li><p>EAN-2 encodes two digits, EAN-5 encodes five digits.</p></li>
+<li><p>Additional information can be found on the <a class="reference internal" href="barcode-capture/scan-add-on-codes.html"><span class="doc">Scan Add-On/Extension Codes</span></a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/ean13_with_addon2.png" src="_images/ean13_with_addon2.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>GS1 DataBar</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Used to encode a Global Trade Identification Numbers (GTIN) along with variable additional information defined by application identifiers (AI). Examples are price, weight or expiry date.</p></li>
+<li><p>Valid application identifiers (AI) are defined in the GS1 specification.</p></li>
+<li><p>Supports variable length data content.</p></li>
+<li><p>Barcode data is verified by an implicit checksum.</p></li>
+<li><p>Does not require quiet zones around the barcode.</p></li>
+<li><p>It has been standardised under ISO/IEC 24724.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Gs1Databar" title="Symbology.gs1Databar value">Symbology.gs1Databar</a>, <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Gs1DatabarExpanded" title="Symbology.gs1DatabarExpanded value">Symbology.gs1DatabarExpanded</a>, <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Gs1DatabarLimited" title="Symbology.gs1DatabarLimited value">Symbology.gs1DatabarLimited</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/gs1databar_expanded_stacked.png" src="_images/gs1databar_expanded_stacked.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="industrial-1d-symbologies">
+<h3>Industrial 1D Symbologies<a class="headerlink" href="#industrial-1d-symbologies" title="Permalink to this headline"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 75%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Code 128</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Used in a wide range of applications.</p></li>
+<li><p>The barcode data can be encode numerical data only, two different subsets of the ASCII table or Latin-1 (ISO-8859-1) data. Combinations of the four different modes can be used in a single code.</p></li>
+<li><p>Supports variable length data content.</p></li>
+<li><p>A mandatory checksum is verified.</p></li>
+<li><p>It has been standardised under ISO/IEC 15417.</p></li>
+<li><p>Includes support for EAN-128 and GS1-128.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Code128" title="Symbology.code128 value">Symbology.code128</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/code128.png" src="_images/code128.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>Code 32</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>It is used for labelling pharmaceutical products in Italy.</p></li>
+<li><p>Also known as Italian Pharmacode, IMH, Codice 32 Pharmacode, Codice Farmaceutico Italiano and Radix 32.</p></li>
+<li><p>Contains nine numerical digits.</p></li>
+<li><p>Last digit serves as a mandatory checksum.</p></li>
+<li><p>Narrow to wide bar ratios of 1:2.5 is recommended.</p></li>
+<li><p>Specification can be found in Allegato A Caratteristiche tecniche del bollino farmaceutico from 18-7-2014 GAZZETTA UFFICIALE DELLA REPUBBLICA ITALIANA Serie generale - n. 165</p></li>
+<li><p>Please note that Code 32 codes can be scanned as valid Code 39 codes and vice versa. Code 32 is a subset of the Code 39 symbology (and therefore indistinguishable).</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Code32" title="Symbology.code32 value">Symbology.code32</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/code32.png" src="_images/code32.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>Code 39</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Mostly used in logistics to encode application specific identifiers.</p></li>
+<li><p>The standard version can encode numbers 0-9, capital letters A-Z, symbols -.$/+% and space.</p></li>
+<li><p>Supports variable length data content.</p></li>
+<li><p>Narrow to wide bar ratios from 1:2 up to 1:3 are supported. 1:2.5 is recommended.</p></li>
+<li><p>By default no checksum is verified, but an optional mod43 checksum can be enforced.</p></li>
+<li><p>All ASCII characters including control characters encoding support can be enabled on demand.</p></li>
+<li><p>It has been standardised under ISO/IEC 16388.</p></li>
+<li><p>Please note that Code 39 codes can be scanned as valid Code 32 codes and vice versa. Code 32 is a subset of the Code 39 symbology (and therefore indistinguishable).</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Code39" title="Symbology.code39 value">Symbology.code39</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/code39.png" src="_images/code39.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>Code 93</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Mostly used in logistics to encode application specific identifiers.</p></li>
+<li><p>Data in standard encoding (numbers 0-9, capital letters A-Z, symbols -.$/+% and space) and Full ASCII mode (including control characters) are supported.</p></li>
+<li><p>Supports variable length data content.</p></li>
+<li><p>Two mod47 checksums are verified.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Code93" title="Symbology.code93 value">Symbology.code93</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/code93.png" src="_images/code93.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>ITF (Interleaved 2 of 5)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>It is used primarily in the distribution and warehouse industry.</p></li>
+<li><p>Encodes an even number of numerical characters.</p></li>
+<li><p>Supports variable length data content.</p></li>
+<li><p>Narrow to wide bar ratios from 1:2 up to 1:3 are supported. 1:2.5 is recommended.</p></li>
+<li><p>By default no checksum is verified.</p></li>
+<li><p>It has been standardised under ISO/IEC 16390.</p></li>
+<li><p>An optional mod10 checksum can be enforced.</p></li>
+<li><p>Alternative names for this symbology include Leitcode, or Identcode. Both of these have a mandatory mod10 checksum.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.InterleavedTwoOfFive" title="Symbology.interleavedTwoOfFive value">Symbology.interleavedTwoOfFive</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/itf.png" src="_images/itf.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>Codabar</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>This symbology is used by U.S. blood banks, photo labs, libraries, on FedEx airbills and in Japanese Logistics (where it is known as NW-7).</p></li>
+<li><p>Encodes numbers and the characters –$:/.+</p></li>
+<li><p>First and last symbols (the guard patterns) are one of A, B, C, or D. They are returned as part of the data string.</p></li>
+<li><p>Supports variable length data content.</p></li>
+<li><p>Some standards that use Codabar will define a check digit, but there is no agreed-upon standard checksum algorithm.</p></li>
+<li><p>The width ratio between narrow and wide can be chosen between 1:2.25 and 1:3.</p></li>
+<li><p>Different checksum algorithms are in use, though they are not standardized. Supported optional checksums are a mod11 and mod16 checksum.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Codabar" title="Symbology.codabar value">Symbology.codabar</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/codabar.png" src="_images/codabar.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="legacy-1d-symbologies">
+<h3>Legacy 1D Symbologies<a class="headerlink" href="#legacy-1d-symbologies" title="Permalink to this headline"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 67%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Code 11</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Primarily used for labelling telecommunication equipment. Also known as USD-8.</p></li>
+<li><p>The barcode data can be encode numerical data, the dash and dot character.</p></li>
+<li><p>Supports variable length data content.</p></li>
+<li><p>For up to 10 data digits a single check digit is used, otherwise two check digits are used.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Code11" title="Symbology.code11 value">Symbology.code11</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/code11.png" src="_images/code11.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>Code 25</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Also known as Standard 2 of 5, Industrial 2 of 5 or Discrete 2 of 5.</p></li>
+<li><p>Legacy numerical barcode format with a low data density.</p></li>
+<li><p>Supports variable length data content.</p></li>
+<li><p>By default no checksum is verified.</p></li>
+<li><p>An optional mod10 checksum can be enforced.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Code25" title="Symbology.code25 value">Symbology.code25</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/code25.png" src="_images/code25.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>IATA 2 of 5</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Also known as Computer Identics 2 of 5.</p></li>
+<li><p>Used by International Air Transport Association (IATA) for managing air cargo.</p></li>
+<li><p>Supports variable length data content.</p></li>
+<li><p>By default no checksum is verified.</p></li>
+<li><p>An optional mod1010 checksum can be enforced.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.IataTwoOfFive" title="Symbology.iataTwoOfFive value">Symbology.iataTwoOfFive</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/iata2of5.png" src="_images/iata2of5.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>Matrix 2 of 5</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>From the same family as Code 25 and IATA 2 of 5</p></li>
+<li><p>~30% more dense than Code 25 or IATA 2 of 5</p></li>
+<li><p>Supports variable length data content.</p></li>
+<li><p>Encoding uses variable width spaces as well as bars</p></li>
+<li><p>Stores numerical [0-9] data only</p></li>
+<li><p>An optional mod10 checksum can be enforced.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.MatrixTwoOfFive" title="Symbology.matrixTwoOfFive value">Symbology.matrixTwoOfFive</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/matrix2of5.png" src="_images/matrix2of5.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>MSI Plessey</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>MSI is used primarily for inventory control, marking storage containers and shelves in warehouse environments.</p></li>
+<li><p>Encodes any number of numerical characters.</p></li>
+<li><p>By default a mod10 checksum is verified. Alternative supported checksum options are mod11, mod1010 and mod1110.</p></li>
+<li><p>MSI is used primarily for inventory control, marking storage containers and shelves in warehouse environments.</p></li>
+<li><p>Encodes any number of numerical characters.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.MsiPlessey" title="Symbology.msiPlessey value">Symbology.msiPlessey</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/msi.png" src="_images/msi.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="d-symbologies">
+<h3>2D Symbologies<a class="headerlink" href="#d-symbologies" title="Permalink to this headline"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 72%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>QR Code</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Supports variable length data content.</p></li>
+<li><p>Data encoding modes support numeric, alphanumeric, binary data and kanji characters.</p></li>
+<li><p>Different sizes (called versions) and error correction levels can be defined.</p></li>
+<li><p>The Scandit Data Capture SDK supports Model 2 codes including color inversion, mirroring and GS1 data content.</p></li>
+<li><p>It has been standardised under ISO/IEC 18004.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Qr" title="Symbology.qr value">Symbology.qr</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/qr.png" src="_images/qr.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>Micro QR Code</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Miniature version of the standard QR code that supports variable length data content up to 35 characters</p></li>
+<li><p>Different error correction levels can be defined with a data recovery rate of up to 25%</p></li>
+<li><p>Optimized to transfer small amounts of data such as a phone number or a website URL</p></li>
+<li><p>The Scandit Data Capture SDK supports color inversion and mirroring</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.MicroQr" title="Symbology.microQr value">Symbology.microQr</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/microqr.png" src="_images/microqr.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>Rectangular Micro QR Code (rMQR)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Rectangular version of Micro QR code (described in ISO/IEC 23941), supports variable length data content up to 361 numbers, 219 alphanumeric characters, 150 byte, 92 Kanji.</p></li>
+<li><p>Two different error correction levels can be defined with a data recovery rate of up to 30%.</p></li>
+<li><p>32 Different sizes, from 7x43 to 17x139.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.MicroQr" title="Symbology.microQr value">Symbology.microQr</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/rMQR.png" src="_images/rMQR.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>Data Matrix</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Supports variable length data content.</p></li>
+<li><p>Encodings and sizes defined in the Data Matrix ECC 200 standard are supported.</p></li>
+<li><p>Different error correction levels can be defined.</p></li>
+<li><p>It has been standardised under ISO/IEC 16022.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.DataMatrix" title="Symbology.dataMatrix value">Symbology.dataMatrix</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/datamatrix.png" src="_images/datamatrix.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>Data Matrix Rectangular Extension (DMRE)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>The decoder supports the Data Matrix Rectangular Extension (DMRE) as defined in the AIM-D Symbology Specification Revision 1.01.</p></li>
+<li><p>Includes support for GS1 encoded data (GS1 Data Matrix).</p></li>
+<li><p>Relevant enum values: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.DataMatrix" title="Symbology.dataMatrix value">Symbology.dataMatrix</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/dmre.png" src="_images/dmre.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>Data Matrix Direct Part Marking (DPM)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Data Matrix codes are frequently used for direct part marking (DPM) where the codes are edged directly into the material instead of being printed.</p></li>
+<li><p>Includes support for GS1 encoded data (GS1 Data Matrix).</p></li>
+<li><p>For scanning these types of codes, it is recommended to enable the direct_part_marking extension_mode.</p></li>
+<li><p>Relevant enum values: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.DataMatrix" title="Symbology.dataMatrix value">Symbology.dataMatrix</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/dpm.png" src="_images/dpm.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>PDF417</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Used in a wide range of applications such as transport tickets and document processing.</p></li>
+<li><p>Supports variable length data content.</p></li>
+<li><p>The number of rows and columns are configurable.</p></li>
+<li><p>Different error correction levels can be defined.</p></li>
+<li><p>It has been standardised under ISO/IEC 15438.</p></li>
+<li><p>Truncated PDF417 (Compact PDF417) codes can be used to save space.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Pdf417" title="Symbology.pdf417 value">Symbology.pdf417</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/pdf417.png" src="_images/pdf417.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>MicroPDF417</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>More space efficient version of PDF417 without start and end patterns.</p></li>
+<li><p>Used in GS1 Composite Codes type A (CC-A) and B (CC-B).</p></li>
+<li><p>Supports variable length data content using one to four columns and up to 44 rows.</p></li>
+<li><p>All size versions have a fixed error correction level.</p></li>
+<li><p>It has been standardised under ISO/IEC 24728.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.MicroPdf417" title="Symbology.microPdf417 value">Symbology.microPdf417</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/micropdf417.png" src="_images/micropdf417.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>Aztec Code</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Used for tickets in the transport industries, e.g. railway companies.</p></li>
+<li><p>Data can be encoded in ASCII or extended ASCII.</p></li>
+<li><p>Supports variable length data content.</p></li>
+<li><p>Different error correction levels can be defined.</p></li>
+<li><p>It has been standardised under ISO/IEC 24778.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Aztec" title="Symbology.aztec value">Symbology.aztec</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/aztec.png" src="_images/aztec.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>MaxiCode</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Fixed size 2d symbology originally created by UPS in 1992.</p></li>
+<li><p>Used for tracking and managing shipments of packages.</p></li>
+<li><p>It has been standardised under ISO/IEC 16023.</p></li>
+<li><p>Supports encoding of a Structured Carrier Message or data in extended ASCII.</p></li>
+<li><p>Uses Reed-Solomon error correction.</p></li>
+<li><p>Fixed size 2d symbology originally created by UPS in 1992.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.MaxiCode" title="Symbology.maxiCode value">Symbology.maxiCode</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/maxicode.png" src="_images/maxicode.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>GS1 DotCode</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Public Domain optical data carrier designed to be printed reliably at very high speed.</p></li>
+<li><p>Flexible code shape: rectangular codes of virtually any size and width/height proportion can be used.</p></li>
+<li><p>Strong error correction by using message encoding inspired by Code 128 and strengthened by Reed-Solomon.</p></li>
+<li><p>Allows to apply real time data with GS1 application identifiers, such as expiration date, lot number and serial number to products at production line speeds.</p></li>
+<li><p>It has been standardised in the AIM specification AIMD013 Revision 3.0.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.DotCode" title="Symbology.dotCode value">Symbology.dotCode</a>.</p></li>
+</ul>
+</td>
+<td><img alt="_images/dotcode.png" src="_images/dotcode.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gs1-composite-codes">
+<h3>GS1 Composite Codes<a class="headerlink" href="#gs1-composite-codes" title="Permalink to this headline"></a></h3>
+<p>GS1 Composite Codes as defined in ISO/IEC 24723:2010 are made up of a 1D and 2D code. For technical details see our <a class="reference internal" href="barcode-capture/scan-composite-codes.html"><span class="doc">guide for scanning composite codes</span></a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 67%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>GS1 Composite Code A (CC-A)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Extends a linear GS1 barcode using an additional MicroPDF417 code.</p></li>
+<li><p>Optimized to use as little space as possible.</p></li>
+<li><p>Only a special set of MicroPDF417 column, row and error correction level combinations can be used.</p></li>
+<li><p>Data is encoded in a special base 928 compaction mode.</p></li>
+<li><p>Three column version has no left row address patterns.</p></li>
+</ul>
+</td>
+<td><img alt="_images/composite_type_a.png" src="_images/composite_type_a.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>GS1 Composite Code B (CC-B)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Extends a linear GS1 barcode using an additional MicroPDF417 code.</p></li>
+<li><p>A subset of the MicroPDF417 column and row combinations can be used.</p></li>
+<li><p>Marked by the (Micro)PDF417 symbol 920 at the first position.</p></li>
+<li><p>(Micro)PDF417 data is encoded in byte compaction mode.</p></li>
+</ul>
+</td>
+<td><img alt="_images/composite_type_b.png" src="_images/composite_type_b.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>GS1 Composite Code C (CC-C)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Extends a GS1-128 (Code 128) barcode using an additional PDF417 code.</p></li>
+<li><p>Same encoding as CC-B.</p></li>
+</ul>
+</td>
+<td><img alt="_images/composite_type_c.png" src="_images/composite_type_c.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="postal-code-symbologies">
+<h3>Postal Code Symbologies<a class="headerlink" href="#postal-code-symbologies" title="Permalink to this headline"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 82%" />
+<col style="width: 18%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>RM4SCC (Royal Mail 4 State Customer Code)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Postal code symbology used by Royal Mail and Singapore Post for encoding the destination address.</p></li>
+<li><p>It enables UK postcodes as well as Delivery Point Suffixes (DPSs) to be easily read by a machine at high speed.</p></li>
+<li><p>Uses a checksum digit for verifying data.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Rm4scc" title="Symbology.rm4scc value">Symbology.rm4scc</a></p></li>
+</ul>
+</td>
+<td><img alt="_images/rm4scc.png" src="_images/rm4scc.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>KIX (Klant Index)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Uses the same symbol alphabet as RM4SCC.</p></li>
+<li><p>Does not use a checksum for data verification, nor does it have a start/end pattern.</p></li>
+<li><p>KIX codes can be read from left-to-right or right-to-left. Depending on the reading direction, the data is completely different. To determine which of the two orientations is correct, the Scandit Data Capture SDK matches the data against a set of encoding rules and returns the data that matches the rule.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Kix" title="Symbology.kix value">Symbology.kix</a></p></li>
+</ul>
+</td>
+<td><img alt="_images/kix.png" src="_images/kix.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>Posi LAPA 4 State Code</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Uses the same symbol alphabet as RM4SCC</p></li>
+<li><p>Uses Reed-Solomon error correction. It can correct up to 8 erasures or 4 errors.</p></li>
+<li><p>LAPA can be read from left-to-right or right-to-left. The direction can be determined by reading the leftmost or the rightmost bar.</p></li>
+<li><p>Thanks to its fixed length and error correction, it offers better robustness than RM4SCC.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.Lapa4sc" title="Symbology.lapa4sc value">Symbology.lapa4sc</a></p></li>
+</ul>
+</td>
+<td><img alt="_images/posi_lapa_4state.png" src="_images/posi_lapa_4state.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>USPS Intelligent Mail</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Postal code symbology used by the United States Postal Service (USPS) to sort and track letters and flats.</p></li>
+<li><p>Height-modulated barcode with 4-state symbology.</p></li>
+<li><p>Combines and improves functionalities of the POSTNET and PLANET Code symbologies.</p></li>
+<li><p>Uses an eleven-bit cyclic redundancy check to detect, but not correct, errors.</p></li>
+<li><p>Relevant enum value: <a class="reference internal" href="barcode-capture/api/symbology.html#value-scandit.datacapture.barcode.Symbology.UspsIntelligentMail" title="Symbology.uspsIntelligentMail value">Symbology.uspsIntelligentMail</a></p></li>
+</ul>
+</td>
+<td><img alt="_images/usps_intelligent_mail.png" src="_images/usps_intelligent_mail.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="symbologies-details">
+<h2>Symbologies details<a class="headerlink" href="#symbologies-details" title="Permalink to this headline"></a></h2>
+<div class="section" id="gs1-data-carriers">
+<h3>GS1 Data Carriers<a class="headerlink" href="#gs1-data-carriers" title="Permalink to this headline"></a></h3>
+<p>The GS1 organisation defined a <a class="reference external" href="https://www.gs1.org/standards/barcodes-epcrfid-id-keys/gs1-general-specifications">standard</a> to encode application specific data in a barcode. The symbologies Code128, GS1 DataBar, DataMatrix and QR codes can contain GS1 encoded data. The barcode property <a class="reference internal" href="barcode-capture/api/barcode.html#property-scandit.datacapture.barcode.Barcode.IsGs1DataCarrier" title="Barcode.isGS1DataCarrier property">Barcode.isGS1DataCarrier</a> tells you if a barcode contains GS1 encoded data. GS1 data has to be accessed using <a class="reference internal" href="barcode-capture/api/barcode.html#property-scandit.datacapture.barcode.Barcode.RawData" title="Barcode.rawData property">Barcode.rawData</a> and <strong>not</strong> <a class="reference internal" href="barcode-capture/api/barcode.html#property-scandit.datacapture.barcode.Barcode.Data" title="Barcode.data property">Barcode.data</a> because it is stored in machine readable form and might contain non-printable characters such as group separators (ASCII 29).</p>
+<p>GS1 encoded data cannot be displayed directly to the user. The application identifiers cannot be distinguished from the data and non-printable characters might be part of the data. There are three different options to process the data. Use the Scandit parser API to convert the machine readable data into a human readable string, use the Scandit parser to extract all data elements (Application Identifiers) from the machine readable data or lastly use your own parser to transform the machine readable data.</p>
+<p>Example of a correctly encoded GS1 Code128 (also known as GS1-128) barcode:</p>
+<img alt="_images/gs1_code128.png" src="_images/gs1_code128.png" />
+<p>The machine readable data that gets scanned from the code above, where &lt;GS&gt; represents the non-printable group separator character:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">1088748816455721123456789012&lt;GS&gt;11111228</span></code></p>
+</div></blockquote>
+<p>The same data in the human readable representation:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">(10)887488164557(21)123456789012(11)111228</span></code></p>
+</div></blockquote>
+<p>The same data parsed into its application identifiers by the Scandit parser:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;01&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;indicator&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;company_prefix&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0887488&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;item_reference&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;16455&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;10887488164557&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;21&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;123456789012&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;123456789012&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;11&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;year&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">2011</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;month&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">12</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;day&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">28</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;111228&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="symbology-specific-notes">
+<h3>Symbology Specific Notes<a class="headerlink" href="#symbology-specific-notes" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><strong>Code128</strong> uses a leading FNC1 character (ASCII 21) to signal GS1 data. The FNC1 character is encoded but will not be returned in the barcode result.</p></li>
+<li><p><strong>GS1 DataBar</strong> always contains GS1 data.</p></li>
+<li><p><strong>DataMatrix</strong> and <strong>QR Code</strong> use an internal symbology specific FNC1 symbol to signal GS1 data carrier mode. The internal symbol is not returned as part of the result. The common mistake of adding a leading group separator character in raw byte mode does not turn the code into a GS1 data carrier.</p></li>
+</ul>
+<p>There are many incorrectly encoded GS1 codes in the wild. The following image depicts two common error cases: The first incorrect code uses a leading group separator instead of the DataMatrix specific encoding scheme. The second error case encodes the human readable GS1 data representation in a normal DataMatrix code.</p>
+<img alt="_images/gs1_data_matrix_examples.png" src="_images/gs1_data_matrix_examples.png" />
+<div class="admonition-what-s-next admonition">
+<p class="admonition-title">What’s next?</p>
+<p>To dive further into the Scandit Data Capture SDK we recommend the following articles:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="configure-barcodes.html"><span class="doc">Configure Which Barcodes Are Read</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

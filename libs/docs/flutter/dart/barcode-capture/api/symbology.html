@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Symbology &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Target Barcode" href="target-barcode.html" />
+    <link rel="prev" title="Symbology Settings" href="symbology-settings.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">ScanditBarcodeCapture</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../symbology-properties.html">Symbology Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scan-add-on-codes.html">Scan Add-On/Extension Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scan-composite-codes.html">Scan Composite Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../barcode-tracking-scenarios.html">Barcode Tracking Scenarios</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="barcode-capture-feedback.html">Barcode Capture Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-capture-listener.html">Barcode Capture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-capture-listener.html#barcode-capture-advanced-listener">Barcode Capture Advanced Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-capture-session.html">Barcode Capture Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-capture-settings.html">Barcode Capture Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-capture.html">Barcode Capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-capture-list.html">Barcode Count Capture List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-capture-list-listener.html">Barcode Count Capture List Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-capture-list-session.html">Barcode Count Capture List Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-listener.html">Barcode Count Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-session.html">Barcode Count Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-settings.html">Barcode Count Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-feedback.html">Barcode Count Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count.html">Barcode Count</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-filter-settings.html">Barcode Filter Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-tracking-listener.html">Barcode Tracking Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-tracking-listener.html#barcode-tracking-advanced-listener">Barcode Tracking Advanced Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-tracking-scenario.html">Barcode Tracking Scenario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-tracking-session.html">Barcode Tracking Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-tracking-settings.html">Barcode Tracking Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-tracking.html">Barcode Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode.html">Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checksum.html">Checksum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composite-flag.html">Composite Flag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composite-type.html">CompositeType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composite-type-description.html">Composite Type Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ean13-upca-classification.html">EAN13 &amp; UPCA Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="localized-only-barcode.html">Localized Only Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scandit-flutter-datacapture-barcode.html">Scandit Flutter DataCapture Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="symbology-description.html">Symbology Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="symbology-settings.html">Symbology Settings</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Symbology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="target-barcode.html">Target Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tracked-barcode.html">Tracked Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-capture-overlay.html">Barcode Capture Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-count-view-listener.html">Barcode Count View Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-count-view-ui-listener.html">Barcode Count Basic Overlay UI Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-count-view.html">Barcode Count View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-count-toolbar-defaults.html">Barcode Count Toolbar Defaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-count-toolbar-settings.html">Barcode Count Toolbar Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-filter-highlight-settings.html">Barcode Filter Highlight Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-filter-highlight-type.html">Barcode Filter Highlight Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-tracking-advanced-overlay-listener.html">Barcode Tracking Advanced Overlay Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-tracking-advanced-overlay.html">Barcode Tracking Advanced Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-tracking-basic-overlay-listener.html">Barcode Tracking Basic Overlay Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-tracking-basic-overlay.html">Barcode Tracking Basic Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#initialization">Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#traditional-barcode-scanning">Traditional Barcode Scanning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#sparkscan">SparkScan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#matrixscan-barcode-tracking">MatrixScan (Barcode Tracking)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#barcode-selection">Barcode Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#matrixscan-count-barcode-count">MatrixScan Count (Barcode Count)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#deserialization">Deserialization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../overview.html">ScanditBarcodeCapture</a> &raquo;</li>
+          <li><a href="../api.html">ScanditBarcodeCapture API</a> &raquo;</li>
+      <li>Symbology</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="symbology">
+<h1>Symbology<a class="headerlink" href="#symbology" title="Permalink to this headline"></a></h1>
+<p>Defined in library <em>scandit_datacapture_barcode</em></p>
+<p>The Scandit Data Capture SDK is capable of reading many different types of barcodes. The type of a barcode is referred to as its symbology. Below is a list of all symbologies supported by the Scandit Data Capture SDK. See also <a class="reference internal" href="../../barcode-symbologies.html"><span class="doc">Barcode Symbologies</span></a> for more details about each symbology and <a class="reference internal" href="../../configure-barcodes.html"><span class="doc">Configure Which Barcodes Are Read</span></a> to understand all the configuration options that are available.</p>
+<dl>
+<dt class="sig sig-object unilang" id="enum-scandit.datacapture.barcode.Symbology">
+<span class="sig-name descname"><span class="pre">Symbology</span></span><a class="headerlink" href="#enum-scandit.datacapture.barcode.Symbology" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>An enumeration of barcode types (symbologies) supported by the Scandit Data Capture SDK.</p>
+<p>The availability of the symbology depends on the licensed features.</p>
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Ean13Upca">
+<span class="sig-name descname"><span class="pre">ean13Upca</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Ean13Upca" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>EAN-13/UPC-12/UPC-A 1D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Upce">
+<span class="sig-name descname"><span class="pre">upce</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Upce" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>UPC-E 1D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Ean8">
+<span class="sig-name descname"><span class="pre">ean8</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Ean8" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Ean8 1D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Code39">
+<span class="sig-name descname"><span class="pre">code39</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Code39" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Code39 1D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Code93">
+<span class="sig-name descname"><span class="pre">code93</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Code93" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Code93 1D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Code128">
+<span class="sig-name descname"><span class="pre">code128</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Code128" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Code128 1D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Code11">
+<span class="sig-name descname"><span class="pre">code11</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Code11" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Code11 1D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Code25">
+<span class="sig-name descname"><span class="pre">code25</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Code25" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Code25 1D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Codabar">
+<span class="sig-name descname"><span class="pre">codabar</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Codabar" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Codabar 1D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.InterleavedTwoOfFive">
+<span class="sig-name descname"><span class="pre">interleavedTwoOfFive</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.InterleavedTwoOfFive" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Interleaved two of five (ITF) 1D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.MsiPlessey">
+<span class="sig-name descname"><span class="pre">msiPlessey</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.MsiPlessey" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>MSI-Plessey 1D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Qr">
+<span class="sig-name descname"><span class="pre">qr</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Qr" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>QR Code 2D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.DataMatrix">
+<span class="sig-name descname"><span class="pre">dataMatrix</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.DataMatrix" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Data Matrix 2D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Aztec">
+<span class="sig-name descname"><span class="pre">aztec</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Aztec" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Aztec Code 2D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.MaxiCode">
+<span class="sig-name descname"><span class="pre">maxiCode</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.MaxiCode" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>MaxiCode 2D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.DotCode">
+<span class="sig-name descname"><span class="pre">dotCode</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.DotCode" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Dot Code symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Kix">
+<span class="sig-name descname"><span class="pre">kix</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Kix" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Royal Dutch TPG Post KIX.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Rm4scc">
+<span class="sig-name descname"><span class="pre">rm4scc</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Rm4scc" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Royal Mail 4 State Customer Code (RM4SCC).</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Gs1Databar">
+<span class="sig-name descname"><span class="pre">gs1Databar</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Gs1Databar" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>GS1 DataBar 14 1D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Gs1DatabarExpanded">
+<span class="sig-name descname"><span class="pre">gs1DatabarExpanded</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Gs1DatabarExpanded" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>GS1 DataBar Expanded 1D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Gs1DatabarLimited">
+<span class="sig-name descname"><span class="pre">gs1DatabarLimited</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Gs1DatabarLimited" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>GS1 DataBarLimited 1D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Pdf417">
+<span class="sig-name descname"><span class="pre">pdf417</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Pdf417" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>PDF417 barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.MicroPdf417">
+<span class="sig-name descname"><span class="pre">microPdf417</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.MicroPdf417" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>MicroPDF417 barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.MicroQr">
+<span class="sig-name descname"><span class="pre">microQr</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.MicroQr" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>MicroQR Code 2D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Code32">
+<span class="sig-name descname"><span class="pre">code32</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Code32" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Code32 1D barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.Lapa4sc">
+<span class="sig-name descname"><span class="pre">lapa4sc</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.Lapa4sc" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Posi LAPA Reed Solomon 4-state code postal code symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.IataTwoOfFive">
+<span class="sig-name descname"><span class="pre">iataTwoOfFive</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.IataTwoOfFive" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>IATA 2 of 5 barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.MatrixTwoOfFive">
+<span class="sig-name descname"><span class="pre">matrixTwoOfFive</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.MatrixTwoOfFive" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Matrix 2 of 5 barcode symbology.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.barcode.Symbology.UspsIntelligentMail">
+<span class="sig-name descname"><span class="pre">uspsIntelligentMail</span></span><a class="headerlink" href="#value-scandit.datacapture.barcode.Symbology.UspsIntelligentMail" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Intelligent Mail symbology.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

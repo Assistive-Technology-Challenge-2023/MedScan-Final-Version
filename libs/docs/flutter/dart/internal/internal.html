@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unilang &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Unilang</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="unilang">
+<h1>Unilang<a class="headerlink" href="#unilang" title="Permalink to this headline"></a></h1>
+<p>Unilang is a sphinx extension that allows to write documentation that can be used for multiple programming languages. It’s foremost an experiment to see if this could replace our current documentation system.</p>
+<div class="section" id="pro">
+<h2>Pro<a class="headerlink" href="#pro" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Documentation does only have to be written once.</p></li>
+<li><p>Documentation for all the platforms is in one place. The hope is that this makes the API more consistent.</p></li>
+<li><p>Guides can be written for all platforms at the same time. The exception to this rule are getting started guides.</p></li>
+</ul>
+</div>
+<div class="section" id="cons">
+<h2>Cons<a class="headerlink" href="#cons" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>The documentation is less native than using native documentation generators, e.g. Apple Doc, or Sandcastle on Windows.</p></li>
+<li><p>Some of the concepts are difficult to map across languages. When writing documentation one has to be careful to chose wording that works for all the languages. This may not always be possible.</p></li>
+<li><p>It’s a substantial amount of code that needs to be written to parse all the different languages.</p></li>
+<li><p>It’s software that doesn’t exist yet and as such will have to be maintained by us.</p></li>
+</ul>
+</div>
+<div class="section" id="open-tasks">
+<h2>Open Tasks<a class="headerlink" href="#open-tasks" title="Permalink to this headline"></a></h2>
+<div class="section" id="general">
+<h3>General<a class="headerlink" href="#general" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Allow prefixing of links with <code class="docutils literal notranslate"><span class="pre">~</span></code> to only keep the last part of the target signature.</p></li>
+<li><p>Allow platform overrides of class, interface signatures.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">struct</span></code> object type. On C#, Obj-C this will result in a struct, on Android, this is a class.</p></li>
+<li><p>Improve handling of sample code for the different platforms. Add a construct that checks that a code sample exists for all the platforms. Should be opt-out for certain platforms.</p></li>
+<li><p>Add ability to mark a member as not available on certain platforms.</p></li>
+<li><p>Nice to have: Add functionality to cross-check the documented signatures with the signatures present on the platforms.</p></li>
+<li><p>Make use of nullable, nonnull information.</p></li>
+<li><p>Add support for specifying when a certain features was introduced (since).</p></li>
+<li><p>Add support for specifying when a certain features was deprecated.</p></li>
+<li><p>Add support for referencing methods/properties defined in a base class/interface. For example, let’s say method DoFoo is defined in a base class Base, that gets implemented by Derived. Then it should be possible to reference Derived.DoFoo and get a reference to Base.DoFoo.</p></li>
+<li><p>There are a couple of methods that virtually have the same description. For example, there are many classes that allow to add/remove listeners. The description of these methods is almost the same everywhere. Instead of repeating the same text over and over again, we should be able to insert a certain role/directive into the method description that then automatically adds the text.</p></li>
+</ul>
+</div>
+<div class="section" id="obj-c">
+<h3>Obj-C<a class="headerlink" href="#obj-c" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>References to protocols show <code class="docutils literal notranslate"><span class="pre">id&lt;Protocol&gt;</span></code> as a link, instead of just <code class="docutils literal notranslate"><span class="pre">Protocol</span></code>. We only know at reference resolution what the type of the link target is. At the time the link is created, we don’t know that the target is a protocol. During reference resolution, we would have to not only modify the link but also the parent node to insert the <code class="docutils literal notranslate"><span class="pre">id&lt;&gt;</span></code> part.</p></li>
+<li><p>class signatures incorrectly show <code class="docutils literal notranslate"><span class="pre">id&lt;Protocol&gt;</span></code> instead of <code class="docutils literal notranslate"><span class="pre">NSObject&lt;Protocol&gt;</span></code>.</p></li>
+<li><p>Improve parsing of signatures. Add support for <code class="docutils literal notranslate"><span class="pre">const</span></code>, <code class="docutils literal notranslate"><span class="pre">nullable</span></code>, <code class="docutils literal notranslate"><span class="pre">nonnull</span></code> etc.</p></li>
+</ul>
+</div>
+<div class="section" id="c">
+<h3>C#<a class="headerlink" href="#c" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Insert correct links to docs.microsoft.com. Currently, it points to the android documentation.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="documenting-with-unilang">
+<h2>Documenting with Unilang<a class="headerlink" href="#documenting-with-unilang" title="Permalink to this headline"></a></h2>
+<div class="section" id="directives">
+<h3>Directives<a class="headerlink" href="#directives" title="Permalink to this headline"></a></h3>
+<p>The following directives are supported:</p>
+<dl class="rst directive">
+<dt class="sig sig-object rst" id="directive-class">
+<span class="sig-name descname"><span class="pre">..</span> <span class="pre">class::</span></span><span class="sig-prename descclassname"> <span class="pre">ClassName</span> <span class="pre">:</span> <span class="pre">Base1[,</span> <span class="pre">Base2]</span></span><a class="headerlink" href="#directive-class" title="Permalink to this definition"></a></dt>
+<dd><p>Documents a class, including it’s bases.</p>
+<p>Does not yet support overriding signatures for native languages</p>
+</dd></dl>
+
+<dl class="rst directive">
+<dt class="sig sig-object rst" id="directive-interface">
+<span class="sig-name descname"><span class="pre">..</span> <span class="pre">interface::</span></span><span class="sig-prename descclassname"> <span class="pre">InterfaceName</span></span><a class="headerlink" href="#directive-interface" title="Permalink to this definition"></a></dt>
+<dd><p>Documents an interface. InterfaceName must start with an <code class="docutils literal notranslate"><span class="pre">I</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">IProvider</span></code>.</p>
+<p>Interfaces are referred to as protocols in Obj-C. To make sure the correct word is used, make sure to write <code class="docutils literal notranslate"><span class="pre">|interface|</span></code> (or <code class="docutils literal notranslate"><span class="pre">|Interface|</span></code> at the beginning of a sentence) when talking about interface. This will be substituted with protocol when building for Obj-C.</p>
+</dd></dl>
+
+<dl class="rst directive">
+<dt class="sig sig-object rst" id="directive-enum">
+<span class="sig-name descname"><span class="pre">..</span> <span class="pre">enum::</span></span><span class="sig-prename descclassname"> <span class="pre">EnumName</span></span><a class="headerlink" href="#directive-enum" title="Permalink to this definition"></a></dt>
+<dd><p>Documents an enum. Individual enum values are documented using <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">value::</span></code>.</p>
+</dd></dl>
+
+<dl class="rst directive">
+<dt class="sig sig-object rst" id="directive-value">
+<span class="sig-name descname"><span class="pre">..</span> <span class="pre">value::</span></span><span class="sig-prename descclassname"> <span class="pre">ValueName</span></span><a class="headerlink" href="#directive-value" title="Permalink to this definition"></a></dt>
+<dd><p>Documents a particular value of an enum. This directive can only be used as a child directive of <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">enum::</span></code>.</p>
+</dd></dl>
+
+<dl class="rst directive">
+<dt class="sig sig-object rst" id="directive-method">
+<span class="sig-name descname"><span class="pre">..</span> <span class="pre">method::</span></span><span class="sig-prename descclassname"> <span class="pre">[ReturnType]</span> <span class="pre">Name([Arg1Type</span> <span class="pre">arg1[,</span> <span class="pre">Arg2Type</span> <span class="pre">arg2]])</span></span><a class="headerlink" href="#directive-method" title="Permalink to this definition"></a></dt>
+<dd><p>Documents a method. Methods without return types are interpreted as constructors. Signatures can be overridden by providing language-specific overrides. Language-specific overrides are written in the target language, e.g. Java, Obj-C or C#.</p>
+<p>For example, to provide a Java and Obj-C override, this can be done like this:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">method</span><span class="p">::</span>  T MakeCoffee()
+  @java@ T makeCoffee(Context context)
+  @objc@ - (T<span class="ge">*)makeCoffeeOrError:(NSError*</span>*)error
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="rst directive">
+<dt class="sig sig-object rst" id="directive-property">
+<span class="sig-name descname"><span class="pre">..</span> <span class="pre">property::</span></span><span class="sig-prename descclassname"> <span class="pre">[Type]</span> <span class="pre">Name</span> <span class="pre">{</span> <span class="pre">[get;,</span> <span class="pre">]</span> <span class="pre">[</span> <span class="pre">set;]</span> <span class="pre">}</span></span><a class="headerlink" href="#directive-property" title="Permalink to this definition"></a></dt>
+<dd><p>Documents a property.The output uses property syntax for languages that support it (Obj-C, C#) and coverts to setters/getters for platforms that don’t have property support (Java). Static properties are mapped to a static method in Obj-C. Currently only works for readonly properties.
+Allows to provide platform-specific overrides. For Obj-C, the platform specific override is provided in Obj-C, for Java, C#, use the unilang syntax. In the future, the override for Java may also be provided in Java syntax.</p>
+</dd></dl>
+
+<div class="section" id="feature-availability">
+<h4>Feature Availability<a class="headerlink" href="#feature-availability" title="Permalink to this headline"></a></h4>
+<blockquote>
+<div><p>For each of the above documented entities, their availability must be marked.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">method</span><span class="p">::</span>  T MakeCoffee()
+  <span class="nc">:available:</span> ios
+</pre></div>
+</div>
+<p>Presets can be used for quick access to a group of frequently used platforms (currently all and major)</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">method</span><span class="p">::</span>  T MakeCoffee()
+  <span class="nc">:available:</span> ios, android, cordova, xamarin
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="roles">
+<h3>Roles<a class="headerlink" href="#roles" title="Permalink to this headline"></a></h3>
+<p>Unilang has a bunch of roles for cross-referencing content. The target is the unilang target name of the documented entity.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">:type:</span></code> is used to refer to interfaces, classes and enums (not their values, just the enum itself)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:enum:</span></code> is used to refer to enum values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:meth:</span></code> is used to refer to methods.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:prop:</span></code> is used to refer to properties.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>US Uniformed Services &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ScanditCaptureCore" href="../core/overview.html" />
+    <link rel="prev" title="VIN" href="vin.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="formats.html">Supported Data Formats</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hibc.html">HIBC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs1ai.html">GS1 AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dlid.html">DL/ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mrtd.html">MRTD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swissqr.html">Swiss QR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vin.html">VIN</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">US Uniformed Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fields-description">Fields description</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#an-example-of-a-sponsor-format-version-3">An example of a sponsor format, version 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#an-example-of-a-dependent-format-version-3">An example of a dependent format, version 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-fields">Common Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sponsor-fields">Sponsor Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dependent-fields">Dependent Fields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#parser-options">Parser Options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">ScanditParser</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="formats.html">Supported Data Formats</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hibc.html">HIBC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gs1ai.html">GS1 AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dlid.html">DL/ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mrtd.html">MRTD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="swissqr.html">Swiss QR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vin.html">VIN</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">US Uniformed Services</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fields-description">Fields description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parser-options">Parser Options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="result-object.html">Result Object Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="formats.html">Supported Data Formats</a> &raquo;</li>
+      <li>US Uniformed Services</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="us-uniformed-services">
+<h1>US Uniformed Services<a class="headerlink" href="#us-uniformed-services" title="Permalink to this headline"></a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<p>The parser supports parsing Uniformed Services Identification Cards that are encoded in PDF417 barcodes. Both Sponsor and Dependant documents are supported (versions 1, 2 and 3).
+For the complete documentation of the standard please refer to <a class="reference external" href="https://web.archive.org/web/20160222013345/http://www.cac.mil/docs/DoD-ID-Bar-Code_SDK-Formats_v7-5-0_Sep2012.pdf">US Uniformed Services ID</a>.</p>
+<p>Below you will find the fields description for both sponsor and dependent format.</p>
+</div>
+<div class="section" id="fields-description">
+<h2>Fields description<a class="headerlink" href="#fields-description" title="Permalink to this headline"></a></h2>
+<div class="section" id="an-example-of-a-sponsor-format-version-3">
+<h3>An example of a sponsor format, version 3<a class="headerlink" href="#an-example-of-a-sponsor-format-version-3" title="Permalink to this headline"></a></h3>
+<p>Parsing the following code (without quotes):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;IDUS3&amp;%^H1BESSELL, SOFIA             9759934671         0060150RDBR1982FEB21NNYYUNONE     NONE     2RRT  2011NOV042052OCT308   5RESRETUSAF AMN   E1  I  UNK[binary JPEG data...]&quot;</span>
+</pre></div>
+</div>
+<p>will result in the following JSON output:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;header&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;identificationCode&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;IDUS&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sponsorFlag&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sponsor&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;BESSELL&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;SOFIA&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;BESSELL, SOFIA             &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;personDesignatorIdentifier&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">975993467</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;975993467&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;familySequenceNumber&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;deersDependentSuffix&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sponsor&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;00&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;height&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">60</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;60&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;weight&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;150&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;hairColor&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;RD&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;eyeColor&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;brown&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;BR&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;birthDate&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;year&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1982</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;month&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;day&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">21</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1992FEB21&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;directCareFlag&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;N&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;not eligible&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;N&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;civilianHealthCare&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;N&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;not eligible&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;N&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;commissary&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Y&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;eligible and active&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Y&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;mwr&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Y&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;eligible and active&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Y&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;exchange&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;U&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;unlimited&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;U&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;champusEffectiveDate&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;NONE     &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;champusExpirationDate&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;NONE     &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;formNumber&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2RRT&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2RRT  &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cardIssueDate&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;year&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">2011</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;month&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">11</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;day&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2011NOV04&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cardExpirationDate&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;year&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">2052</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;month&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;day&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">30</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2052OCT30&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;securityCode&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;8   &quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;8   &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;serviceCode&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;5&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;5&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;status&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;RESRET&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;National Guard and Reserve members who retire, but are not entitled to retired pay until age 60&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;RESRET&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;branchOfService&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;USAF&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;USAF &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;rank&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AMN&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AMN   &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;payGrade&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;E1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;E1  &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;genevaConventionCategory&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;I  &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;bloodType&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;unknown&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;UNK&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;jpegData&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;jpeg data encoded in base64 format&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="an-example-of-a-dependent-format-version-3">
+<h3>An example of a dependent format, version 3<a class="headerlink" href="#an-example-of-a-dependent-format-version-3" title="Permalink to this headline"></a></h3>
+<p>Parsing the following code (without quotes):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;IDUS3&amp;*G$0MUSLIN, WOMAN              81276439019998899980155100GYGY1991MAY13SMYYU2010NOV172013NOV151173  2010NOV172013NOV15S   BAD    USN  NON-POE2         TESLIN, TESLIN      999999999SP    [binary JPEG data...]&quot;</span>
+</pre></div>
+</div>
+<p>will result in the following JSON output:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Header&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;identificationCode&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;IDUS&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sponsorFlag&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;dependent&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;MUSLIN&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;WOMAN&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;MUSLIN, WOMAN              &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;personDesignatorIdentifier&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">812764390</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;812764390&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;familySequenceNumber&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;deersDependentSuffix&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;dependent child&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;01&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;height&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">55</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;55&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;weight&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;100&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;hairColor&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;gray&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GY&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;eyeColor&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;gray&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GY&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;birthDate&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;year&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1991</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;month&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;day&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">13</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1991MAY13&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;directCareFlag&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;S&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;unlimited&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;S&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;civilianHealthCare&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;M&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;CHAMPUS&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;M&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;commissary&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Y&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;eligible and active&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Y&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;mwr&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Y&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;eligible and active&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Y&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;exchange&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;U&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;unlimited&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;U&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;champusEffectiveDate&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;year&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">2010</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;month&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">11</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;day&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">17</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2010NOV17&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;champusExpirationDate&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;year&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">2013</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;month&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">11</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;day&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">15</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2013NOV15&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;formNumber&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1173&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1173  &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cardIssueDate&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;year&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">2010</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;month&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">11</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;day&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">17</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2010NOV17&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cardExpirationDate&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;year&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">2013</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;month&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">11</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;day&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">15</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2013NOV15&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;securityCode&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;S   &quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;S   &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;serviceCode&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;B&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;status&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AD&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Active duty (excluding Guard and Reserve on extended active duty for more than 30 days)&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AD    &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;branchOfService&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;USN&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;USN  &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;rank&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;NON-PO&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;NON-PO&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;payGrade&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;E2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;E2  &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sponsorName&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;TESLIN&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;TESLIN&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;       TESLIN, TESLIN      &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sponsorPersonDesignatorIdentifier&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">999999999</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;999999999&quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;relationship&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;SP&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;spouse&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;SP    &quot;</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;jpegData&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;jpeg data encoded in base64 format&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="common-fields">
+<h3>Common Fields<a class="headerlink" href="#common-fields" title="Permalink to this headline"></a></h3>
+<p>The following fields are exposed both for the sponsor and the dependent format. Most of the fields can be null.
+Important note: the ‘payGrade’ field is available since the version 2 of the standard. For the version 1 it is set to null.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 44%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Data Element ID</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Parsed Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>header</p></td>
+<td><p>Header</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘identificationCode’: it is always ‘IDUS’</p></li>
+<li><p>‘version’: a version of the document. It can be 1, 2 or 3</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>Name</p></td>
+<td><p>String vector</p></td>
+</tr>
+<tr class="row-even"><td><p>sponsorFlag</p></td>
+<td><p>Indicates whether card holder is sponsor or dependent</p></td>
+<td><p>‘sponsor’ or ‘dependent’</p></td>
+</tr>
+<tr class="row-odd"><td><p>personDesignatorIdentifier</p></td>
+<td><p>Person’s designator identifier (Usually, the cardholder’s SSN)</p></td>
+<td><p>Integer</p></td>
+</tr>
+<tr class="row-even"><td><p>familySequenceNumber</p></td>
+<td><p>Used to distinguish among sponsors who have the same SSN</p></td>
+<td><p>Integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>deersDependentSuffix</p></td>
+<td><p>The relationship of a dependent to his or her sponsor</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘code’: a code indicating the relationship,</p></li>
+<li><p>‘description’: it is one of the following values: ‘sponsor’, ‘dependent child’, ‘spouse of sponsor’, ‘mother of sponsor’, ‘father of sponsor’, ‘mother-in-law of sponsor’, ‘father-in-law of sponsor’, ‘other dependent’, ‘service secretary designee’</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>height</p></td>
+<td><p>Person’s height in inches</p></td>
+<td><p>Integer between 48 and 96</p></td>
+</tr>
+<tr class="row-odd"><td><p>weight</p></td>
+<td><p>Person’s weight in pounds</p></td>
+<td><p>Integer</p></td>
+</tr>
+<tr class="row-even"><td><p>hairColor</p></td>
+<td><p>Person’s hair color</p></td>
+<td><p>One of the following values:</p>
+<ul class="simple">
+<li><p>‘brown’</p></li>
+<li><p>‘gray’</p></li>
+<li><p>‘red’</p></li>
+<li><p>‘auburn’</p></li>
+<li><p>‘black’</p></li>
+<li><p>‘blonde’</p></li>
+<li><p>‘white’</p></li>
+<li><p>‘bald’</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>eyeColor</p></td>
+<td><p>Person’s eye color</p></td>
+<td><p>One of the following values:</p>
+<ul class="simple">
+<li><p>‘brown’</p></li>
+<li><p>‘green’</p></li>
+<li><p>‘blue’</p></li>
+<li><p>‘hazel’</p></li>
+<li><p>‘black’</p></li>
+<li><p>‘gray’</p></li>
+<li><p>‘violet’</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>birthDate</p></td>
+<td><p>Person’s date of birth</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘year’ : YYYY,</p></li>
+<li><p>‘month’: MM,</p></li>
+<li><p>‘day’ : DD</p></li>
+</ul>
+<p>with YYYY, MM, DD as integers.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>directCareFlag</p></td>
+<td><p>Direct Care privilege/benefit flag</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘code’ : a code of the flag,</p></li>
+<li><p>‘description’: a description of the code</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>civilianHealthCare</p></td>
+<td><p>Civilian Health Care privilege/benefit flag</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘code’ : a code of the flag,</p></li>
+<li><p>‘description’: a description of the code</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>commissary</p></td>
+<td><p>Commisary privilege/benefit flag</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘code’ : a code of the flag,</p></li>
+<li><p>‘description’: a description of the code</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>mwr</p></td>
+<td><p>Morale, Welfare &amp; Recreation (MWR) privilege/benefit flag</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘code’ : a code of the flag,</p></li>
+<li><p>‘description’: a description of the code</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>exchange</p></td>
+<td><p>Exchange privilege/benefit flag</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘code’ : a code of the flag,</p></li>
+<li><p>‘description’: a description of the code</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>champusEffectiveDate</p></td>
+<td><p>Champus effective date</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘year’ : YYYY,</p></li>
+<li><p>‘month’: MM,</p></li>
+<li><p>‘day’ : DD</p></li>
+</ul>
+<p>with YYYY, MM, DD as integers.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>champusExpirationDate</p></td>
+<td><p>Champus expiration date</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘year’ : YYYY,</p></li>
+<li><p>‘month’: MM,</p></li>
+<li><p>‘day’ : DD</p></li>
+</ul>
+<p>with YYYY, MM, DD as integers.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>formNumber</p></td>
+<td><p>Form number</p></td>
+<td><p>String</p></td>
+</tr>
+<tr class="row-odd"><td><p>cardIssueDate</p></td>
+<td><p>Date of the card issuing</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘year’ : YYYY,</p></li>
+<li><p>‘month’: MM,</p></li>
+<li><p>‘day’ : DD</p></li>
+</ul>
+<p>with YYYY, MM, DD as integers.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>cardExpirationDate</p></td>
+<td><p>Date of the card expiration</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘year’ : YYYY,</p></li>
+<li><p>‘month’: MM,</p></li>
+<li><p>‘day’ : DD</p></li>
+</ul>
+<p>with YYYY, MM, DD as integers.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>securityCode</p></td>
+<td><p>Card security code</p></td>
+<td><p>String</p></td>
+</tr>
+<tr class="row-even"><td><p>serviceCode</p></td>
+<td><p>Service code</p></td>
+<td><p>One character</p></td>
+</tr>
+<tr class="row-odd"><td><p>status</p></td>
+<td><p>Status of the sponsor</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘code’ : a code of the flag,</p></li>
+<li><p>‘description’: a description of the code</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>branchOfService</p></td>
+<td><p>An organization with which the sponsor is affiliated</p></td>
+<td><p>One of the following values:</p>
+<ul class="simple">
+<li><p>‘USA’</p></li>
+<li><p>‘USAF’</p></li>
+<li><p>‘USN’</p></li>
+<li><p>‘USMC’</p></li>
+<li><p>‘USCG’</p></li>
+<li><p>‘USPHS’</p></li>
+<li><p>‘NOAA’</p></li>
+<li><p>‘OTHER’</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>rank</p></td>
+<td><p>Rank of the sponsor</p></td>
+<td><p>String</p></td>
+</tr>
+<tr class="row-even"><td><p>payGrade</p></td>
+<td><p>Pay grade of the sponsor. Available since version 2</p></td>
+<td><p>One of the following values:</p>
+<ul class="simple">
+<li><p>‘E1’ - ‘E9’</p></li>
+<li><p>‘W1’ - ‘W5’</p></li>
+<li><p>‘001’ - ‘011’</p></li>
+<li><p>‘GS01’ - ‘GS18’</p></li>
+<li><p>‘OTHER’</p></li>
+<li><p>‘N/A’</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>jpegData</p></td>
+<td><p>A compressed version of the photograph printed on the front of the card</p></td>
+<td><p>Jpeg data encoded in a base64 format. It is a value of a ‘rawString’ key. A value of a ‘parsed’ key is null</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sponsor-fields">
+<h3>Sponsor Fields<a class="headerlink" href="#sponsor-fields" title="Permalink to this headline"></a></h3>
+<p>The following fields are exposed only for the sponsor type:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 44%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Data Element ID</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Parsed Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>genevaConventionCategory</p></td>
+<td><p>Sponsor’s appropriate Geneva Convention Category</p></td>
+<td><p>One of the following values:</p>
+<ul class="simple">
+<li><p>‘I’</p></li>
+<li><p>‘II’</p></li>
+<li><p>‘III’</p></li>
+<li><p>‘IV’</p></li>
+<li><p>‘V’</p></li>
+<li><p>‘N/A’</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>bloodType</p></td>
+<td><p>Sponsor’s blood type</p></td>
+<td><p>One of the following values:</p>
+<ul class="simple">
+<li><p>‘A+’</p></li>
+<li><p>‘A-‘</p></li>
+<li><p>‘B+’</p></li>
+<li><p>‘B-‘</p></li>
+<li><p>‘AB+’</p></li>
+<li><p>‘AB-‘</p></li>
+<li><p>‘0-‘</p></li>
+<li><p>‘0-‘</p></li>
+<li><p>‘unknown’</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dependent-fields">
+<h3>Dependent Fields<a class="headerlink" href="#dependent-fields" title="Permalink to this headline"></a></h3>
+<p>The following fields are exposed only for the dependent type:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 44%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Data Element ID</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Parsed Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>sponsorName</p></td>
+<td><p>Name of the sponsor</p></td>
+<td><p>String vector</p></td>
+</tr>
+<tr class="row-odd"><td><p>sponsorPersonDesignatorIdentifier</p></td>
+<td><p>Sponsor’s designator identifier (Usually, the cardholder’s SSN)</p></td>
+<td><p>Integer</p></td>
+</tr>
+<tr class="row-even"><td><p>relationship</p></td>
+<td><p>Dependent’s relationship to the sponsor</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘code’: a code indicating the relationship,</p></li>
+<li><p>‘description’: a description of the code</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="parser-options">
+<h2>Parser Options<a class="headerlink" href="#parser-options" title="Permalink to this headline"></a></h2>
+<p>There are no existing options currently.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

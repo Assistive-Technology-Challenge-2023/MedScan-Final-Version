@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Symbology Properties &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Scan Add-On/Extension Codes" href="scan-add-on-codes.html" />
+    <link rel="prev" title="ScanditBarcodeCapture" href="overview.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">ScanditBarcodeCapture</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Symbology Properties</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-are-symbology-properties">What Are Symbology Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-symbology-properties">1D Symbology Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">2D Symbology Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#symbology-extension-descriptions">Symbology Extension Descriptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calculating-symbol-counts-for-variable-length-symbologies">Calculating Symbol Counts for Variable-Length Symbologies</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#interleaved-two-of-five">Interleaved-Two-of-Five</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#codabar">Codabar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-11">Code 11</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-128">Code 128</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-93">Code 93</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-39">Code 39</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#msi-plessey-and-code-25">MSI Plessey and Code 25</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gs1-databar-14">GS1 DataBar 14</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gs1-databar-expanded">GS1 DataBar Expanded</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rm4scc">RM4SCC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kix">KIX</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scan-add-on-codes.html">Scan Add-On/Extension Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scan-composite-codes.html">Scan Composite Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="barcode-tracking-scenarios.html">Barcode Tracking Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="overview.html">ScanditBarcodeCapture</a> &raquo;</li>
+      <li>Symbology Properties</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="symbology-properties">
+<h1>Symbology Properties<a class="headerlink" href="#symbology-properties" title="Permalink to this headline"></a></h1>
+<p>This is a listing of all available properties of barcode symbologies. See <a class="reference internal" href="../configure-barcodes.html"><span class="doc">Configure Which Barcodes Are Read</span></a> for how to set them.</p>
+<div class="section" id="what-are-symbology-properties">
+<h2>What Are Symbology Properties<a class="headerlink" href="#what-are-symbology-properties" title="Permalink to this headline"></a></h2>
+<p>Symbologies often have different properties, such as symbol count (length of the barcode) or inverted colors (printed white on black). To provide optimal performances, some properties/values are disabled by default in our SDK. You might need to scan a symbology whose properties are by default disabled. This article lists all symbology specific properties, their defaults and possible values.</p>
+</div>
+<div class="section" id="d-symbology-properties">
+<h2>1D Symbology Properties<a class="headerlink" href="#d-symbology-properties" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Color-inverted (bright bars on dark background) decoding for symbologies that support it is disabled and must be explicitly enabled.</p></li>
+<li><p>Optional checksum digits (e.g. for interleaved 2 of 5 codes, or MSI-Plessey codes) are always returned as part of the data.</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 3%" />
+<col style="width: 9%" />
+<col style="width: 2%" />
+<col style="width: 18%" />
+<col style="width: 8%" />
+<col style="width: 7%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" rowspan="3"><p>Symbology</p></th>
+<th class="head" colspan="3"><p>Checksums</p></th>
+<th class="head" colspan="2"><p>Symbol Count</p></th>
+<th class="head" rowspan="3"><p>Supports Color-Inversion</p></th>
+<th class="head" rowspan="3"><p>Extensions</p></th>
+</tr>
+<tr class="row-even"><th class="head" rowspan="2"><p>Mandatory</p></th>
+<th class="head" colspan="2"><p>Optional</p></th>
+<th class="head" rowspan="2"><p>Default Range</p></th>
+<th class="head" rowspan="2"><p>Supported Range</p></th>
+</tr>
+<tr class="row-odd"><th class="head"><p>Supported</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EAN-13 &amp; UPC-A</p></td>
+<td><p>mod10</p></td>
+<td></td>
+<td></td>
+<td><p>12</p></td>
+<td><p>12</p></td>
+<td><p>yes</p></td>
+<td><p>relaxed_sharp_quiet_zone_check, remove_leading_upca_zero, <a class="reference internal" href="scan-add-on-codes.html"><span class="doc">two_digit_add_on</span></a>, <a class="reference internal" href="scan-add-on-codes.html"><span class="doc">five_digit_add_on</span></a>, strict</p></td>
+</tr>
+<tr class="row-odd"><td><p>EAN-8</p></td>
+<td><p>mod10</p></td>
+<td></td>
+<td></td>
+<td><p>8</p></td>
+<td><p>8</p></td>
+<td><p>yes</p></td>
+<td><p>relaxed_sharp_quiet_zone_check, <a class="reference internal" href="scan-add-on-codes.html"><span class="doc">two_digit_add_on</span></a>, <a class="reference internal" href="scan-add-on-codes.html"><span class="doc">five_digit_add_on</span></a>, strict</p></td>
+</tr>
+<tr class="row-even"><td><p>UPC-E</p></td>
+<td><p>mod10</p></td>
+<td></td>
+<td></td>
+<td><p>6</p></td>
+<td><p>6</p></td>
+<td><p>yes</p></td>
+<td><p>return_as_upca, remove_leading_upca_zero, <a class="reference internal" href="scan-add-on-codes.html"><span class="doc">two_digit_add_on</span></a>, <a class="reference internal" href="scan-add-on-codes.html"><span class="doc">five_digit_add_on</span></a>, strict</p></td>
+</tr>
+<tr class="row-odd"><td><p>Two-Digit Add-on</p></td>
+<td><p>mod10</p></td>
+<td></td>
+<td></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>yes</p></td>
+<td><p>strict</p></td>
+</tr>
+<tr class="row-even"><td><p>Five-Digit Add-on</p></td>
+<td><p>mod10</p></td>
+<td></td>
+<td></td>
+<td><p>5</p></td>
+<td><p>5</p></td>
+<td><p>yes</p></td>
+<td><p>strict</p></td>
+</tr>
+<tr class="row-odd"><td><p>MSI Plessey</p></td>
+<td><p>none</p></td>
+<td><p>mod10, mod11, mod1010, mod1110</p></td>
+<td><p>mod10</p></td>
+<td><p>6-32 <a class="footnote-reference brackets" href="#id9" id="id1">3</a></p></td>
+<td><p>3-32</p></td>
+<td><p>no</p></td>
+<td><p>strict</p></td>
+</tr>
+<tr class="row-even"><td><p>Code 128</p></td>
+<td><p>mod103</p></td>
+<td></td>
+<td></td>
+<td><p>6-40 <a class="footnote-reference brackets" href="#id9" id="id2">3</a> (includes 1 checksum and 2 guard symbols)</p></td>
+<td><p>4-50</p></td>
+<td><p>yes</p></td>
+<td><p>strip_leading_fnc1 <a class="footnote-reference brackets" href="#oned1" id="id3">1</a> , strict</p></td>
+</tr>
+<tr class="row-odd"><td><p>Code 11</p></td>
+<td><p>none</p></td>
+<td><p>mod11</p></td>
+<td><p>mod11</p></td>
+<td><p>7-20 (includes 0-2 checksum digits)</p></td>
+<td><p>5-34</p></td>
+<td><p>no</p></td>
+<td><p>strict</p></td>
+</tr>
+<tr class="row-even"><td><p>Code 25</p></td>
+<td><p>none</p></td>
+<td><p>mod10</p></td>
+<td></td>
+<td><p>7-20</p></td>
+<td><p>3-32</p></td>
+<td><p>no</p></td>
+<td><p>strict</p></td>
+</tr>
+<tr class="row-odd"><td><p>IATA 2 of 5</p></td>
+<td><p>none</p></td>
+<td><p>mod1010</p></td>
+<td></td>
+<td><p>7-20</p></td>
+<td><p>3-32</p></td>
+<td><p>no</p></td>
+<td><p>strict</p></td>
+</tr>
+<tr class="row-even"><td><p>Matrix 2 of 5</p></td>
+<td><p>none</p></td>
+<td><p>mod10</p></td>
+<td></td>
+<td><p>7-20</p></td>
+<td><p>3-32</p></td>
+<td><p>no</p></td>
+<td><p>strict</p></td>
+</tr>
+<tr class="row-odd"><td><p>Code 32</p></td>
+<td><p>mod10</p></td>
+<td></td>
+<td></td>
+<td><p>8 (plus one check digit)</p></td>
+<td><p>8</p></td>
+<td><p>no</p></td>
+<td><p>strict</p></td>
+</tr>
+<tr class="row-even"><td><p>Code 39</p></td>
+<td><p>none</p></td>
+<td><p>mod43</p></td>
+<td></td>
+<td><p>6-40 <a class="footnote-reference brackets" href="#id9" id="id4">3</a> (includes 2 guard symbols)</p></td>
+<td><p>3-50 <a class="footnote-reference brackets" href="#id10" id="id5">4</a></p></td>
+<td><p>yes</p></td>
+<td><p>full_ascii, relaxed_sharp_quiet_zone_check, strict</p></td>
+</tr>
+<tr class="row-odd"><td><p>Code 93</p></td>
+<td><p>mod47</p></td>
+<td></td>
+<td></td>
+<td><p>6-40 <a class="footnote-reference brackets" href="#id9" id="id6">3</a> (includes 2 checksums and 2 guard symbols)</p></td>
+<td><p>5-60</p></td>
+<td><p>no</p></td>
+<td><p>full_ascii <a class="footnote-reference brackets" href="#oned2" id="id7">2</a> , strict</p></td>
+</tr>
+<tr class="row-even"><td><p>Codabar</p></td>
+<td><p>none</p></td>
+<td><p>mod16, mod11</p></td>
+<td></td>
+<td><p>7-20 (includes 2 guard symbols)</p></td>
+<td><p>3-34</p></td>
+<td><p>no</p></td>
+<td><p>strict</p></td>
+</tr>
+<tr class="row-odd"><td><p>GS1 DataBar 14</p></td>
+<td><p>mod10</p></td>
+<td></td>
+<td></td>
+<td><p>2 (encoding 14 digits)</p></td>
+<td><p>2</p></td>
+<td><p>no</p></td>
+<td><p>strict</p></td>
+</tr>
+<tr class="row-even"><td><p>GS1 DataBar Expanded</p></td>
+<td><p>mod211</p></td>
+<td></td>
+<td></td>
+<td><p>1-11 (encoding 1-74 characters)</p></td>
+<td><p>1-11</p></td>
+<td><p>no</p></td>
+<td><p>strict</p></td>
+</tr>
+<tr class="row-odd"><td><p>GS1 DataBar Limited</p></td>
+<td><p>mod89</p></td>
+<td></td>
+<td></td>
+<td><p>1 (encoding 14 digits)</p></td>
+<td><p>1</p></td>
+<td><p>no</p></td>
+<td><p>relaxed_sharp_quiet_zone_check, strict</p></td>
+</tr>
+<tr class="row-even"><td><p>Interleaved-Two-of-Five (ITF)</p></td>
+<td><p>none</p></td>
+<td><p>mod10</p></td>
+<td></td>
+<td><p>6-40 <a class="footnote-reference brackets" href="#id9" id="id8">3</a></p></td>
+<td><p>4-50</p></td>
+<td><p>no</p></td>
+<td><p>strict</p></td>
+</tr>
+<tr class="row-odd"><td><p>RM4SCC</p></td>
+<td><p>mod36</p></td>
+<td></td>
+<td></td>
+<td><p>7-24</p></td>
+<td><p>4-50</p></td>
+<td><p>no</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>KIX</p></td>
+<td><p>none</p></td>
+<td></td>
+<td></td>
+<td><p>7-24</p></td>
+<td><p>4-50</p></td>
+<td><p>no</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>LAPA</p></td>
+<td><p>none</p></td>
+<td></td>
+<td></td>
+<td><p>16</p></td>
+<td><p>16</p></td>
+<td><p>no</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>USPS Intelligent Mail</p></td>
+<td><p>none</p></td>
+<td></td>
+<td></td>
+<td><p>65</p></td>
+<td><p>65</p></td>
+<td><p>no</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="footnote brackets">
+<dt class="label" id="oned1"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
+<dd><p>Enabled by default.</p>
+</dd>
+<dt class="label" id="oned2"><span class="brackets"><a class="fn-backref" href="#id7">2</a></span></dt>
+<dd><p>Always enabled and can’t be disabled.</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets">3</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id4">3</a>,<a href="#id6">4</a>,<a href="#id8">5</a>)</span></dt>
+<dd><p>Extended as part of the 6.4.0 release.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id5">4</a></span></dt>
+<dd><p>Extended to 50 as part of the 6.5.1 release.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id11">
+<h2>2D Symbology Properties<a class="headerlink" href="#id11" title="Permalink to this headline"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 27%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbology</p></th>
+<th class="head"><p>Supports Color-Inversion</p></th>
+<th class="head"><p>Extensions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Aztec Code</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Data Matrix</p></td>
+<td><p>yes</p></td>
+<td><p>strip_leading_fnc1 <a class="footnote-reference brackets" href="#twod1" id="id12">5</a>, direct_part_marking_mode</p></td>
+</tr>
+<tr class="row-even"><td><p>DotCode</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>MaxiCode</p></td>
+<td><p>no</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>MicroPDF417</p></td>
+<td><p>no</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PDF417</p></td>
+<td><p>no</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>QR Code</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Micro QR Code</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="footnote brackets">
+<dt class="label" id="twod1"><span class="brackets"><a class="fn-backref" href="#id12">5</a></span></dt>
+<dd><p>Enabled by default.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="symbology-extension-descriptions">
+<span id="id13"></span><h2>Symbology Extension Descriptions<a class="headerlink" href="#symbology-extension-descriptions" title="Permalink to this headline"></a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 71%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>full_ascii</p></td>
+<td><p>Interprets the Code39 code data using two symbols per output character to encode all ASCII characters.</p></td>
+</tr>
+<tr class="row-even"><td><p>relaxed_sharp_quiet_zone_check</p></td>
+<td><p>Enables scanning codes that have quiet zones (white area before and after the code) that are significantly smaller than allowed by the symbology specification. Use this extension if you are having difficulties to scan codes due to quiet zone violations. However, enabling it may come at the cost of more false positives under certain circumstances.</p></td>
+</tr>
+<tr class="row-odd"><td><p>return_as_upca</p></td>
+<td><p>Transforms the UPCE result into its UPCA representation.</p></td>
+</tr>
+<tr class="row-even"><td><p>remove_leading_zero</p></td>
+<td><p>Removes the leading zero digit from the result.</p></td>
+</tr>
+<tr class="row-odd"><td><p>remove_leading_upca_zero</p></td>
+<td><p>Removes the leading zero digit from the result if the UPCA representation extension ‘return_as_upca’ is enabled.</p></td>
+</tr>
+<tr class="row-even"><td><p>strip_leading_fnc1</p></td>
+<td><p>Removes the leading FNC1 character that indicates a GS1 code. To determine whether a certain code is a GS1 code, use ref sc_barcode_is_gs1_data_carrier.</p></td>
+</tr>
+<tr class="row-odd"><td><p>direct_part_marking_mode</p></td>
+<td><p>Use this mode to improve scan performance when reading direct part marked (DPM) Data Matrix codes. Enabling this extension comes at the cost of increased frame processing times. It is recommended to restrict the scanning area to a smaller part of the image for best performance.</p></td>
+</tr>
+<tr class="row-even"><td><p>strict</p></td>
+<td><p>Enforce strict standard adherence to eliminate false positives in blurry, irregular or damaged barcodes at the cost of reduced scan performance.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="calculating-symbol-counts-for-variable-length-symbologies">
+<span id="calculating-symbol-counts"></span><h2>Calculating Symbol Counts for Variable-Length Symbologies<a class="headerlink" href="#calculating-symbol-counts-for-variable-length-symbologies" title="Permalink to this headline"></a></h2>
+<p>The length of data encoded in variable-length symbologies such as Code 128, Codabar, Code 39 etc. is measured as the number of <em>symbols</em>. Depending on the symbology, the symbol count includes the start and end symbol, and/or checksum characters. The following list shows how to calculate the number of symbols for each variable-length symbology. These counts can be used as the input to sc_symbology_settings_set_active_symbol_counts().</p>
+<div class="section" id="interleaved-two-of-five">
+<h3>Interleaved-Two-of-Five<a class="headerlink" href="#interleaved-two-of-five" title="Permalink to this headline"></a></h3>
+<p>The number of symbols corresponds to the number of digits in the code. Note that the number of digits must be even. Example: the code c “1234567890123” has a symbol count of 14. For the active symbol count calculation, optional checksum digits are treated like normal data symbols.</p>
+</div>
+<div class="section" id="codabar">
+<h3>Codabar<a class="headerlink" href="#codabar" title="Permalink to this headline"></a></h3>
+<p>The number of symbols corresponds to the number of digits in the code, plus the start and end symbols. Example: the code c “A2334253D” has a symbol count of 7 + 2 = 9.</p>
+</div>
+<div class="section" id="code-11">
+<h3>Code 11<a class="headerlink" href="#code-11" title="Permalink to this headline"></a></h3>
+<p>The number of symbols corresponds to the number of digits in the code, plus one or two checksum symbols. For less than ten digits in the code, one checksum symbol is added. Two checksum symbols are added for ten or more digits in the code. Example: the code c “912-34956” (c “912-349566”) has a symbol count of 9 + 1 = 10. The code c “912-3495-6” (c “912-3495-638”) has a symbol count of 10 + 2 = 12.</p>
+</div>
+<div class="section" id="code-128">
+<h3>Code 128<a class="headerlink" href="#code-128" title="Permalink to this headline"></a></h3>
+<p>The number of symbols depends on the encoding used (A, B or C). All encodings require a start, an end and a checksum symbol. The ASCII encoding modes (A and B) store each character in one symbol. Example: the code c “ABC123” in mode A has a symbol count of 6 + 2 + 1 = 9. The numeric encoding mode (C) encodes pairs of digits in one symbol. Example: the code c “123456” has a symbol count of 3 + 2 + 1 = 6. Some encoders switch modes inside the code using switch symbols to optimize the code length. In this case the exact encoding used is needed to compute the number of symbols.</p>
+</div>
+<div class="section" id="code-93">
+<h3>Code 93<a class="headerlink" href="#code-93" title="Permalink to this headline"></a></h3>
+<p>The number of symbols corresponds to the number of characters in the code, plus the start and end symbols and 2 checksum digits. Shift characters used in “extended code93” are treated as normal data symbols. Example: the code c “ABCDE12345” has a symbol count of 10 + 2 + 2 = 14.</p>
+</div>
+<div class="section" id="code-39">
+<h3>Code 39<a class="headerlink" href="#code-39" title="Permalink to this headline"></a></h3>
+<p>The number of symbols corresponds to the number of characters in the code, plus the start and end symbols. Note that the start and end symbols are not included in the returned barcode data. Example: the code c “4F70050378196356D” (c “<em>4F70050378196356D</em>”) has a symbol count of 17 + 2 = 19.</p>
+</div>
+<div class="section" id="msi-plessey-and-code-25">
+<h3>MSI Plessey and Code 25<a class="headerlink" href="#msi-plessey-and-code-25" title="Permalink to this headline"></a></h3>
+<p>The number of symbols corresponds to the number of digits in the code. Example: the code c “12345674” has a symbol count of 8. For the active symbol count calculation, optional checksum digits are treated like normal data symbols.</p>
+</div>
+<div class="section" id="gs1-databar-14">
+<h3>GS1 DataBar 14<a class="headerlink" href="#gs1-databar-14" title="Permalink to this headline"></a></h3>
+<p>The symbol count corresponds to the number of finder patterns in the code. Each finder is accompanied by two data segments.</p>
+</div>
+<div class="section" id="gs1-databar-expanded">
+<h3>GS1 DataBar Expanded<a class="headerlink" href="#gs1-databar-expanded" title="Permalink to this headline"></a></h3>
+<p>The symbol count cannot be changed at the moment.</p>
+</div>
+<div class="section" id="rm4scc">
+<h3>RM4SCC<a class="headerlink" href="#rm4scc" title="Permalink to this headline"></a></h3>
+<p>The number of symbols corresponds to the number of characters in the code, including the checksum character.</p>
+</div>
+<div class="section" id="kix">
+<h3>KIX<a class="headerlink" href="#kix" title="Permalink to this headline"></a></h3>
+<p>The number of symbols corresponds to the number of characters in the code.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

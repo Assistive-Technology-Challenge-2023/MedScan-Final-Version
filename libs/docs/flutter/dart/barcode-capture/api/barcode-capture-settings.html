@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barcode Capture Settings &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Barcode Capture" href="barcode-capture.html" />
+    <link rel="prev" title="Barcode Capture Session" href="barcode-capture-session.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">ScanditBarcodeCapture</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../symbology-properties.html">Symbology Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scan-add-on-codes.html">Scan Add-On/Extension Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scan-composite-codes.html">Scan Composite Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../barcode-tracking-scenarios.html">Barcode Tracking Scenarios</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="barcode-capture-feedback.html">Barcode Capture Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-capture-listener.html">Barcode Capture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-capture-listener.html#barcode-capture-advanced-listener">Barcode Capture Advanced Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-capture-session.html">Barcode Capture Session</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Barcode Capture Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-capture.html">Barcode Capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-capture-list.html">Barcode Count Capture List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-capture-list-listener.html">Barcode Count Capture List Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-capture-list-session.html">Barcode Count Capture List Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-listener.html">Barcode Count Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-session.html">Barcode Count Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-settings.html">Barcode Count Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count-feedback.html">Barcode Count Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-count.html">Barcode Count</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-filter-settings.html">Barcode Filter Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-tracking-listener.html">Barcode Tracking Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-tracking-listener.html#barcode-tracking-advanced-listener">Barcode Tracking Advanced Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-tracking-scenario.html">Barcode Tracking Scenario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-tracking-session.html">Barcode Tracking Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-tracking-settings.html">Barcode Tracking Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode-tracking.html">Barcode Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="barcode.html">Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="checksum.html">Checksum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composite-flag.html">Composite Flag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composite-type.html">CompositeType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composite-type-description.html">Composite Type Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ean13-upca-classification.html">EAN13 &amp; UPCA Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="localized-only-barcode.html">Localized Only Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scandit-flutter-datacapture-barcode.html">Scandit Flutter DataCapture Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="symbology-description.html">Symbology Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="symbology-settings.html">Symbology Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="symbology.html">Symbology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="target-barcode.html">Target Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tracked-barcode.html">Tracked Barcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-capture-overlay.html">Barcode Capture Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-count-view-listener.html">Barcode Count View Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-count-view-ui-listener.html">Barcode Count Basic Overlay UI Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-count-view.html">Barcode Count View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-count-toolbar-defaults.html">Barcode Count Toolbar Defaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-count-toolbar-settings.html">Barcode Count Toolbar Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-filter-highlight-settings.html">Barcode Filter Highlight Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-filter-highlight-type.html">Barcode Filter Highlight Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-tracking-advanced-overlay-listener.html">Barcode Tracking Advanced Overlay Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-tracking-advanced-overlay.html">Barcode Tracking Advanced Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-tracking-basic-overlay-listener.html">Barcode Tracking Basic Overlay Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/barcode-tracking-basic-overlay.html">Barcode Tracking Basic Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#initialization">Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#traditional-barcode-scanning">Traditional Barcode Scanning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#sparkscan">SparkScan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#matrixscan-barcode-tracking">MatrixScan (Barcode Tracking)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#barcode-selection">Barcode Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#matrixscan-count-barcode-count">MatrixScan Count (Barcode Count)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#deserialization">Deserialization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../overview.html">ScanditBarcodeCapture</a> &raquo;</li>
+          <li><a href="../api.html">ScanditBarcodeCapture API</a> &raquo;</li>
+      <li>Barcode Capture Settings</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="barcode-capture-settings">
+<h1>Barcode Capture Settings<a class="headerlink" href="#barcode-capture-settings" title="Permalink to this headline"></a></h1>
+<p>Defined in library <em>scandit_datacapture_barcode</em></p>
+<dl>
+<dt class="sig sig-object unilang" id="class-scandit.datacapture.barcode.BarcodeCaptureSettings">
+<span class="sig-name descname"><span class="pre">BarcodeCaptureSettings</span></span><a class="headerlink" href="#class-scandit.datacapture.barcode.BarcodeCaptureSettings" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class BarcodeCaptureSettings</span></pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Holds all the barcode recognition related settings, such as enabled symbologies and location selection. For the settings to take effect, they must be applied to a <a class="reference internal" href="barcode-capture.html#class-scandit.datacapture.barcode.BarcodeCapture" title="barcode capture class">barcode capture</a> instance using <a class="reference internal" href="barcode-capture.html#method-scandit.datacapture.barcode.BarcodeCapture.ApplySettingsAsync" title="BarcodeCapture.applySettings() method">BarcodeCapture.applySettings()</a>.</p>
+<p>By default, all types of barcodes (symbologies) are disabled. To scan barcodes, you need to manually enable all the symbologies you want to scan in your application.</p>
+<p>The following lines of code show how to enable <a class="reference internal" href="symbology.html#value-scandit.datacapture.barcode.Symbology.Code128" title="Symbology.code128 value">Symbology.code128</a> and apply the settings to <a class="reference internal" href="barcode-capture.html#class-scandit.datacapture.barcode.BarcodeCapture" title="barcode capture class">barcode capture</a>.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BarcodeCaptureSettings</span><span class="p">();</span><span class="w"></span>
+<span class="n">settings</span><span class="p">.</span><span class="n">enableSymbology</span><span class="p">(</span><span class="n">Symbology</span><span class="p">.</span><span class="n">code128</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w"></span>
+<span class="n">barcodeCapture</span><span class="p">.</span><span class="n">applySettings</span><span class="p">(</span><span class="n">settings</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.BarcodeCaptureSettings.BarcodeCaptureSettings">
+<span class="sig-name descname"><span class="pre">BarcodeCaptureSettings()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.BarcodeCaptureSettings.BarcodeCaptureSettings" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"> <span class="sig-name descname">BarcodeCaptureSettings</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Creates new default settings instance. Recognition is setup for recognizing codes in the full image. Symbologies are all disabled. Before passing the settings to the <a class="reference internal" href="barcode-capture.html#class-scandit.datacapture.barcode.BarcodeCapture" title="BarcodeCapture class">BarcodeCapture</a> instance, make sure to enable the symbologies required by your application.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.BarcodeCaptureSettings.GetSymbologySettings">
+<span class="sig-name descname"><span class="pre">settingsForSymbology(symbology)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.BarcodeCaptureSettings.GetSymbologySettings" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="symbology-settings.html#class-scandit.datacapture.barcode.SymbologySettings" title="SymbologySettings class">SymbologySettings</a> <span class="sig-name descname">settingsForSymbology</span>(<a class="reference internal" href="symbology.html#enum-scandit.datacapture.barcode.Symbology" title="Symbology enum">Symbology</a> <em>symbology</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Get <a class="reference internal" href="symbology-settings.html#class-scandit.datacapture.barcode.SymbologySettings" title="SymbologySettings class">SymbologySettings</a> specific for the given <a class="reference internal" href="symbology.html#enum-scandit.datacapture.barcode.Symbology" title="Symbology enum">Symbology</a>.</p>
+<p>Note that modifying the returned object doesn’t automatically apply the changes to <a class="reference internal" href="barcode-capture.html#class-scandit.datacapture.barcode.BarcodeCapture" title="BarcodeCapture class">BarcodeCapture</a>. After you made changes to the symbology settings, call <a class="reference internal" href="barcode-capture.html#method-scandit.datacapture.barcode.BarcodeCapture.ApplySettingsAsync" title="BarcodeCapture.applySettings() method">BarcodeCapture.applySettings()</a> with these <a class="reference internal" href="#class-scandit.datacapture.barcode.BarcodeCaptureSettings" title="BarcodeCaptureSettings class">BarcodeCaptureSettings</a> to apply them.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.BarcodeCaptureSettings.SetProperty">
+<span class="sig-name descname"><span class="pre">setProperty(name,</span> <span class="pre">value)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.BarcodeCaptureSettings.SetProperty" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setProperty</span>&lt;<code class="docutils literal notranslate"><span class="pre">T</span></code>&gt;(<a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a> <em>name</em>,
+        <code class="docutils literal notranslate"><span class="pre">T</span></code> <em>value</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Sets a property to the provided value. Use this method to set properties that are not yet part of a stable API. Properties set through this method may or may not be used or change in a future release.</p>
+<div class="admonition" id="implnote-0">
+<p class="admonition-title">Internal</p>
+<p>Values that can be converted to int (bools, ints, etc) should be set as “hidden properties” on the engine’s barcode scanner settings. The values should be stored in a dictionary as well, so they can be retrieved again with <code class="xref unilang unilang-meth docutils literal notranslate"><span class="pre">GetProperty</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.BarcodeCaptureSettings.GenericGetProperty">
+<span class="sig-name descname"><span class="pre">getProperty(name)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.BarcodeCaptureSettings.GenericGetProperty" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">T</span></code> <span class="sig-name descname">getProperty</span>&lt;<code class="docutils literal notranslate"><span class="pre">T</span></code>&gt;(<a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a> <em>name</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Retrieves the value of a previously set property. In case the property does not exist, an <a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception">ArgumentException</a> is thrown.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.BarcodeCaptureSettings.CodeDuplicateFilter">
+<span class="sig-name descname"><span class="pre">codeDuplicateFilter</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.BarcodeCaptureSettings.CodeDuplicateFilter" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/Duration-class.html" title="Duration">Duration</a> codeDuplicateFilter</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Determines the time interval in which codes with the same symbology/data are filtered out as duplicates. By default, when the same code (data, symbology) is scanned in consecutive frames, it is reported again as a new scan. Use this property to change the interval or completely turn off duplicate filtering:</p>
+<ul class="simple">
+<li><p>Setting this property to value smaller than zero, means that the same code will not be reported again until the scanning has been stopped.</p></li>
+<li><p>Setting this property to a value of zero means that the same code will be reported every time it is found.</p></li>
+<li><p>Setting this property to a value larger than zero indicates the time that must pass between the same code to be reported again.</p></li>
+</ul>
+<p>The filtering is reset any time the capture mode is disabled (<a class="reference internal" href="../../core/api/data-capture-mode.html#property-scandit.datacapture.core.IDataCaptureMode.IsEnabled" title="DataCaptureMode.isEnabled property">DataCaptureMode.isEnabled</a> is set to false) as this is when the session is cleaned and restarts from zero.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.BarcodeCaptureSettings.EnabledSymbologies">
+<span class="sig-name descname"><span class="pre">enabledSymbologies</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.BarcodeCaptureSettings.EnabledSymbologies" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/Set-class.html" title="Set">Set</a>&lt;<a class="reference internal" href="symbology.html#enum-scandit.datacapture.barcode.Symbology" title="Symbology enum">Symbology</a>&gt; get enabledSymbologies</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Returns the set of enabled symbologies.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.BarcodeCaptureSettings.EnableSymbology">
+<span class="sig-name descname"><span class="pre">enableSymbology(symbology,</span> <span class="pre">enabled)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.BarcodeCaptureSettings.EnableSymbology" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">enableSymbology</span>(<a class="reference internal" href="symbology.html#enum-scandit.datacapture.barcode.Symbology" title="Symbology enum">Symbology</a> <em>symbology</em>,
+        <a class="reference external" href="https://api.flutter.dev/flutter/dart-core/bool-class.html" title="bool">bool</a> <em>enabled</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Provides a convenient shortcut to enable/disable decoding of a particular symbology without having to go through <a class="reference internal" href="symbology-settings.html#class-scandit.datacapture.barcode.SymbologySettings" title="SymbologySettings class">SymbologySettings</a>.</p>
+<p>Some 1d barcode symbologies allow you to encode variable-length data. By default, the Scandit Data Capture SDK only scans barcodes in a certain length range.</p>
+<p>If your application requires scanning of one of these symbologies, and the length is falling outside the default range, you may need to adjust the <a class="reference internal" href="symbology-settings.html#property-scandit.datacapture.barcode.SymbologySettings.ActiveSymbolCounts" title="active symbol counts property">active symbol counts</a> for the symbology in addition to enabling it.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.BarcodeCaptureSettings.EnableSymbologies">
+<span class="sig-name descname"><span class="pre">enableSymbologies(symbologies)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.BarcodeCaptureSettings.EnableSymbologies" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">enableSymbologies</span>(<a class="reference external" href="https://api.flutter.dev/flutter/dart-core/Set-class.html" title="Set">Set</a>&lt;<a class="reference internal" href="symbology.html#enum-scandit.datacapture.barcode.Symbology" title="Symbology enum">Symbology</a>&gt; <em>symbologies</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Provides a convenient shortcut to enable decoding of particular symbologies without having to go through <a class="reference internal" href="symbology-settings.html#class-scandit.datacapture.barcode.SymbologySettings" title="SymbologySettings class">SymbologySettings</a>.
+By default, all symbologies are turned off and symbologies need to be explicitly enabled.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.BarcodeCaptureSettings.EnableSymbologiesForCompositeTypes">
+<span class="sig-name descname"><span class="pre">enableSymbologiesForCompositeTypes(compositeTypes)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.BarcodeCaptureSettings.EnableSymbologiesForCompositeTypes" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">enableSymbologiesForCompositeTypes</span>(<a class="reference external" href="https://api.flutter.dev/flutter/dart-core/Set-class.html" title="Set">Set</a>&lt;<a class="reference internal" href="composite-type.html#enum-scandit.datacapture.barcode.CompositeType" title="CompositeType enum">CompositeType</a>&gt; <em>compositeTypes</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Enables all symbologies needed for the given <a class="reference internal" href="composite-type.html#enum-scandit.datacapture.barcode.CompositeType" title="composite types enum">composite types</a>. To enable composite codes scanning it is also needed to enable the composite types through <a class="reference internal" href="#property-scandit.datacapture.barcode.BarcodeCaptureSettings.EnabledCompositeTypes" title="enabledCompositeTypes property">enabledCompositeTypes</a>.
+By default, all symbologies are turned off and symbologies need to be explicitly enabled.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.BarcodeCaptureSettings.EnabledCompositeTypes">
+<span class="sig-name descname"><span class="pre">enabledCompositeTypes</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.BarcodeCaptureSettings.EnabledCompositeTypes" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/Set-class.html" title="Set">Set</a>&lt;<a class="reference internal" href="composite-type.html#enum-scandit.datacapture.barcode.CompositeType" title="CompositeType enum">CompositeType</a>&gt; enabledCompositeTypes</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>The enabled <a class="reference internal" href="composite-type.html#enum-scandit.datacapture.barcode.CompositeType" title="composite types enum">composite types</a>. To enable composite codes scanning it is also needed to enable the symbologies that make up the specific type of composite code through <a class="reference internal" href="#method-scandit.datacapture.barcode.BarcodeCaptureSettings.EnableSymbologiesForCompositeTypes" title="enableSymbologiesForCompositeTypes() method">enableSymbologiesForCompositeTypes()</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.BarcodeCaptureSettings.LocationSelection">
+<span class="sig-name descname"><span class="pre">locationSelection</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.BarcodeCaptureSettings.LocationSelection" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../../core/api/location-selection.html#interface-scandit.datacapture.core.ILocationSelection" title="LocationSelection interface">LocationSelection</a>? locationSelection</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Defines the strategy with which to select one out of many visible barcodes. See <a class="reference internal" href="../../scan-area.html"><span class="doc">Location Selection Guide</span></a>. By default, this property is <em>null</em> and code selection is disabled.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "546984360348",
+    "project_id": "atc-medscan2",
+    "storage_bucket": "atc-medscan2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546984360348:android:f8ef41a7b3bb5556dc7059",
+        "android_client_info": {
+          "package_name": "com.mycompany.atcprotov5"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546984360348-j0q1kknghdn4cb1fik8hb8m9lpk3vuis.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs8XhnzA_w3SdiV-qiaQpVFiq3-ZG0TJg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546984360348-j0q1kknghdn4cb1fik8hb8m9lpk3vuis.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "546984360348-llvadgadpbredmlpnfnidf6ruia4ce8m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.atcprotov5"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

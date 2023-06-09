@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scandit Flutter DataCapture Core &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Brush" href="../ui/brush.html" />
+    <link rel="prev" title="Viewfinder" href="../viewfinder.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../overview.html">ScanditCaptureCore</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../concepts.html">Core Concepts of the Scandit Data Capture SDK</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../api.html">API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aimer-viewfinder.html">Aimer Viewfinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../anchor.html">Anchor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../camera.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../camera-settings.html">Camera Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../combined-viewfinder.html">Combined Viewfinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common.html">Common Data Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../context-status.html">Context Status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data-capture-component.html">Data Capture Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data-capture-context.html">Data Capture Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data-capture-context-builder.html">Data Capture Context Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data-capture-context-frame-listener.html">Data Capture Context Frame Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data-capture-context-listener.html">Data Capture Context Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data-capture-context-settings.html">Data Capture Context Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data-capture-error.html">DataCaptureError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data-capture-mode.html">Data Capture Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data-capture-version.html">Data Capture Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../direction.html">Direction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../feedback.html">Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../frame-data.html">Frame Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../frame-source.html">Frame Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../frame-source-listener.html">Frame Source Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../image-frame-source.html">ImageFrameSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../laserline-viewfinder.html">Laserline Viewfinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../license-info.html">License Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../location-selection.html">Location Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radius-location-selection.html">Radius Location Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rectangular-location-selection.html">Rectangular Location Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rectangular-viewfinder.html">Rectangular Viewfinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rectangular-viewfinder-animation.html">Rectangular Viewfinder Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sequence-frame-source.html">SequenceFrameSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spotlight-viewfinder.html">Spotlight Viewfinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../viewfinder.html">Viewfinder</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Scandit Flutter DataCapture Core</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/brush.html">Brush</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/camera-switch-control.html">Camera Switch Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/color-fill-overlay.html">Color Fill Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/control.html">Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/data-capture-overlay.html">Data Capture Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/data-capture-view-listener.html">Data Capture View Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/data-capture-view-size-listener.html">Data Capture View Size Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/data-capture-view.html">Data Capture View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/device-orientation-mapper.html">Device Orientation Mapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/focus-gesture-listener.html">Focus Gesture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/focus-gesture.html">Focus Gestures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/linear-control-group.html">Linear Control Group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/logo-style.html">Logo Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/torch-switch-control.html">Torch Switch Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/zoom-gesture-listener.html">Zoom Gesture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/zoom-gesture.html">Zoom Gestures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui/zoom-switch-control.html">Zoom Switch Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#initialization">Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#camera-and-frame-sources">Camera and Frame Sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#context-and-capture-modes">Context and Capture Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#location-selection">Location Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#user-interface">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#misc-data-structures">Misc Data Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#misc">Misc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#deserialization">Deserialization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../overview.html">ScanditCaptureCore</a> &raquo;</li>
+          <li><a href="../../api.html">ScanditCaptureCore API</a> &raquo;</li>
+      <li>Scandit Flutter DataCapture Core</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="scandit-flutter-datacapture-core">
+<h1>Scandit Flutter DataCapture Core<a class="headerlink" href="#scandit-flutter-datacapture-core" title="Permalink to this headline"></a></h1>
+<p>Defined in library <em>scandit_datacapture_core</em></p>
+<dl>
+<dt class="sig sig-object unilang" id="class-scandit.datacapture.core.ScanditFlutterDataCaptureCore">
+<span class="sig-name descname"><span class="pre">ScanditFlutterDataCaptureCore</span></span><a class="headerlink" href="#class-scandit.datacapture.core.ScanditFlutterDataCaptureCore" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class ScanditFlutterDataCaptureCore</span></pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>The container class of the module. Includes only one method, which initializes the core plugin.</p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.ScanditFlutterDataCaptureCore.Initialize">
+<span class="sig-name descname"><span class="pre">initialize()</span></span><a class="headerlink" href="#method-scandit.datacapture.core.ScanditFlutterDataCaptureCore.Initialize" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">static <a class="reference external" href="https://api.flutter.dev/flutter/dart-async/Future-class.html" title="Future">Future</a>&lt;<code class="docutils literal notranslate"><span class="pre">void</span></code>&gt; <span class="sig-name descname">initialize</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Initializes the core plugin. You need to invoke this method before accessing any of the Scandit Data Capture SDK functionality. The method is internally invoked by <a class="reference internal" href="../../../barcode-capture/api/scandit-flutter-datacapture-barcode.html#method-scandit.datacapture.barcode.ScanditFlutterDataCaptureBarcode.Initialize" title="ScanditFlutterDataCaptureBarcode.initialize() method">ScanditFlutterDataCaptureBarcode.initialize()</a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scan Composite Codes &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Barcode Tracking Scenarios" href="barcode-tracking-scenarios.html" />
+    <link rel="prev" title="Scan Add-On/Extension Codes" href="scan-add-on-codes.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">ScanditBarcodeCapture</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="symbology-properties.html">Symbology Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scan-add-on-codes.html">Scan Add-On/Extension Codes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Scan Composite Codes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#available-composite-codes">Available Composite Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enabling-composite-codes">Enabling Composite Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improving-composite-code-recognition-rate">Improving Composite Code Recognition Rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-composite-code-data">Reading Composite Code Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avoiding-the-scanning-of-barcodes-without-composite">Avoiding the Scanning of Barcodes without Composite</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="barcode-tracking-scenarios.html">Barcode Tracking Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="overview.html">ScanditBarcodeCapture</a> &raquo;</li>
+      <li>Scan Composite Codes</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="scan-composite-codes">
+<h1>Scan Composite Codes<a class="headerlink" href="#scan-composite-codes" title="Permalink to this headline"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Composite codes are only supported in <a class="reference internal" href="api/barcode-capture.html#class-scandit.datacapture.barcode.BarcodeCapture" title="BarcodeCapture class">BarcodeCapture</a>.</p>
+</div>
+<p>The Scandit Data Capture SDK supports all GS1 Composite Codes as defined in ISO/IEC 24723:2010. The specification defines three different types: A, B and C.</p>
+<div class="admonition-before-you-start admonition">
+<p class="admonition-title">Before you start…</p>
+<p>To get the most out of this guide, we recommend that you have read the following articles:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../get-started-barcode.html"><span class="doc">Get Started With Barcode Capture</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="available-composite-codes">
+<h2>Available Composite Codes<a class="headerlink" href="#available-composite-codes" title="Permalink to this headline"></a></h2>
+<p>As mentioned above there are three types of composite codes.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 67%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>GS1 Composite Code A (CC-A)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Extends a linear GS1 barcode using an additional MicroPDF417 code.</p></li>
+<li><p>Optimized to use as little space as possible.</p></li>
+<li><p>Only a special set of MicroPDF417 column, row and error correction level combinations can be used.</p></li>
+<li><p>Data is encoded in a special base 928 compaction mode.</p></li>
+<li><p>Three column version has no left row address patterns.</p></li>
+</ul>
+</td>
+<td><img alt="../_images/composite_type_a.png" src="../_images/composite_type_a.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>GS1 Composite Code B (CC-B)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Extends a linear GS1 barcode using an additional MicroPDF417 code.</p></li>
+<li><p>A subset of the MicroPDF417 column and row combinations can be used.</p></li>
+<li><p>Marked by the (Micro)PDF417 symbol 920 at the first position.</p></li>
+<li><p>(Micro)PDF417 data is encoded in byte compaction mode.</p></li>
+</ul>
+</td>
+<td><img alt="../_images/composite_type_b.png" src="../_images/composite_type_b.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>GS1 Composite Code C (CC-C)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Extends a GS1-128 (Code 128) barcode using an additional PDF417 code.</p></li>
+<li><p>Same encoding as CC-B.</p></li>
+</ul>
+</td>
+<td><img alt="../_images/composite_type_c.png" src="../_images/composite_type_c.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<p>For composite code A and B the 2d component is always a <a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.MicroPdf417" title="microPdf417 value">microPdf417</a>. The 1d component can be any of the following symbologies:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.Ean13Upca" title="ean13Upca value">ean13Upca</a></p></li>
+<li><p><a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.Ean8" title="ean8 value">ean8</a></p></li>
+<li><p><a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.Upce" title="upce value">upce</a></p></li>
+<li><p><a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.Gs1Databar" title="gs1Databar value">gs1Databar</a></p></li>
+<li><p><a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.Gs1DatabarExpanded" title="gs1DatabarExpanded value">gs1DatabarExpanded</a></p></li>
+<li><p><a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.Gs1DatabarLimited" title="gs1DatabarLimited value">gs1DatabarLimited</a></p></li>
+</ul>
+<p>For composite code C the 2d component is always <a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.Pdf417" title="pdf417 value">pdf417</a> while the 1d component is <a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.Code128" title="code128 value">code128</a>.</p>
+</div>
+<div class="section" id="enabling-composite-codes">
+<h2>Enabling Composite Codes<a class="headerlink" href="#enabling-composite-codes" title="Permalink to this headline"></a></h2>
+<p>Composite code scanning is enabled in the <a class="reference internal" href="api/barcode-capture-settings.html#class-scandit.datacapture.barcode.BarcodeCaptureSettings" title="BarcodeCaptureSettings class">BarcodeCaptureSettings</a>. There are two parts to enable them:</p>
+<ul class="simple">
+<li><p>One or more composite types need to be enabled through <a class="reference internal" href="api/barcode-capture-settings.html#property-scandit.datacapture.barcode.BarcodeCaptureSettings.EnabledCompositeTypes" title="enabledCompositeTypes property">enabledCompositeTypes</a></p></li>
+<li><p>The symbologies associated with those composite types need to be enabled through <a class="reference internal" href="api/barcode-capture-settings.html#method-scandit.datacapture.barcode.BarcodeCaptureSettings.EnableSymbologiesForCompositeTypes" title="enableSymbologiesForCompositeTypes() method">enableSymbologiesForCompositeTypes()</a>.</p></li>
+</ul>
+<p>For example if scanning of composite code A should be enabled:</p>
+<ul class="simple">
+<li><p>First <a class="reference internal" href="api/composite-type.html#value-scandit.datacapture.barcode.CompositeType.A" title="CompositeType.a value">CompositeType.a</a> is enabled with a call to <a class="reference internal" href="api/barcode-capture-settings.html#property-scandit.datacapture.barcode.BarcodeCaptureSettings.EnabledCompositeTypes" title="enabledCompositeTypes property">enabledCompositeTypes</a></p></li>
+<li><p>With a call to <a class="reference internal" href="api/barcode-capture-settings.html#method-scandit.datacapture.barcode.BarcodeCaptureSettings.EnableSymbologiesForCompositeTypes" title="enableSymbologiesForCompositeTypes() method">enableSymbologiesForCompositeTypes()</a> passing <a class="reference internal" href="api/composite-type.html#value-scandit.datacapture.barcode.CompositeType.A" title="CompositeType.a value">CompositeType.a</a> the following symbologies will be enabled (see also previous section):</p>
+<ul>
+<li><p><a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.Ean13Upca" title="ean13Upca value">ean13Upca</a></p></li>
+<li><p><a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.Ean8" title="ean8 value">ean8</a></p></li>
+<li><p><a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.Upce" title="upce value">upce</a></p></li>
+<li><p><a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.Gs1Databar" title="gs1Databar value">gs1Databar</a></p></li>
+<li><p><a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.Gs1DatabarExpanded" title="gs1DatabarExpanded value">gs1DatabarExpanded</a></p></li>
+<li><p><a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.Gs1DatabarLimited" title="gs1DatabarLimited value">gs1DatabarLimited</a></p></li>
+<li><p><a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.MicroPdf417" title="microPdf417 value">microPdf417</a></p></li>
+</ul>
+</li>
+</ul>
+<p>The same can be accomplished by individually enabling all of these symbologies with <a class="reference internal" href="api/barcode-capture-settings.html#method-scandit.datacapture.barcode.BarcodeCaptureSettings.EnableSymbology" title="enableSymbology() method">enableSymbology()</a>. <a class="reference internal" href="api/barcode-capture-settings.html#method-scandit.datacapture.barcode.BarcodeCaptureSettings.EnableSymbologiesForCompositeTypes" title="enableSymbologiesForCompositeTypes() method">enableSymbologiesForCompositeTypes()</a> is simply a convenience function to enable all at once for a certain composite type. If you only want to scan a subset of the possible symbologies of a composite type then you should only enable those. It is not possible to disable a specific symbology, like <a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.Gs1DatabarExpanded" title="Symbology.gs1DatabarExpanded value">Symbology.gs1DatabarExpanded</a> for <a class="reference internal" href="api/composite-type.html#value-scandit.datacapture.barcode.CompositeType.A" title="CompositeType.a value">CompositeType.a</a> but keep it enabled for <a class="reference internal" href="api/composite-type.html#value-scandit.datacapture.barcode.CompositeType.B" title="CompositeType.b value">CompositeType.b</a>, it is either enabled for both or neither.</p>
+<p>The following lines of code show you how this is done to enable scanning of composite codes A and C. Composite code B will not be recognized in these examples as <a class="reference internal" href="api/composite-type.html#value-scandit.datacapture.barcode.CompositeType.B" title="CompositeType.b value">CompositeType.b</a> is not enabled:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">compositeTypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">CompositeType</span><span class="p">.</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">CompositeType</span><span class="p">.</span><span class="n">c</span><span class="p">};</span><span class="w"></span>
+
+<span class="kd">var</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeCaptureSettings</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="p">..</span><span class="n">enableSymbologiesForCompositeTypes</span><span class="p">(</span><span class="n">compositeTypes</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">..</span><span class="n">enabledCompositeTypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">compositeTypes</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Enabling composite codes will slow down the recognition of non-composite codes slightly because the Scandit Data Capture SDK needs to make absolutely sure that no composite code was missed. If you are not expecting composite codes, you should not enable them.</p>
+</div>
+</div>
+<div class="section" id="improving-composite-code-recognition-rate">
+<h2>Improving Composite Code Recognition Rate<a class="headerlink" href="#improving-composite-code-recognition-rate" title="Permalink to this headline"></a></h2>
+<p>The <a class="reference internal" href="api/symbology.html#value-scandit.datacapture.barcode.Symbology.MicroPdf417" title="Symbology.microPdf417 value">Symbology.microPdf417</a> is contained in all composite code A and B but is generally not very easy to recognize in a large scan area because of its compressed size. To improve the recognition rate it is advised to restrict the scan area when scanning Composite Code A and B which ist best done through a <a class="reference internal" href="../scan-area.html#scan-area-rectangular-location-selection"><span class="std std-ref">rectangular location selection</span></a>.</p>
+</div>
+<div class="section" id="reading-composite-code-data">
+<h2>Reading Composite Code Data<a class="headerlink" href="#reading-composite-code-data" title="Permalink to this headline"></a></h2>
+<p>When composite codes are enabled the Scandit Data Capture SDK automatically couples the composites to the main code and returns the composite’s data through <a class="reference internal" href="api/barcode.html#property-scandit.datacapture.barcode.Barcode.CompositeData" title="Barcode.compositeData property">Barcode.compositeData</a> and <a class="reference internal" href="api/barcode.html#property-scandit.datacapture.barcode.Barcode.CompositeRawData" title="Barcode.compositeRawData property">Barcode.compositeRawData</a>. There are two potential cases when a barcode of a symbology with enabled composite extension is returned:</p>
+<ul class="simple">
+<li><p>The barcode has a composite and is returned with composite data</p></li>
+<li><p>The barcode does not have an composite and is returned without composite data</p></li>
+</ul>
+<p>Inside <a class="reference internal" href="api/barcode-capture-listener.html#method-scandit.datacapture.barcode.IBarcodeCaptureListener.OnBarcodeScanned" title="BarcodeCaptureListener.didScan() method">BarcodeCaptureListener.didScan()</a> the data can be retrieved from the recognized barcode as follows:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">barcode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="n">newlyRecognizedBarcodes</span><span class="p">.</span><span class="n">first</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">var</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">barcode</span><span class="p">.</span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="n">compositeData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">barcode</span><span class="p">.</span><span class="n">compositeData</span><span class="p">;</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">compositeData</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Do something with the data &amp; compositeData.</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Do something with just the data.</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="avoiding-the-scanning-of-barcodes-without-composite">
+<h2>Avoiding the Scanning of Barcodes without Composite<a class="headerlink" href="#avoiding-the-scanning-of-barcodes-without-composite" title="Permalink to this headline"></a></h2>
+<p>For a use-case where only composite codes should be scanned but no single barcodes, the same type of rejection as shown in the <a class="reference internal" href="../samples/run-samples.html"><span class="doc">Barcode Capture Reject Sample</span></a> can be used.</p>
+<p>If composite data is available:</p>
+<ul class="simple">
+<li><p>Manually emit feedback</p></li>
+<li><p>Change the overlay’s brush to the default</p></li>
+</ul>
+<p>If no composite data is available:</p>
+<ul class="simple">
+<li><p>Don’t emit any feedback</p></li>
+<li><p>Change the overlay’s brush to transparent</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

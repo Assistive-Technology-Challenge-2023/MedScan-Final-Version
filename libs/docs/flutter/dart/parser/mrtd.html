@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MRTD &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Swiss QR" href="swissqr.html" />
+    <link rel="prev" title="DL/ID" href="dlid.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="formats.html">Supported Data Formats</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hibc.html">HIBC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gs1ai.html">GS1 AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dlid.html">DL/ID</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MRTD</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#regex-patterns">Regex patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#icao-mrtds">ICAO MRTDs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-fields">Common fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#td3-fields">TD3 fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mrv-fields">MRV fields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mrtd-extensions">MRTD extensions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#td2-frenchid-fields">TD2/FrenchID fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#swiss-driving-license-fields">Swiss Driving License fields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#parser-options">Parser Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metadata">Metadata</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="swissqr.html">Swiss QR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vin.html">VIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="us_usid.html">US Uniformed Services</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">ScanditParser</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="formats.html">Supported Data Formats</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hibc.html">HIBC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gs1ai.html">GS1 AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dlid.html">DL/ID</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MRTD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#regex-patterns">Regex patterns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#icao-mrtds">ICAO MRTDs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mrtd-extensions">MRTD extensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parser-options">Parser Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metadata">Metadata</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="swissqr.html">Swiss QR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vin.html">VIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us_usid.html">US Uniformed Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="result-object.html">Result Object Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="formats.html">Supported Data Formats</a> &raquo;</li>
+      <li>MRTD</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="mrtd">
+<h1>MRTD<a class="headerlink" href="#mrtd" title="Permalink to this headline"></a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<p>The parser supports all versions of Machine Readable Travel Documents (MRTD) specified by the International Civil Aviation Organization (ICAO).</p>
+<p>The ICAO specifies four types of MRTDs:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.icao.int/publications/Documents/9303_p5_cons_en.pdf">TD1</a> (id cards)</p></li>
+<li><p><a class="reference external" href="https://www.icao.int/publications/Documents/9303_p6_cons_en.pdf">TD2</a> (other official travel documents)</p></li>
+<li><p><a class="reference external" href="https://www.icao.int/publications/Documents/9303_p4_cons_en.pdf">TD3/MRP</a> (passports)</p></li>
+<li><p><a class="reference external" href="https://www.icao.int/publications/Documents/9303_p7_cons_en.pdf">MRV (A &amp; B)</a> (visas)</p></li>
+</ul>
+<p>In addition, the parser supports the following non-ICAO standards:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.astra2.admin.ch/media/pdfpub/2003-10-20_2261_d.pdf">SwissDL</a> (Swiss driving license)</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/National_identity_card_(France)">TD2/FrenchID</a> (French identity card)</p></li>
+</ul>
+</div>
+<div class="section" id="regex-patterns">
+<h2>Regex patterns<a class="headerlink" href="#regex-patterns" title="Permalink to this headline"></a></h2>
+<p>Use the following regex pattern to filter out MRTD codes:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Regex</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TD1 Regex Pattern</p></td>
+<td><p>([A-Z0-9&lt;]{30}\n?){3}</p></td>
+</tr>
+<tr class="row-odd"><td><p>TD2 Regex Pattern</p></td>
+<td><p>([A-Z0-9&lt;]{36}\n?){2}</p></td>
+</tr>
+<tr class="row-even"><td><p>TD2 French Regex Pattern</p></td>
+<td><p>Same as TD2 Regex Pattern</p></td>
+</tr>
+<tr class="row-odd"><td><p>TD3 Regex Pattern</p></td>
+<td><p>([A-Z0-9&lt;]{44}\n?){2}</p></td>
+</tr>
+<tr class="row-even"><td><p>MRV_A Regex Pattern</p></td>
+<td><p>Same as TD2 Regex Pattern</p></td>
+</tr>
+<tr class="row-odd"><td><p>MRV_B Regex Pattern</p></td>
+<td><p>Same as TD3 Regex Pattern</p></td>
+</tr>
+<tr class="row-even"><td><p>Swiss Driving License Regex Pattern</p></td>
+<td><p>[A-Z0-9&lt;]{9}\n([A-Z0-9&lt;]{30}\n?){2}</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="icao-mrtds">
+<h2>ICAO MRTDs<a class="headerlink" href="#icao-mrtds" title="Permalink to this headline"></a></h2>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline"></a></h3>
+<p>Parsing the following code (without quotes, source: 2015 ICAO Doc 9303, Specifications for TD1 Sized MRTDs, <a class="reference external" href="https://www.icao.int">https://www.icao.int</a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;I&lt;UTOD231458907&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="se">\n</span><span class="s2">7408122F1204159UTO&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;6</span><span class="se">\n</span><span class="s2">ERIKSSON&lt;&lt;ANNA&lt;MARIA&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span>
+</pre></div>
+</div>
+<p>will result in the following JSON output:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;documentType&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;td1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="p">},</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;documentCode&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;I&lt;&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="p">},</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;issuingState&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;UTO&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;UTO&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="p">},</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;documentNumber&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;D23145890&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;D23145890&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="p">},</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;optional&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="p">},</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;birthDate&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                 </span><span class="s2">&quot;day&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">12</span><span class="p">,</span><span class="w"></span>
+<span class="w">                 </span><span class="s2">&quot;month&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"></span>
+<span class="w">                 </span><span class="s2">&quot;year&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">74</span><span class="w"></span>
+<span class="w">          </span><span class="p">},</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;740812&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="p">},</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sex&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;female&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;F&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="p">},</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;expiryDate&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                 </span><span class="s2">&quot;day&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">15</span><span class="p">,</span><span class="w"></span>
+<span class="w">                 </span><span class="s2">&quot;month&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"></span>
+<span class="w">                 </span><span class="s2">&quot;year&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">12</span><span class="w"></span>
+<span class="w">          </span><span class="p">},</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;120415&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="p">},</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;nationality&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;UTO&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;UTO&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="p">},</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;optional1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="p">},</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                 </span><span class="s2">&quot;primary&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;ERIKSSON&quot;</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
+<span class="w">                 </span><span class="s2">&quot;secondary&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;ANNA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;MARIA&quot;</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
+<span class="w">                 </span><span class="s2">&quot;truncated&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">          </span><span class="p">},</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ERIKSSON&lt;&lt;ANNA&lt;MARIA&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="p">},</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;metadata&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                 </span><span class="s2">&quot;checksumValidation&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="s2">&quot;birthDate&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s2">&quot;compositeChecksum&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s2">&quot;documentNumber&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s2">&quot;expiryDate&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">                 </span><span class="p">}</span><span class="w"></span>
+<span class="w">          </span><span class="p">},</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="common-fields">
+<h3>Common fields<a class="headerlink" href="#common-fields" title="Permalink to this headline"></a></h3>
+<p>The four types of MRTDs specified by the ICAO share most of the fields encoded in the Machine Readable Zone (MRZ) of the travel document.</p>
+<p>The following fields are exposed for all ICAO MRTDs:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 25%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Data Element ID</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Parsed Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>documentType</p></td>
+<td><p>Document Type</p></td>
+<td><p>One of the following values:</p>
+<ul class="simple">
+<li><p>‘td1’</p></li>
+<li><p>‘td2’</p></li>
+<li><p>‘td3/mrp’</p></li>
+<li><p>‘mrv’</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>documentCode</p></td>
+<td><p>Document Type Code</p></td>
+<td><p>One of the following values:</p>
+<ul class="simple">
+<li><p>‘P[passport type id]’ - indicates a passport,</p></li>
+<li><p>‘ID’ - indicates an id card,</p></li>
+<li><p>‘CA’ - indicates a Canada permanent resident card</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>documentNumber</p></td>
+<td><p>Document Number / Passport Number</p></td>
+<td><p>String with the following interpretation:</p>
+<ul class="simple">
+<li><p>TD1 &amp; TD2: uniquely identifies the document from all other MRTDs issued by the State or organization.</p></li>
+<li><p>TD3/MRP: Passport number</p></li>
+<li><p>MRV: Either the passport number or the visa number, at the discretion of the issuing State.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>expiryDate</p></td>
+<td><p>Date of expiry</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘year’ : YY,</p></li>
+<li><p>‘month’: MM,</p></li>
+<li><p>‘day’ : DD</p></li>
+</ul>
+<p>with YY, MM, DD as integers. Entries are omitted from the dictionary if they are not specified by the input.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>issuingState</p></td>
+<td><p>Issuing State</p></td>
+<td><p>Three-letter string specified in ICAO document 9303-3.</p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>Name</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘primary’: [primary identifiers, e.g., surname]</p></li>
+<li><p>‘secondary’: [secondary identifiers, e.g., given name or titles]</p></li>
+<li><p>‘truncated’: boolean, indicates whether primary or secondary identifiers are truncated</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>birthDate</p></td>
+<td><p>Date of birth</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘year’ : YY,</p></li>
+<li><p>‘month’: MM,</p></li>
+<li><p>‘day’ : DD</p></li>
+</ul>
+<p>with YY, MM, DD as integers. Entries are omitted from the dictionary if they are not specified by the input.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>sex</p></td>
+<td><p>Sex</p></td>
+<td><p>One of the following values:</p>
+<ul class="simple">
+<li><p>‘female’</p></li>
+<li><p>‘male’</p></li>
+<li><p>‘nonspecified’</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>nationality</p></td>
+<td><p>Nationality</p></td>
+<td><p>Three-letter string specified in ICAO document 9303-3.</p></td>
+</tr>
+<tr class="row-odd"><td><p>optional</p></td>
+<td><p>Optional Data</p></td>
+<td><p>For use of the issuing State or organization.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Please refer to the following sections for deviations from the the above table.</p>
+</div>
+<div class="section" id="td3-fields">
+<h3>TD3 fields<a class="headerlink" href="#td3-fields" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>‘optional’: Usually employed to store the document holder’s personal number.</p></li>
+</ul>
+</div>
+<div class="section" id="mrv-fields">
+<h3>MRV fields<a class="headerlink" href="#mrv-fields" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>‘documentNumber’: At the discretion of the issuing State, either the passport number or the visa number shall be used in this field.</p></li>
+<li><p>‘expiryDate’: In most cases this will be the date of expiry of the MRV and indicates the last day on which the visa can be used to seek entry. For some States this will be the date by or on which the holder should have left.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="mrtd-extensions">
+<h2>MRTD extensions<a class="headerlink" href="#mrtd-extensions" title="Permalink to this headline"></a></h2>
+<div class="section" id="td2-frenchid-fields">
+<h3>TD2/FrenchID fields<a class="headerlink" href="#td2-frenchid-fields" title="Permalink to this headline"></a></h3>
+<p>The French ID format is different then other ICAO formats in Common and does not contain all information described in the common fields section.
+For clarity, there is a complete example of TD2/FrenchID format.</p>
+<p>Parsing the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;IDFRABOITON&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;382020</span><span class="se">\n</span><span class="s2">1203382018024PIERRE&lt;&lt;EMMANU8712068M5</span><span class="se">\n</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>will result in the following JSON output:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;documentCode&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ID&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ID&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;issuingCountry&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FRA&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FRA&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;lastName&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;lastName&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;BOITON&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;truncated&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;BOITON&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;officeOfIssuance&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;020&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;dateOfIssuance&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;month&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;year&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">12</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1203&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;departmentOfIssuance&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;382&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;382&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;managementCenterSign&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1802</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;01802&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;firstNames&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;firstNames&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;PIERRE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;EMMANU&quot;</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;truncated&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;PIERRE&lt;&lt;EMMANU&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;birthDate&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;day&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;month&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">12</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;year&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">87</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;871206&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sex&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;male&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;M&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;documentType&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;td2/frenchID&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;metadata&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;checksumValidation&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;birthDate&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;compositeChecksum&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;issuanceInformation&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The following fields are exposed for TD2/FrenchID:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 25%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Data Element ID</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Parsed Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>documentType</p></td>
+<td><p>Document Type</p></td>
+<td><p>Always has string ‘td2/frenchID’.</p></td>
+</tr>
+<tr class="row-odd"><td><p>documentCode</p></td>
+<td><p>Document Type Code</p></td>
+<td><p>Always has string ‘ID’.</p></td>
+</tr>
+<tr class="row-even"><td><p>issuingState</p></td>
+<td><p>Issuing State</p></td>
+<td><p>Always has string ‘FRA’.</p></td>
+</tr>
+<tr class="row-odd"><td><p>lastName</p></td>
+<td><p>Last name / Surname</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘lastName’: [Last name or surname of ID card owner]</p></li>
+<li><p>‘truncated’: boolean</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>officeOfIssuance</p></td>
+<td><p>Office of issuance</p></td>
+<td><p>Integer that encodes the office of issuance.</p></td>
+</tr>
+<tr class="row-even"><td><p>documentNumber</p></td>
+<td><p>Document Number</p></td>
+<td><p>String that encodes the document number.</p></td>
+</tr>
+<tr class="row-odd"><td><p>dateOfIssuance</p></td>
+<td><p>Date of issuance</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘year’ : YY,</p></li>
+<li><p>‘month’: MM</p></li>
+</ul>
+<p>with YY, MM as integers.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>departmentOfIssuance</p></td>
+<td><p>Department Of issuance</p></td>
+<td><p>String that encodes the department of issuance.</p></td>
+</tr>
+<tr class="row-odd"><td><p>managementCenterSign</p></td>
+<td><p>Management Center Sign</p></td>
+<td><p>Integer assigned by the Management Center in chronological order in relation to the place of issue and the date of application.</p></td>
+</tr>
+<tr class="row-even"><td><p>firstNames</p></td>
+<td><p>First name and given names</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘firstNames’: [First name followed by given names separated]</p></li>
+<li><p>‘truncated’: boolean</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>birthDate</p></td>
+<td><p>Date of birth</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘year’ : YY,</p></li>
+<li><p>‘month’: MM,</p></li>
+<li><p>‘day’ : DD</p></li>
+</ul>
+<p>with YY, MM, DD as integers. Entries are omitted from the dictionary if they are not specified by the input.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>sex</p></td>
+<td><p>Sex</p></td>
+<td><p>One of the following values:</p>
+<ul class="simple">
+<li><p>‘female’</p></li>
+<li><p>‘male’</p></li>
+<li><p>‘nonspecified’</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="swiss-driving-license-fields">
+<h3>Swiss Driving License fields<a class="headerlink" href="#swiss-driving-license-fields" title="Permalink to this headline"></a></h3>
+<p>The Swiss driving license format differs from the other MRTD formats. For example, no check digit is included in the data.
+For clarity, there is a complete example of this format.</p>
+<p>Parsing the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;AKU735D&lt;&lt;</span><span class="se">\n</span><span class="s2">FACHE000231268003&lt;&lt;530727&lt;&lt;&lt;&lt;&lt;</span><span class="se">\n</span><span class="s2">AELLEN&lt;&lt;ROLAND&lt;JOHN&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>will result in the following JSON output:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;documentNumber&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AKU735&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AKU735&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;languageCode&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;D&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;documentCode&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FA&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FA&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;issuingState&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;CHE&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;CHE&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;pinCode&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;000231268&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;000231268&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;versionNumber&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;003&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;003&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;birthDate&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;year&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">53</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;month&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;day&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">27</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;530727&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;primary&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;AELLEN&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;secondary&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;ROLAND&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;JOHN&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;AELLEN&lt;&lt;ROLAND&lt;JOHN&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;documentType&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;swissDL&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;metadata&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;parsed&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;checksumValidation&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;rawString&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The following fields are exposed for Swiss Driving License format:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 25%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Data Element ID</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Parsed Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>documentType</p></td>
+<td><p>Document Type</p></td>
+<td><p>Always has string ‘swissDL’.</p></td>
+</tr>
+<tr class="row-odd"><td><p>documentCode</p></td>
+<td><p>Document Type Code</p></td>
+<td><p>Always has string ‘FA’.</p></td>
+</tr>
+<tr class="row-even"><td><p>languageCode</p></td>
+<td><p>Language Code</p></td>
+<td><p>‘D’/’F’/’I’/’R’.</p></td>
+</tr>
+<tr class="row-odd"><td><p>issuingState</p></td>
+<td><p>Issuing State</p></td>
+<td><p>‘CHE’/’LIE’.</p></td>
+</tr>
+<tr class="row-even"><td><p>pinCode</p></td>
+<td><p>PIN Code</p></td>
+<td><p>9 digit number.</p></td>
+</tr>
+<tr class="row-odd"><td><p>numberVersion</p></td>
+<td><p>Number Version</p></td>
+<td><p>3 digit number.</p></td>
+</tr>
+<tr class="row-even"><td><p>birthDate</p></td>
+<td><p>Date of birth</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘year’ : YY,</p></li>
+<li><p>‘month’: MM,</p></li>
+<li><p>‘day’ : DD</p></li>
+</ul>
+<p>with YY, MM, DD as integers. Entries are omitted from the dictionary if they are not specified by the input.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>Surnames and names</p></td>
+<td><p>Dictionary with these key/value pairs:</p>
+<ul class="simple">
+<li><p>‘primary’: [surnames]</p></li>
+<li><p>‘secondary’: [names]</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="parser-options">
+<h2>Parser Options<a class="headerlink" href="#parser-options" title="Permalink to this headline"></a></h2>
+<p>The parser can be configured by providing a JSON string containing key / value pairs.
+The following configuration options are available:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 25%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Value Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>relaxedChecksumValidation</p></td>
+<td><p>Boolean</p></td>
+<td><p>Enabling this option prevents the parser from failing for invalid checksums. Checksum verification results for the parsed fields are indicated using the ‘metadata’ field.</p></td>
+</tr>
+<tr class="row-odd"><td><p>allowFalsePositiveCompensation</p></td>
+<td><p>Boolean</p></td>
+<td><p>When enabled the parser compensates characters that were recognized incorrectly by the OCR. Should not be used together with relaxedChecksumValidation option. By default set to false.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="metadata">
+<h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline"></a></h2>
+<p>The metadata field provides more information about the parsing of the input’s fields.
+The dictionary encoded in the JSON string of the ‘parsed’ field contains the following
+entries:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 25%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Value Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>checksumValidation</p></td>
+<td><p>Dictionary</p></td>
+<td><p>This dictionary contains a key / value entry for every check digit in the input document with the following properties:</p>
+<ul class="simple">
+<li><p>key: Name of the field associated with the check digit.</p></li>
+<li><p>value: Boolean indicating the success status of the checksum verification.</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

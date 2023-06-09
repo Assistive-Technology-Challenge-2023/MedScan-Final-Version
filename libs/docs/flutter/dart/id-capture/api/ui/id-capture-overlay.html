@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ID Capture Overlay &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="ID Layout" href="id-layout.html" />
+    <link rel="prev" title="VIZ Result" href="../viz-result.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../overview.html">ScanditIdCapture</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../api.html">API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aamva-barcode-result.html">AAMVA Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aamva-viz-barcode-comparison-verifier.html">AAMVA VIZ Barcode Comparison Verifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../argentina-id-barcode-result.html">Argentina ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apec-business-travel-card-mrz-result.html">APEC Business Travel Card MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../captured-id.html">Captured ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../captured-result-type.html">Captured Result Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../china-exit-entry-permit-mrz-result.html">China Exit-Entry Permit MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../china-mainland-travel-permit-mrz-result.html">China Mainland Travel Permit MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../china-one-way-permit-back-mrz-result.html">China One-Way Permit to Hong Kong/Macau Back MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../china-one-way-permit-front-mrz-result.html">China One-Way Permit to Hong Kong/Macau Front MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../colombia-dl-barcode-result.html">Colombia DL Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../colombia-id-barcode-result.html">Colombia ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../date-result.html">Date Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../document-type.html">Document Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../id-capture-exception.html">ID Capture Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../id-capture-listener.html">ID Capture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../id-capture-listener.html#id-capture-advanced-listener">ID Capture Advanced Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../id-capture-session.html">ID Capture Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../id-capture-settings.html">ID Capture Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../id-capture.html">ID Capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../id-document-type.html">ID Document Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../id-image-type.html">ID Image Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../id-supported-document-sides.html">ID Supported Sides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../localized-only-id.html">Localized Only ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mrz-result.html">MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rejected-id.html">Rejected ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scandit-flutter-datacapture-id.html">Scandit Flutter DataCapture Id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../south-africa-dl-barcode-result.html">South Africa DL Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../south-africa-id-barcode-result.html">South Africa ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../us-uniformed-services-barcode-result.html">Us Uniformed Services Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../viz-result.html">VIZ Result</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ID Capture Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-layout.html">ID Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#deserialization">Deserialization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../overview.html">ScanditIdCapture</a> &raquo;</li>
+          <li><a href="../../api.html">ScanditIdCapture API</a> &raquo;</li>
+      <li>ID Capture Overlay</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="id-capture-overlay">
+<h1>ID Capture Overlay<a class="headerlink" href="#id-capture-overlay" title="Permalink to this headline"></a></h1>
+<p>Defined in library <em>scandit_datacapture_id_ui</em></p>
+<dl>
+<dt class="sig sig-object unilang" id="enum-scandit.datacapture.id.ui.IdLayoutStyle">
+<span class="sig-name descname"><span class="pre">IdLayoutStyle</span></span><a class="headerlink" href="#enum-scandit.datacapture.id.ui.IdLayoutStyle" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The layout style of the <a class="reference internal" href="#class-scandit.datacapture.id.ui.IdCaptureOverlay" title="IdCaptureOverlay class">IdCaptureOverlay</a>.</p>
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.ui.IdLayoutStyle.Rounded">
+<span class="sig-name descname"><span class="pre">rounded</span></span><a class="headerlink" href="#value-scandit.datacapture.id.ui.IdLayoutStyle.Rounded" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>Layout style with rounded corners.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.ui.IdLayoutStyle.Square">
+<span class="sig-name descname"><span class="pre">square</span></span><a class="headerlink" href="#value-scandit.datacapture.id.ui.IdLayoutStyle.Square" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>Layout style with square corners.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="enum-scandit.datacapture.id.ui.IdLayoutLineStyle">
+<span class="sig-name descname"><span class="pre">IdLayoutLineStyle</span></span><a class="headerlink" href="#enum-scandit.datacapture.id.ui.IdLayoutLineStyle" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The style of the lines drawn as part of the <a class="reference internal" href="id-layout.html#enum-scandit.datacapture.id.ui.IdLayout" title="IdLayout enum">IdLayout</a>.</p>
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.ui.IdLayoutLineStyle.Bold">
+<span class="sig-name descname"><span class="pre">bold</span></span><a class="headerlink" href="#value-scandit.datacapture.id.ui.IdLayoutLineStyle.Bold" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>Draws lines with a width of 5 dips/points.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.ui.IdLayoutLineStyle.Light">
+<span class="sig-name descname"><span class="pre">light</span></span><a class="headerlink" href="#value-scandit.datacapture.id.ui.IdLayoutLineStyle.Light" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>Draws lines with a width of 3 dips/points.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="class-scandit.datacapture.id.ui.IdCaptureOverlay">
+<span class="sig-name descname"><span class="pre">IdCaptureOverlay</span></span><a class="headerlink" href="#class-scandit.datacapture.id.ui.IdCaptureOverlay" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class IdCaptureOverlay</span> : <a class="reference internal" href="../../../core/api/ui/data-capture-overlay.html#interface-scandit.datacapture.core.ui.IDataCaptureOverlay" title="DataCaptureOverlay interface">DataCaptureOverlay</a></pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>Overlay that guides the user through the <a class="reference internal" href="../id-capture.html#class-scandit.datacapture.id.IdCapture" title="IdCapture class">IdCapture</a> process.</p>
+<p>In order to display this overlay, add it to <a class="reference internal" href="../../../core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="data capture view class">data capture view</a>.</p>
+<p>This overlay shows a viewfinder, automatically selected based on <a class="reference internal" href="../id-capture-settings.html#property-scandit.datacapture.id.IdCaptureSettings.SupportedDocuments" title="IdCaptureSettings.supportedDocuments property">IdCaptureSettings.supportedDocuments</a> and <a class="reference internal" href="../id-capture-settings.html#property-scandit.datacapture.id.IdCaptureSettings.SupportedSides" title="IdCaptureSettings.supportedSides property">IdCaptureSettings.supportedSides</a>, along with animations and textual hints, that allow the user to capture smoothly and avoid common pitfalls. It is designed to work out-of-the-box for a wide range of use-cases.</p>
+<p>You can tweak the look of the viewfinder by setting <a class="reference internal" href="#property-scandit.datacapture.id.ui.IdCaptureOverlay.IdLayoutStyle" title="idLayoutStyle property">idLayoutStyle</a> and <a class="reference internal" href="#property-scandit.datacapture.id.ui.IdCaptureOverlay.IdLayoutLineStyle" title="idLayoutLineStyle property">idLayoutLineStyle</a>. Additionally you can configure the brush used to highlight localized, captured, or rejected documents.</p>
+<p>You can translate the texts used by the viewfinder into various languages by adding adding string resources with the following ids to your app:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Resource id</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>scandit_id_capture_camera_too_far</p></td>
+<td><p>Document cannot be captured, because the camera is too far.</p></td>
+</tr>
+<tr class="row-odd"><td><p>scandit_id_capture_document_partially_visible</p></td>
+<td><p>Document cannot be captured, because it’s only partially visible - either covered or not fully fitting the frame of the camera.</p></td>
+</tr>
+<tr class="row-even"><td><p>scandit_id_capture_show_document</p></td>
+<td><p>Ask the user to show a document, front of card capture scenario or multiple document types selected.</p></td>
+</tr>
+<tr class="row-odd"><td><p>scandit_id_capture_show_passport</p></td>
+<td><p>Ask the user to show the passport.</p></td>
+</tr>
+<tr class="row-even"><td><p>scandit_id_capture_show_front_of_document</p></td>
+<td><p>Ask the user to show the front side of a document in the front &amp; back capture scenario.</p></td>
+</tr>
+<tr class="row-odd"><td><p>scandit_id_capture_show_back_of_document</p></td>
+<td><p>Ask the user to show the back side of a document in the front &amp; back capture scenario.</p></td>
+</tr>
+<tr class="row-even"><td><p>scandit_id_capture_show_barcode_on_document</p></td>
+<td><p>Ask the user to show the barcode on a document, either when a barcode type is selected or the back side of a document in the front &amp; back capture scenario contains only a barcode.</p></td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.id.ui.IdCaptureOverlay.NewInstance">
+<span class="sig-name descname"><span class="pre">IdCaptureOverlay.withIdCaptureForView(idCapture,</span> <span class="pre">view)</span></span><a class="headerlink" href="#method-scandit.datacapture.id.ui.IdCaptureOverlay.NewInstance" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">IdCaptureOverlay.withIdCaptureForView</span>(<a class="reference internal" href="../id-capture.html#class-scandit.datacapture.id.IdCapture" title="IdCapture class">IdCapture</a> <em>idCapture</em>,
+        <a class="reference internal" href="../../../core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a>? <em>view</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>Constructs a new id capture overlay for the provided id capture instance. When passing a non-<em>null</em> <strong>view</strong> instance, the overlay is automatically added to the view.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang">
+<span class="sig-name descname"><span class="pre">IdCaptureOverlay.withIdCapture(idCapture)</span></span></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">IdCaptureOverlay.withIdCapture</span>(<a class="reference internal" href="../id-capture.html#class-scandit.datacapture.id.IdCapture" title="IdCapture class">IdCapture</a> <em>idCapture</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>Constructs a new id capture overlay for the provided id capture instance. For the overlay to be displayed on screen, it must be added to a <a class="reference internal" href="../../../core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.id.ui.IdCaptureOverlay.SetIdLayout">
+<span class="sig-name descname"><span class="pre">setIdLayout(idLayout)</span></span><a class="headerlink" href="#method-scandit.datacapture.id.ui.IdCaptureOverlay.SetIdLayout" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">setIdLayout</span>(<a class="reference internal" href="id-layout.html#enum-scandit.datacapture.id.ui.IdLayout" title="IdLayout enum">IdLayout</a> <em>idLayout</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>Sets the kind of UI displayed to assist a user in scanning specific types of personal identification documents.</p>
+<blockquote>
+<div></div></blockquote>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.ui.IdCaptureOverlay.IdLayoutStyle">
+<span class="sig-name descname"><span class="pre">idLayoutStyle</span></span><a class="headerlink" href="#property-scandit.datacapture.id.ui.IdCaptureOverlay.IdLayoutStyle" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="#enum-scandit.datacapture.id.ui.IdLayoutStyle" title="IdLayoutStyle enum">IdLayoutStyle</a> idLayoutStyle</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The ID layout style of the overlay. By default this is <a class="reference internal" href="#value-scandit.datacapture.id.ui.IdLayoutStyle.Rounded" title="IdLayoutStyle.rounded value">IdLayoutStyle.rounded</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.ui.IdCaptureOverlay.IdLayoutLineStyle">
+<span class="sig-name descname"><span class="pre">idLayoutLineStyle</span></span><a class="headerlink" href="#property-scandit.datacapture.id.ui.IdCaptureOverlay.IdLayoutLineStyle" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="#enum-scandit.datacapture.id.ui.IdLayoutLineStyle" title="IdLayoutLineStyle enum">IdLayoutLineStyle</a> idLayoutLineStyle</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The ID layout line style. By default this is <a class="reference internal" href="#value-scandit.datacapture.id.ui.IdLayoutLineStyle.Light" title="IdLayoutLineStyle.light value">IdLayoutLineStyle.light</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.ui.IdCaptureOverlay.View">
+<span class="sig-name descname"><span class="pre">view</span></span><a class="headerlink" href="#property-scandit.datacapture.id.ui.IdCaptureOverlay.View" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../../../core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a>? view</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The view this data capture overlay is attached to. When the data capture overlay is currently not attached to a view, <em>null</em> is returned.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.ui.IdCaptureOverlay.CapturedBrush">
+<span class="sig-name descname"><span class="pre">capturedBrush</span></span><a class="headerlink" href="#property-scandit.datacapture.id.ui.IdCaptureOverlay.CapturedBrush" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> capturedBrush</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The brush used to draw rectangular highlights around captured personal identification documents or their parts such as barcodes or Machine Readable Zones (MRZs). By default it equals <a class="reference internal" href="#property-scandit.datacapture.id.ui.IdCaptureOverlay.DefaultCapturedBrush" title="defaultCapturedBrush property">defaultCapturedBrush</a>.</p>
+<p>To disable highlights use <a class="reference internal" href="../../../core/api/ui/brush.html#method-scandit.datacapture.core.ui.Brush.Transparent" title="Brush.transparent() method">Brush.transparent()</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.ui.IdCaptureOverlay.LocalizedBrush">
+<span class="sig-name descname"><span class="pre">localizedBrush</span></span><a class="headerlink" href="#property-scandit.datacapture.id.ui.IdCaptureOverlay.LocalizedBrush" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> localizedBrush</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The brush used to draw rectangular highlights around localized personal identification documents or their parts such as barcodes or Machine Readable Zones (MRZs). A document or its part is considered localized when it’s detected in a frame, but its data is not yet extracted. By default it equals <a class="reference internal" href="#property-scandit.datacapture.id.ui.IdCaptureOverlay.DefaultLocalizedBrush" title="defaultLocalizedBrush property">defaultLocalizedBrush</a>.</p>
+<p>To disable highlights use <a class="reference internal" href="../../../core/api/ui/brush.html#method-scandit.datacapture.core.ui.Brush.Transparent" title="Brush.transparent() method">Brush.transparent()</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.ui.IdCaptureOverlay.RejectedBrush">
+<span class="sig-name descname"><span class="pre">rejectedBrush</span></span><a class="headerlink" href="#property-scandit.datacapture.id.ui.IdCaptureOverlay.RejectedBrush" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> rejectedBrush</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The brush used to draw rectangular highlights around personal identification documents or their parts (such as barcodes), which were detected in a frame but rejected. For example, data encoded in a barcode may have an unsupported format. By default it equals <a class="reference internal" href="#property-scandit.datacapture.id.ui.IdCaptureOverlay.DefaultRejectedBrush" title="defaultRejectedBrush property">defaultRejectedBrush</a>.</p>
+<p>To disable highlights use <a class="reference internal" href="../../../core/api/ui/brush.html#method-scandit.datacapture.core.ui.Brush.Transparent" title="Brush.transparent() method">Brush.transparent()</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.ui.IdCaptureOverlay.DefaultCapturedBrush">
+<span class="sig-name descname"><span class="pre">defaultCapturedBrush</span></span><a class="headerlink" href="#property-scandit.datacapture.id.ui.IdCaptureOverlay.DefaultCapturedBrush" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">static <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> get defaultCapturedBrush</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The default brush used to draw rectangular highlights around captured personal identification documents or their parts such as barcodes or Machine Readable Zones (MRZs). By default, the stroke of a highlight is 3dp white and the fill is transparent.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.ui.IdCaptureOverlay.DefaultLocalizedBrush">
+<span class="sig-name descname"><span class="pre">defaultLocalizedBrush</span></span><a class="headerlink" href="#property-scandit.datacapture.id.ui.IdCaptureOverlay.DefaultLocalizedBrush" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">static <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> get defaultLocalizedBrush</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The default brush used to draw rectangular highlights around localized personal identification documents or their parts such as barcodes or Machine Readable Zones (MRZs). A document or its part is considered localized when it’s detected in a frame, but its data is not yet extracted. By default, the fill of the highlight is white (alpha 50%) and the border is transparent.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.ui.IdCaptureOverlay.DefaultRejectedBrush">
+<span class="sig-name descname"><span class="pre">defaultRejectedBrush</span></span><a class="headerlink" href="#property-scandit.datacapture.id.ui.IdCaptureOverlay.DefaultRejectedBrush" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">static <a class="reference internal" href="../../../core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="Brush class">Brush</a> get defaultRejectedBrush</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The default brush used to draw rectangular highlights around personal identification documents or their parts (such as barcodes), which were detected in a frame, but rejected. For example, data encoded in a barcode may have an unsupported format. By default, the fill of the highlight is white (alpha 50%) and the border is transparent.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

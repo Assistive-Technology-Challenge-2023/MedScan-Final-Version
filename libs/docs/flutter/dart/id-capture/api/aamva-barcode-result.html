@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AAMVA Barcode Result &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="AAMVA VIZ Barcode Comparison Verifier" href="aamva-viz-barcode-comparison-verifier.html" />
+    <link rel="prev" title="ScanditIdCapture API" href="../api.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">ScanditIdCapture</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">AAMVA Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aamva-viz-barcode-comparison-verifier.html">AAMVA VIZ Barcode Comparison Verifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argentina-id-barcode-result.html">Argentina ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apec-business-travel-card-mrz-result.html">APEC Business Travel Card MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="captured-id.html">Captured ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="captured-result-type.html">Captured Result Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-exit-entry-permit-mrz-result.html">China Exit-Entry Permit MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-mainland-travel-permit-mrz-result.html">China Mainland Travel Permit MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-one-way-permit-back-mrz-result.html">China One-Way Permit to Hong Kong/Macau Back MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-one-way-permit-front-mrz-result.html">China One-Way Permit to Hong Kong/Macau Front MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="colombia-dl-barcode-result.html">Colombia DL Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="colombia-id-barcode-result.html">Colombia ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="date-result.html">Date Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="document-type.html">Document Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-exception.html">ID Capture Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-listener.html">ID Capture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-listener.html#id-capture-advanced-listener">ID Capture Advanced Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-session.html">ID Capture Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-settings.html">ID Capture Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture.html">ID Capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-document-type.html">ID Document Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-image-type.html">ID Image Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-supported-document-sides.html">ID Supported Sides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="localized-only-id.html">Localized Only ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mrz-result.html">MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rejected-id.html">Rejected ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scandit-flutter-datacapture-id.html">Scandit Flutter DataCapture Id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="south-africa-dl-barcode-result.html">South Africa DL Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="south-africa-id-barcode-result.html">South Africa ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us-uniformed-services-barcode-result.html">Us Uniformed Services Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="viz-result.html">VIZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/id-capture-overlay.html">ID Capture Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/id-layout.html">ID Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#deserialization">Deserialization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../overview.html">ScanditIdCapture</a> &raquo;</li>
+          <li><a href="../api.html">ScanditIdCapture API</a> &raquo;</li>
+      <li>AAMVA Barcode Result</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="aamva-barcode-result">
+<h1>AAMVA Barcode Result<a class="headerlink" href="#aamva-barcode-result" title="Permalink to this headline"></a></h1>
+<p>Defined in library <em>scandit_datacapture_id</em></p>
+<dl>
+<dt class="sig sig-object unilang" id="class-scandit.datacapture.id.AamvaBarcodeResult">
+<span class="sig-name descname"><span class="pre">AamvaBarcodeResult</span></span><a class="headerlink" href="#class-scandit.datacapture.id.AamvaBarcodeResult" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class AamvaBarcodeResult</span></pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The ID Capture supports scanning all versions of the AAMVA Driver License/Identification specification (2000, 2003, 2005, 2009, 2010, 2011, 2012, 2013, 2016) used for example in USA or Canada. Some pre-specification codes (before 2000) can also be parsed if they are not far from version 1 standard. Encrypted codes issued in Georgia before 2012 are also currently not supported. More information you can find in <a class="reference external" href="http://www.aamva.org/">http://www.aamva.org/</a>.</p>
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.AamvaVersion">
+<span class="sig-name descname"><span class="pre">aamvaVersion</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.AamvaVersion" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/int-class.html" title="int">int</a> get aamvaVersion</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>Corresponds to the version of the specifications that is implemented in the code: 0=pre-specification, 1=2000, 2=2003, 3=2005, 4=2009, 5=2010, 6=2011, 7=2012, 8=2013, 9=2016.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.JurisdictionVersion">
+<span class="sig-name descname"><span class="pre">jurisdictionVersion</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.JurisdictionVersion" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/int-class.html" title="int">int</a> get jurisdictionVersion</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The jurisdiction specific version number of the implementation.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.IIN">
+<span class="sig-name descname"><span class="pre">iIN</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.IIN" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a> get iIN</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The Issuer Identification Number which uniquely identifies the issuing jurisdiction.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.IssuingJurisdiction">
+<span class="sig-name descname"><span class="pre">issuingJurisdiction</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.IssuingJurisdiction" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a> get issuingJurisdiction</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A human readable name of the issuing jurisdiction (for example: an issuing state, territory or federal district for USA, or an issuing province or territory for Canada).</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.IssuingJurisdictionIso">
+<span class="sig-name descname"><span class="pre">issuingJurisdictionIso</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.IssuingJurisdictionIso" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a> get issuingJurisdictionIso</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The ISO code of the issuing jurisdiction (for example: an issuing state, territory or federal district for USA, or an issuing province or territory for Canada).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The returned value will only contain the jurisdiction specific code: for instance for California the returned value would be “CA” and not “US-CA”.</p>
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.EyeColor">
+<span class="sig-name descname"><span class="pre">eyeColor</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.EyeColor" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get eyeColor</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The eye color of the card holder.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.HairColor">
+<span class="sig-name descname"><span class="pre">hairColor</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.HairColor" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get hairColor</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The hair color of the card holder.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.HeightInch">
+<span class="sig-name descname"><span class="pre">heightInch</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.HeightInch" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/int-class.html" title="int">int</a>? get heightInch</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The height of the card holder in inches.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.HeightCm">
+<span class="sig-name descname"><span class="pre">heightCm</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.HeightCm" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/int-class.html" title="int">int</a>? get heightCm</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The height of the card holder in centimeters.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.WeightLbs">
+<span class="sig-name descname"><span class="pre">weightLbs</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.WeightLbs" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/int-class.html" title="int">int</a>? get weightLbs</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>Thw weight of the card holder in pounds.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.WeightKg">
+<span class="sig-name descname"><span class="pre">weightKg</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.WeightKg" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/int-class.html" title="int">int</a>? get weightKg</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The weight of the card holder in kilograms.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.PlaceOfBirth">
+<span class="sig-name descname"><span class="pre">placeOfBirth</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.PlaceOfBirth" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get placeOfBirth</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The place of birth of the card holder.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.Race">
+<span class="sig-name descname"><span class="pre">race</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.Race" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get race</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The race of the card holder.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.DocumentDiscriminatorNumber">
+<span class="sig-name descname"><span class="pre">documentDiscriminatorNumber</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.DocumentDiscriminatorNumber" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get documentDiscriminatorNumber</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The document discriminator number.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.VehicleClass">
+<span class="sig-name descname"><span class="pre">vehicleClass</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.VehicleClass" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get vehicleClass</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The vehicle classification.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.RestrictionsCode">
+<span class="sig-name descname"><span class="pre">restrictionsCode</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.RestrictionsCode" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get restrictionsCode</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The restriction code.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.EndorsementsCode">
+<span class="sig-name descname"><span class="pre">endorsementsCode</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.EndorsementsCode" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get endorsementsCode</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The endorsement code.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.CardRevisionDate">
+<span class="sig-name descname"><span class="pre">cardRevisionDate</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.CardRevisionDate" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="date-result.html#class-scandit.datacapture.id.DateResult" title="DateResult class">DateResult</a>? get cardRevisionDate</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>Card revision date.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.MiddleName">
+<span class="sig-name descname"><span class="pre">middleName</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.MiddleName" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get middleName</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The middle name of the card holder.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.DriverNameSuffix">
+<span class="sig-name descname"><span class="pre">driverNameSuffix</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.DriverNameSuffix" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get driverNameSuffix</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The name suffix of the card holder.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.DriverNamePrefix">
+<span class="sig-name descname"><span class="pre">driverNamePrefix</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.DriverNamePrefix" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get driverNamePrefix</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The name prefix of the card holder.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.LastNameTruncation">
+<span class="sig-name descname"><span class="pre">lastNameTruncation</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.LastNameTruncation" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get lastNameTruncation</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The last name truncation. A code that indicates whether a field has been truncated (‘T’), has not been truncated (‘N’), unknown whether truncated (‘U’), or the information is not present in the document (<em>null</em>).</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.FirstNameTruncation">
+<span class="sig-name descname"><span class="pre">firstNameTruncation</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.FirstNameTruncation" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get firstNameTruncation</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The first name truncation. A code that indicates whether a field has been truncated (‘T’), has not been truncated (‘N’), unknown whether truncated (‘U’), or the information is not present in the document (<em>null</em>).</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.MiddleNameTruncation">
+<span class="sig-name descname"><span class="pre">middleNameTruncation</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.MiddleNameTruncation" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get middleNameTruncation</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The middle name truncation. A code that indicates whether a field has been truncated (‘T’), has not been truncated (‘N’), unknown whether truncated (‘U’), or the information is not present in the document (<em>null</em>).</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.AliasFamilyName">
+<span class="sig-name descname"><span class="pre">aliasFamilyName</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.AliasFamilyName" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get aliasFamilyName</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>Other family name by which cardholder is known.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.AliasGivenName">
+<span class="sig-name descname"><span class="pre">aliasGivenName</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.AliasGivenName" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get aliasGivenName</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>Other given name by which cardholder is known.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.AliasSuffixName">
+<span class="sig-name descname"><span class="pre">aliasSuffixName</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.AliasSuffixName" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get aliasSuffixName</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>Other suffix name by which cardholder is known.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.AamvaBarcodeResult.BarcodeDataElements">
+<span class="sig-name descname"><span class="pre">barcodeDataElements</span></span><a class="headerlink" href="#property-scandit.datacapture.id.AamvaBarcodeResult.BarcodeDataElements" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/Map-class.html" title="Map">Map</a>&lt;<a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>, <a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>&gt; get barcodeDataElements</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The mappings between all the barcode data element IDs and their values. The keys of this collection are the element IDs as defined in the AAMVA Driver License/Identification specification. For example, the specification defines a data element “Customer First Name” with the ID “DAC”. Therefore if a scanned barcode contains a string “DACMICHAEL”, then this collection will contain a mapping with “DAC” as the key and “MICHAEL” as the value. This collection contains all the data elements of the barcode - including those that are exposed also explicitly as fields of this class.</p>
+<p>See <a class="reference internal" href="../../parser/dlid.html"><span class="doc">DL/ID</span></a> for all the possible keys and their meaning.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

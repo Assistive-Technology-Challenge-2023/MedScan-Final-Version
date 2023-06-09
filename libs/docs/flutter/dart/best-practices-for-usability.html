@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best Practices for Usability &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Get Started With Barcode Capture" href="get-started-barcode.html" />
+    <link rel="prev" title="Add the SDK to Your App" href="add-sdk.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Best Practices for Usability</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#selecting-the-right-modality-for-your-use-case">Selecting the Right Modality for your Use Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#core-pattern-for-single-scanning">Core Pattern for Single Scanning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#starting-the-camera">Starting the camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assist-with-aiming">Assist with aiming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#provide-feedback">Provide feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pausing-between-scans">Pausing between scans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-continuous-scanning-when">Use continuous scanning when</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time-out-when-idle">Time out when idle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#avoiding-unintentional-scans">Avoiding Unintentional Scans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#avoiding-unintentional-scans-using-barcode-selection">Avoiding Unintentional Scans using Barcode Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#look-up-or-verify-info">Look up or Verify Info</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-use-cases">Example Use Cases:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Assist with aiming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Provide feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#show-result">Show result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-items-to-cart-list">Adding items to cart/list</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Example Use Cases:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Starting the camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Assist with aiming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pausing-upon-scan">Pausing upon scan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Provide feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scanning-items-off-a-list">Scanning Items off a List</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Example Use Cases:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Starting the camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assist-with-aiming-using-a-viewfinder">Assist with aiming using a viewfinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-to-pause-between-scans-when-to-scan-continuously">When to pause between scans / when to scan continuously</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Provide feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Show result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ordered-picklist">Ordered Picklist</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Example Use Cases:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-a-split-view">Use a split view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Assist with aiming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pause-between-scans">Pause between scans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Provide feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Show result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#search-and-find-using-matrixscan">Search and Find using MatrixScan</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Example Use Cases:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">Assist with aiming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Show result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#information-lookup-comparison-and-sorting-using-matrixscan-ar">Information Lookup, Comparison and Sorting using MatrixScan AR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Example Use Cases:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">Assist with aiming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#show-result-at-two-levels">Show result at two levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interaction-actions-using-ar">Interaction / actions using AR</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#counting-and-receiving-using-matrixscan-count">Counting and Receiving Using MatrixScan Count</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ui-pattern-for-camera-view">UI Pattern for Camera view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-is-guided-on-how-to-scan-and-how-far-to-stand-when-scanning">User is guided on how to scan and how far to stand when scanning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feedback-is-overlaid-as-ar-icons-on-top-of-scanned-barcodes-via-button-counter-badge-and-via-progress-indicator">Feedback is overlaid as AR icons on top of scanned barcodes, via button counter badge and via progress indicator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finishing-the-process">Finishing the process</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#special-topic-accessibility-and-understandability">Special Topic: Accessibility and Understandability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scandit-provided-viewfinders">Scandit-provided Viewfinders</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Best Practices for Usability</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="best-practices-for-usability">
+<h1>Best Practices for Usability<a class="headerlink" href="#best-practices-for-usability" title="Permalink to this headline"></a></h1>
+<div class="section" id="selecting-the-right-modality-for-your-use-case">
+<h2>Selecting the Right Modality for your Use Case<a class="headerlink" href="#selecting-the-right-modality-for-your-use-case" title="Permalink to this headline"></a></h2>
+<p>Scanning using the smartphone offers users a familiar paradigm of taking a photo or recording a video. Using a smartphone confers <strong>ergonomic and usability benefits</strong> over laser scanners, allows for bring-your-own-device roll-outs, and can offer a total cost of ownership advantage.</p>
+<p>Additionally, scanning multiple codes at once while displaying information with AR opens up exciting new use cases previously not possible with laser scanners.</p>
+<p>However, there are important points to consider, especially when modifying a workflow that previously relied on a laser scanner for input.</p>
+<p>Choosing the right scanning modality for your use case and physical set-up, and implementing the appropriate interactions, are critical factors that will determine the overall usability and the resulting user adoption of your app.</p>
+<p>At the core, there are <strong>basic principles</strong> of design that apply to all scanning interactions: <strong>starting the camera</strong>, <strong>assisting with aiming</strong> and <strong>providing strong and clear feedback</strong>. Beyond the basics, decisions must be made about how and where to display results, indicate progress, when to pause between scans vs. when to keep the scanner running.</p>
+<p>The following paragraphs provide you with core considerations for Single Scanning and Multiple Code Scanning (MatrixScan), as well as detailed guidance for sub-patterns of each.</p>
+<p>This guidance will help you make the right choices for your workflow and physical set-up.</p>
+</div>
+<div class="section" id="core-pattern-for-single-scanning">
+<h2>Core Pattern for Single Scanning<a class="headerlink" href="#core-pattern-for-single-scanning" title="Permalink to this headline"></a></h2>
+<div class="section" id="starting-the-camera">
+<h3>Starting the camera<a class="headerlink" href="#starting-the-camera" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Tapping the entire camera interface to start/resume scanning is the most ergonomic approach.</p></li>
+<li><p>If button is preferred, make touch area large enough for comfortable repeated use.</p></li>
+</ul>
+</div>
+<div class="section" id="assist-with-aiming">
+<h3>Assist with aiming<a class="headerlink" href="#assist-with-aiming" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>A <a class="reference internal" href="core/api/viewfinder.html#interface-scandit.datacapture.core.ui.IViewfinder" title="viewfinder interface">viewfinder</a> communicates that scanning is live and helps indicate how far to hold camera.</p></li>
+<li><p>Restricting the <a class="reference internal" href="scan-area.html"><span class="doc">scan area</span></a> can help with very tough codes or on low end devices.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Indicate the inactive area with a darkened overlay.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Do not over-restrict the area</strong>, as user will feel like they’re scanning through a keyhole and may required the user to align barcodes.</p></li>
+<li><p>See additional guidance under Avoiding Unintentional Scans</p></li>
+</ul>
+</div>
+<div class="section" id="provide-feedback">
+<h3>Provide feedback<a class="headerlink" href="#provide-feedback" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Draw a <a class="reference internal" href="core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="brush overlay class">brush overlay</a> at the location of the detected barcode, clearly confirming to the user that the intended item was scanned.</p></li>
+<li><p>Play sound, vibrate and/or haptic feedback on capture.</p></li>
+</ul>
+</div>
+<div class="section" id="pausing-between-scans">
+<h3>Pausing between scans<a class="headerlink" href="#pausing-between-scans" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Pause by putting camera in <a class="reference internal" href="camera-advanced.html#camera-advanced-standby"><span class="std std-ref">standby mode</span></a> when there are tasks or downtime between scans.</p></li>
+<li><p>Pause if leaving scanner running will result in unintentional scans.</p></li>
+<li><p>Hide viewfinder, show persistent overlay and guidance for how to resume scanning.</p></li>
+</ul>
+</div>
+<div class="section" id="use-continuous-scanning-when">
+<h3>Use continuous scanning when<a class="headerlink" href="#use-continuous-scanning-when" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Leaving the camera running will not result in unintentional scans.</p></li>
+<li><p>There are no interrupting tasks or downtime between scans.</p></li>
+<li><p>Repeated tapping to resume would be burdensome (e.g., when you have a large number of items to scan sequentially).</p></li>
+<li><p>Consider providing a “Hold to Scan” interaction to make scanning action explicitly controlled by the user.</p></li>
+</ul>
+</div>
+<div class="section" id="time-out-when-idle">
+<h3>Time out when idle<a class="headerlink" href="#time-out-when-idle" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Set a timeout after some seconds without scan to conserve battery.</p></li>
+<li><p>Provide guidance for how to resume scanning.</p></li>
+</ul>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video src="_static/usability/parcels_van_loading.mp4" controls width="200" loop></video></td>
+<td><video src="_static/usability/grocery_pick_list.mp4" controls width="200" loop></video></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="avoiding-unintentional-scans">
+<h2>Avoiding Unintentional Scans<a class="headerlink" href="#avoiding-unintentional-scans" title="Permalink to this headline"></a></h2>
+<p>There can be a number of reasons that our scanner <strong>“scans too fast”</strong>. The strategy for avoiding unintentional scans depends on your use case and physical setup.</p>
+<p>Firstly, it should go without saying:</p>
+<ul class="simple">
+<li><p>Only run the scanner when you intend to be scanning!</p></li>
+</ul>
+<p>Where possible, avoid unwanted barcodes <a class="reference internal" href="configure-barcodes.html"><span class="doc">programmatically</span></a> by</p>
+<ul class="simple">
+<li><p>Enabling only the symbology you need</p></li>
+<li><p>Restricting barcode Active Symbol Count</p></li>
+</ul>
+<p>If it’s not possible to select codes programmatically, then</p>
+<ul>
+<li><p><strong>Pause between scans</strong> when information input is needed, or other actions are required. Showing persistent feedback will help the user feel in control.</p></li>
+<li><p><a class="reference internal" href="scan-area.html"><span class="doc">Restricting the scan area</span></a> <strong>can be</strong> helpful to preventing unwanted scans (at the expense of <strong>scan speed</strong>).</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Indicate the inactive area by <a class="reference internal" href="core/api/rectangular-viewfinder.html#property-scandit.datacapture.core.ui.RectangularViewfinder.Dimming" title="dimming property">dimming</a> the area outside of the viewfinder.</p></li>
+<li><p>Do not over-restrict the area, as user will feel like they’re scanning through a keyhole and may have trouble aligning long codes.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Use <a class="reference internal" href="core/api/aimer-viewfinder.html#class-scandit.datacapture.core.ui.AimerViewfinder" title="Aimer class">Aimer</a> or <a class="reference internal" href="core/api/laserline-viewfinder.html#class-scandit.datacapture.core.ui.LaserlineViewfinder" title="Laser class">Laser</a> viewfinder combined with <a class="reference internal" href="core/api/radius-location-selection.html#class-scandit.datacapture.core.RadiusLocationSelection" title="Radius Location Selection class">Radius Location Selection</a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Scan area and viewfinders are not “connected” in the Scandit SDK. It is possible to set a scan area that does not match the viewfinder.</p>
+</div>
+<p><a class="reference internal" href="_images/laser.png"><img alt="laser" src="_images/laser.png" style="width: 45%;" /></a> <a class="reference internal" href="_images/dimming.png"><img alt="dimming" src="_images/dimming.png" style="width: 45%;" /></a></p>
+</div>
+<div class="section" id="avoiding-unintentional-scans-using-barcode-selection">
+<h2>Avoiding Unintentional Scans using Barcode Selection<a class="headerlink" href="#avoiding-unintentional-scans-using-barcode-selection" title="Permalink to this headline"></a></h2>
+<p>Consider <a class="reference internal" href="get-started-barcode-selection.html"><span class="doc">Barcode Selection</span></a> when <strong>accuracy</strong> is more important than <strong>speed</strong>, and when barcodes are so crowded that restricting the scan area will compromise usability.</p>
+<ul class="simple">
+<li><p><strong>Aim to Select</strong> allows you to select one barcode at a time using an aimer, and tapping to confirm the selection. It is especially convenient for one-handed operation.</p></li>
+<li><p><strong>Tap to select</strong> is quicker when you need to select several barcodes. Selection can be done by tapping on highlighted barcodes in the live camera preview, or on a frozen screen. Tapping on codes while keeping the smartphone steady can be tricky, and freezing the screen allows for ergonomic use.</p></li>
+</ul>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video src="_static/usability/barcode_selection_shelf.mp4" controls width="200" loop></video></td>
+<td><video src="_static/usability/stock_taking_accuracy_mode.mp4" controls width="200" loop></video></td>
+<td><video src="_static/usability/barcode_selection_disk.mp4" controls width="200" loop></video></td>
+</tr>
+<tr class="row-even"><td><p><em>Aim to Select when codes are crowded.</em></p></td>
+<td><p><em>Aim to Select during Stock Count.</em></p></td>
+<td><p><em>Tap to Select used in a sequential workflow when checking in a part.</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="look-up-or-verify-info">
+<h2>Look up or Verify Info<a class="headerlink" href="#look-up-or-verify-info" title="Permalink to this headline"></a></h2>
+<div class="section" id="example-use-cases">
+<h3>Example Use Cases:<a class="headerlink" href="#example-use-cases" title="Permalink to this headline"></a></h3>
+<p>Product Info Lookup, Clienteling, ID Scanning, Age Verification</p>
+</div>
+<div class="section" id="id1">
+<h3>Assist with aiming<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>A <a class="reference internal" href="core/api/viewfinder.html#interface-scandit.datacapture.core.ui.IViewfinder" title="viewfinder interface">viewfinder</a> helps to indicate scanning distance / barcode positioning.</p></li>
+<li><p>A viewfinder helps to communicate whether the scanning is live.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Provide feedback<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Draw a <a class="reference internal" href="core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="brush overlay class">brush overlay</a> at the location of the detected barcode, clearly confirming to the user that the intended item was scanned.</p></li>
+<li><p>Sound, vibrate or haptic feedback on capture.</p></li>
+</ul>
+</div>
+<div class="section" id="show-result">
+<h3>Show result<a class="headerlink" href="#show-result" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Show result in split view or on a new screen, depending on next steps / amount of info that needs to be displayed.</p></li>
+</ul>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video src="_static/usability/shoe_single_box.mp4" controls width="200" loop></video></td>
+<td><video src="_static/usability/info_lookup_split_screen.mp4" controls width="200" loop></video></td>
+<td><video src="_static/usability/id_scanning.mp4" controls width="200" loop></video></td>
+</tr>
+<tr class="row-even"><td><p><em>Viewfinder helps user aim and indicates that scanning is live. Camera is in standby following a scan. Detailed product information is shown in full screen. User can dismiss the product card to resume scanning.</em></p></td>
+<td><p><em>Product information is shown as a card at the bottom. User can tap anywhere on the paused screen to resume scanning.</em></p></td>
+<td><p><em>User sees guidance to indicate which side to show. Camera is in standby as parsed information is shown in full screen.</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="adding-items-to-cart-list">
+<h2>Adding items to cart/list<a class="headerlink" href="#adding-items-to-cart-list" title="Permalink to this headline"></a></h2>
+<div class="section" id="id3">
+<h3>Example Use Cases:<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h3>
+<p>Self-Scanning, mPOS, Stock Take, Gap Scanning</p>
+</div>
+<div class="section" id="id4">
+<h3>Starting the camera<a class="headerlink" href="#id4" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Tapping the entire camera interface to start/resume scanning is the most ergonomic approach.</p></li>
+<li><p>If button is preferred, make touch area large enough for comfortable repeated use.</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>Assist with aiming<a class="headerlink" href="#id5" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Size of viewfinder helps indicate how far to hold camera from barcode.</p></li>
+<li><p>Viewfinder animation communicates that scanning is live.</p></li>
+</ul>
+</div>
+<div class="section" id="pausing-upon-scan">
+<h3>Pausing upon scan<a class="headerlink" href="#pausing-upon-scan" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Pause if there’s a task in between scans (e.g., entering quantity of SKU during a Stock Take, walk to find the next item during Self-Scanning).</p></li>
+<li><p>Pause between scans if leaving scanner running will result in unintentional scans.</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>Provide feedback<a class="headerlink" href="#id6" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Draw a <a class="reference internal" href="core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="brush overlay class">brush overlay</a> at the location of the detected barcode, clearly confirming to the user that the intended item was scanned.</p></li>
+<li><p>Sound, vibrate or haptic feedback on capture.</p></li>
+</ul>
+<p><strong>Show result</strong></p>
+<ul class="simple">
+<li><p>Add most recently scanned item on top and push down previous items.</p></li>
+<li><p>Show item in split view. Allow user to toggle quantity or remove item.</p></li>
+</ul>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video src="_static/usability/grocery_self_scanning.mp4" controls width="200" loop></video></td>
+<td><video src="_static/usability/stock_taking_accuracy_mode.mp4" controls width="200" loop></video></td>
+<td><video src="_static/usability/shipping.mp4" controls width="200" loop></video></td>
+</tr>
+<tr class="row-even"><td><p><em>Items are added to the list, and camera is paused between scans, preserving battery and allowing customer to find their next item. Item is added to the top of the list with the quantity toggle expanded..</em></p></td>
+<td><p><em>Because codes are tiny, barcode selection is used to ensure correct item is scanned. On scan, camera is put in standby mode while keyboard input is active.</em></p></td>
+<td><p><em>When there are too many packages to scan, running the scanner continuously may be preferable. Using a hold to scan interaction can help to make scanning action explicitly controlled by the user.</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="scanning-items-off-a-list">
+<h2>Scanning Items off a List<a class="headerlink" href="#scanning-items-off-a-list" title="Permalink to this headline"></a></h2>
+<div class="section" id="id7">
+<h3>Example Use Cases:<a class="headerlink" href="#id7" title="Permalink to this headline"></a></h3>
+<p>Van Loading, Receiving, Pickup/Dropoff, Proof of Delivery, Order Picking</p>
+</div>
+<div class="section" id="id8">
+<h3>Starting the camera<a class="headerlink" href="#id8" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Make touch area large enough for comfortable repeated use.</p></li>
+<li><p>Consider allowing tapping the entire camera interface to start / resume scanning.</p></li>
+</ul>
+</div>
+<div class="section" id="assist-with-aiming-using-a-viewfinder">
+<h3>Assist with aiming using a viewfinder<a class="headerlink" href="#assist-with-aiming-using-a-viewfinder" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Size of <a class="reference internal" href="core/api/viewfinder.html#interface-scandit.datacapture.core.ui.IViewfinder" title="viewfinder interface">viewfinder</a> helps indicate how far to hold camera from barcode.</p></li>
+<li><p>Viewfinder animation communicates that scanning is live.</p></li>
+</ul>
+</div>
+<div class="section" id="when-to-pause-between-scans-when-to-scan-continuously">
+<h3>When to pause between scans / when to scan continuously<a class="headerlink" href="#when-to-pause-between-scans-when-to-scan-continuously" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Pause when there’s a task in between scans (e.g., load a package into the delivery truck, walk to find the next item during In-store Picking).</p></li>
+<li><p>Run continuously when all of the items require scanning, and no data entry for individual items is required.</p></li>
+<li><p>Run continuously, when you are confident that the camera can run without picking up stray barcodes.</p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>Provide feedback<a class="headerlink" href="#id9" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Draw a <a class="reference internal" href="core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="brush overlay class">brush overlay</a> at the location of the detected barcode, clearly confirming to the user that the intended item was scanned.</p></li>
+<li><p>Sound, vibrate or haptic feedback on capture.</p></li>
+<li><p>Consider voice-out feedback (e.g., quantity to pick, truck shelf based on routing).</p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>Show result<a class="headerlink" href="#id10" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Show tangible information to end users rather than just the numeric value of barcodes.</p></li>
+<li><p>Show advance against progress indicator on the scan screen.</p></li>
+<li><p>Show tick mark against item in list, or move to list of items already scanned.</p></li>
+</ul>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video src="_static/usability/scanning_items_off_a_list_grocery_pick_list.mp4" controls width="200" loop></video></td>
+<td><video src="_static/usability/grocery_pick_list.mp4" controls width="200" loop></video></td>
+<td><video src="_static/usability/parcels_van_loading.mp4" controls width="200" loop></video></td>
+</tr>
+<tr class="row-even"><td><p><em>Here, user toggles between list and camera view for each scan. The return to the list should be delayed slightly, long enough for the barcode overlay to be visible. If the camera is closed too fast, it will be disorienting for the user.</em></p></td>
+<td><p><em>User can scroll through picklist in a split view. Items are checked off the list and pushed down upon scan. This works well for cases where the list is relatively short and limited information per item is shown.</em></p></td>
+<td><p><em>User does not need to see the list because it does not contain human-readable/useful information.  Voice command feedback may allow the user to operate without needing to look at the screen.</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="ordered-picklist">
+<h2>Ordered Picklist<a class="headerlink" href="#ordered-picklist" title="Permalink to this headline"></a></h2>
+<div class="section" id="id11">
+<h3>Example Use Cases:<a class="headerlink" href="#id11" title="Permalink to this headline"></a></h3>
+<p>In-store Order Picking</p>
+<video src="_static/usability/scanning_against_ordered_list.mp4" controls width="200" style="float:right;width:40%" loop></video></div>
+<div class="section" id="use-a-split-view">
+<h3>Use a split view<a class="headerlink" href="#use-a-split-view" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Show camera preview on top and next item to pick in a split view.</p></li>
+<li><p>Allow user to tap the entire camera preview to start / resume scanning.</p></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h3>Assist with aiming<a class="headerlink" href="#id12" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Size of <a class="reference internal" href="core/api/viewfinder.html#interface-scandit.datacapture.core.ui.IViewfinder" title="viewfinder interface">viewfinder</a> helps indicate how far to hold camera from barcode.</p></li>
+<li><p>Viewfinder animation communicates that scanning is live.</p></li>
+</ul>
+</div>
+<div class="section" id="pause-between-scans">
+<h3>Pause between scans<a class="headerlink" href="#pause-between-scans" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Pause after a bin scan to allow the user to walk to find the next item.</p></li>
+<li><p>If the user scanned an incorrect item (e.g., item doesn’t belong to pick list, item not found) do not pause.</p></li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h3>Provide feedback<a class="headerlink" href="#id13" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Draw a <a class="reference internal" href="core/api/ui/brush.html#class-scandit.datacapture.core.ui.Brush" title="brush overlay class">brush overlay</a> at the location of the detected barcode, clearly confirming to the user that the intended item was scanned.</p></li>
+<li><p>Sound, vibrate or haptic feedback on capture.</p></li>
+<li><p>Consider voice-out feedback (e.g., quantity to pick)</p></li>
+</ul>
+</div>
+<div class="section" id="id14">
+<h3>Show result<a class="headerlink" href="#id14" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Show advance against progress indicator on the scan screen.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="search-and-find-using-matrixscan">
+<h2>Search and Find using MatrixScan<a class="headerlink" href="#search-and-find-using-matrixscan" title="Permalink to this headline"></a></h2>
+<div class="section" id="id15">
+<h3>Example Use Cases:<a class="headerlink" href="#id15" title="Permalink to this headline"></a></h3>
+<p>Pickup/Dropoff, Back room search, Destaging for Curbside Pickup</p>
+</div>
+<div class="section" id="id16">
+<h3>Assist with aiming<a class="headerlink" href="#id16" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>If possible, use full screen.</p></li>
+<li><p>Consider whether supporting landscape mode (as default or alternative) makes sense for your physical layout.</p></li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h3>Show result<a class="headerlink" href="#id17" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Show detected state for non-target codes.</p></li>
+<li><p>Show found state and audio feedback for target codes.</p></li>
+<li><p>Show progress against indicator if searching for multiple codes.</p></li>
+<li><p>For single codes, consider freezing the screen upon finding the target code.</p></li>
+</ul>
+<p><a class="reference internal" href="_images/arsearch.png"><img alt="arsearch" src="_images/arsearch.png" style="width: 30%;" /></a> <a class="reference internal" href="_images/destaging.png"><img alt="destaging" src="_images/destaging.png" style="width: 30%;" /></a></p>
+</div>
+</div>
+<div class="section" id="information-lookup-comparison-and-sorting-using-matrixscan-ar">
+<h2>Information Lookup, Comparison and Sorting using MatrixScan AR<a class="headerlink" href="#information-lookup-comparison-and-sorting-using-matrixscan-ar" title="Permalink to this headline"></a></h2>
+<div class="section" id="id18">
+<h3>Example Use Cases:<a class="headerlink" href="#id18" title="Permalink to this headline"></a></h3>
+<p>Couponing, Product Comparison, Van Loading</p>
+</div>
+<div class="section" id="id19">
+<h3>Assist with aiming<a class="headerlink" href="#id19" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>If possible, use full screen</p></li>
+<li><p>Consider whether supporting landscape mode (as default or alternative) makes sense for your physical layout</p></li>
+</ul>
+</div>
+<div class="section" id="show-result-at-two-levels">
+<h3>Show result at two levels<a class="headerlink" href="#show-result-at-two-levels" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Support customer decision-making but resist overloading AR icons with info.</p></li>
+<li><p>Consider adding filtering options (e.g. for food allergies, health score, store associate tasks).</p></li>
+<li><p>Use color in addition to icons to allow for sorting, comparison, status or identification.</p></li>
+<li><p>Size AR icons proportionally to quantity of barcodes on screen, distance from object.</p></li>
+</ul>
+</div>
+<div class="section" id="interaction-actions-using-ar">
+<h3>Interaction / actions using AR<a class="headerlink" href="#interaction-actions-using-ar" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Allow user to freeze screen (via button or gesture) for easier interaction with AR icons.</p></li>
+<li><p>Do not place buttons or actions in the overlays - rather, bring up further information on a static card</p></li>
+</ul>
+<p><a class="reference internal" href="_images/str.png"><img alt="str" src="_images/str.png" style="width: 30%;" /></a> <a class="reference internal" href="_images/couponing.png"><img alt="couponing" src="_images/couponing.png" style="width: 30%;" /></a> <a class="reference internal" href="_images/package_sort.png"><img alt="package_sort" src="_images/package_sort.png" style="width: 30%;" /></a></p>
+</div>
+</div>
+<div class="section" id="counting-and-receiving-using-matrixscan-count">
+<h2>Counting and Receiving Using MatrixScan Count<a class="headerlink" href="#counting-and-receiving-using-matrixscan-count" title="Permalink to this headline"></a></h2>
+<p>MatrixScan Count is an out of the box solution for counting and receiving multiple items at once, in which UI elements and interactions are built into a workflow. MatrixScan Count is implemented through functionality provided by BarcodeCount.</p>
+<p><img alt="User is guided on how to scan and how far to stand when scanning" class="float-right mb-24" src="_images/barcode_count_1.png" /></p>
+<div class="section" id="ui-pattern-for-camera-view">
+<h3>UI Pattern for Camera view<a class="headerlink" href="#ui-pattern-for-camera-view" title="Permalink to this headline"></a></h3>
+<p>MatrixScan Count leans on the familiar paradigm of a camera, including a shutter button that the user operates in order to initiate scanning.</p>
+</div>
+<div class="section" id="user-is-guided-on-how-to-scan-and-how-far-to-stand-when-scanning">
+<h3>User is guided on how to scan and how far to stand when scanning<a class="headerlink" href="#user-is-guided-on-how-to-scan-and-how-far-to-stand-when-scanning" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>User is initially guided to “Tap shutter to scan items”.</p></li>
+<li><p>A loading indicator is present for a split second indicating to hold still while scanning is in progress.</p></li>
+<li><p>An initial calibration may be triggered if the user stands too far or too close from the items.</p></li>
+</ul>
+</div>
+<div class="section" id="feedback-is-overlaid-as-ar-icons-on-top-of-scanned-barcodes-via-button-counter-badge-and-via-progress-indicator">
+<h3>Feedback is overlaid as AR icons on top of scanned barcodes, via button counter badge and via progress indicator<a class="headerlink" href="#feedback-is-overlaid-as-ar-icons-on-top-of-scanned-barcodes-via-button-counter-badge-and-via-progress-indicator" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>AR icons that track with barcodes in the live view, provide confirmation of scan. Additionally, AR icons can be used to indicate codes that are unscannable, or items that should not be present.</p></li>
+<li><p>After the first scan, a list icon with counter badge showing the total scans appears.  The counter badge is used alone when building a list, or together with the progress indicator when scanning against a list of expected codes.</p></li>
+</ul>
+<p><img alt="Feedback is overlaid as AR icons on top of scanned barcodes" class="float-right mb-24" src="_images/barcode_count_2.png" /></p>
+</div>
+<div class="section" id="finishing-the-process">
+<h3>Finishing the process<a class="headerlink" href="#finishing-the-process" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Upon completing the scanning process, advance the user to the next step automatically if all items have been successfully scanned.</p></li>
+<li><p>Next steps may be reviewing the scan list to identify items that shouldn’t be present, or if none detected, simply finalizing order receipt or moving on to the next order.</p></li>
+<li><p>Our MatrixScan Count Sample shows proposed UI for handling a list of scanned items.</p></li>
+</ul>
+<div class="clear-both"></div></div>
+</div>
+<div class="section" id="special-topic-accessibility-and-understandability">
+<h2>Special Topic: Accessibility and Understandability<a class="headerlink" href="#special-topic-accessibility-and-understandability" title="Permalink to this headline"></a></h2>
+<ul>
+<li><p>Allow placement of touch targets centrally, or allow moving for left-handed users via the settings menu.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Consider ergonomics and ability to reach touch targets when smartphone is used in combination with a hand strap</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Up to 8% of male users are colorblind. Consider alternatives to green / red feedback to communicate state.</p></li>
+<li><p>Use labels and notifications in addition to color or icons.</p></li>
+<li><p>Provide guidance up front for first time users, or contextually when users struggle.</p></li>
+</ul>
+</div>
+<div class="section" id="scandit-provided-viewfinders">
+<h2>Scandit-provided Viewfinders<a class="headerlink" href="#scandit-provided-viewfinders" title="Permalink to this headline"></a></h2>
+<p>The SDK provides several types of viewfinders available out of the box, with several that include style variations.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="core/api/rectangular-viewfinder.html#class-scandit.datacapture.core.ui.RectangularViewfinder" title="Rectangular Viewfinder class">Rectangular Viewfinder</a></p></li>
+<li><p><a class="reference internal" href="core/api/aimer-viewfinder.html#class-scandit.datacapture.core.ui.AimerViewfinder" title="Aimer Viewfinder class">Aimer Viewfinder</a></p></li>
+<li><p><a class="reference internal" href="core/api/laserline-viewfinder.html#class-scandit.datacapture.core.ui.LaserlineViewfinder" title="Laser Viewfinder class">Laser Viewfinder</a></p></li>
+<li><p>ID Scanning viewfinders</p></li>
+</ul>
+<p>Viewfinders communicate that the <strong>scanner is active</strong>, tell the user <strong>where within the view scanning occurs</strong>, and generally communicate <strong>how close to hold the camera</strong>.</p>
+<p>The <a class="reference internal" href="core/api/rectangular-viewfinder.html#class-scandit.datacapture.core.ui.RectangularViewfinder" title="Rectangular Viewfinder class">Rectangular Viewfinder</a> can be adapted to expected barcode size, and the style can be modified depending on branding preference.</p>
+<p>The Rectangular Viewfinder comes in two Styles</p>
+<ul class="simple">
+<li><p>Square</p></li>
+<li><p>Rounded</p></li>
+</ul>
+<p>For each style, a Line Style can be further specified</p>
+<ul class="simple">
+<li><p>Light</p></li>
+<li><p>Bold</p></li>
+</ul>
+<p>If scan area is restricted, the outside of the viewfinder can be dimmed.</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/rectangular_square_bold.png" src="_images/rectangular_square_bold.png" />
+</td>
+<td><img alt="_images/rectangular_rounded_light.png" src="_images/rectangular_rounded_light.png" />
+</td>
+<td><img alt="_images/rectangular_square_light.png" src="_images/rectangular_square_light.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><em>Square, bold rectangular viewfinder with full-screen scanning.</em></p></td>
+<td><p><em>Rounded, light rectangular viewfinder with restricted area scanning.</em></p></td>
+<td><p><em>Square, light rectangular viewfinder with restricted area scanning.</em></p></td>
+</tr>
+</tbody>
+</table>
+<p>The <a class="reference internal" href="core/api/aimer-viewfinder.html#class-scandit.datacapture.core.ui.AimerViewfinder" title="Aimer class">Aimer</a> and <a class="reference internal" href="core/api/laserline-viewfinder.html#class-scandit.datacapture.core.ui.LaserlineViewfinder" title="Laser class">Laser</a> Viewfinders should be used when scanning is restricted to a location that aligns with the center of the viewfinder.</p>
+<p>The Aimer Viewfinder is available by default in <a class="reference internal" href="barcode-capture/api/barcode-selection.html#class-scandit.datacapture.barcode.selection.BarcodeSelection" title="Barcode Selection class">Barcode Selection</a>, or can be used independently, such as when scanning small codes.</p>
+<p>The Laser Viewfinder leads the users to orient phone to align with the barcode. It is not recommended for scenarios where expected barcodes are in mixed orientation.</p>
+<p><a class="reference internal" href="_images/aimer_viewfinder.png"><img alt="aimer_viewfinder" src="_images/aimer_viewfinder.png" style="width: 30%;" /></a> <a class="reference internal" href="_images/laser_viewfinder.png"><img alt="laser_viewfinder" src="_images/laser_viewfinder.png" style="width: 30%;" /></a></p>
+<p><strong>ID Capture viewfinders</strong> are enabled by default, depending on which scanning mode is enabled. The viewfinder contains user guidance via text and asset to help user scan the correct side.</p>
+<p>The style can be modified depending on branding preference.</p>
+<p>The ID Capture Viewfinders have distinct UI depending on the capture modality used:</p>
+<ul class="simple">
+<li><p>Front of Card</p></li>
+<li><p>MRZ for Passport and ID card scanning</p></li>
+<li><p>Back of Card for US Driver’s license</p></li>
+</ul>
+<p>The ID Capture Viewfinders come in two styles,</p>
+<ul class="simple">
+<li><p>Rounded</p></li>
+<li><p>Square</p></li>
+</ul>
+<p>The ID Capture Viewfinders Line Style can be set to,</p>
+<ul class="simple">
+<li><p>Bold</p></li>
+<li><p>Light</p></li>
+</ul>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><img alt="_images/front_id_rounded_light.png" src="_images/front_id_rounded_light.png" />
+</td>
+<td><img alt="_images/back_id_square_bold.png" src="_images/back_id_square_bold.png" />
+</td>
+<td><img alt="_images/mrz_square_bold.png" src="_images/mrz_square_bold.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><em>Rounded, Light style viewfinder for front of card scanning.</em></p></td>
+<td><p><em>Square, Bold style viewfinder for back of driver’s license scanning.</em></p></td>
+<td><p><em>Square, Bold style viewfinder for MRZ scanning.</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

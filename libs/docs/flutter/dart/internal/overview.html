@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Overview &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Design Overview</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="design-overview">
+<h1>Design Overview<a class="headerlink" href="#design-overview" title="Permalink to this headline"></a></h1>
+<div class="section" id="goals-non-goals">
+<h2>Goals/Non-goals<a class="headerlink" href="#goals-non-goals" title="Permalink to this headline"></a></h2>
+<div class="section" id="goals">
+<h3>Goals<a class="headerlink" href="#goals" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>The new API should be flexible and allow for non-barcode-centric use cases.</p></li>
+<li><p>Avoid god objects like the barcode picker. Each component of the system should only do so much.</p></li>
+<li><p>The wrapping process for cordova, xamarin and rect native (no, no Titanium) should require as little code as possible.</p></li>
+</ul>
+</div>
+<div class="section" id="non-goals">
+<h3>Non-Goals<a class="headerlink" href="#non-goals" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Allowing users to add their own capture modes is currently a non-goal.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="api-rules">
+<h2>API Rules<a class="headerlink" href="#api-rules" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>The barcode picker API typically restricted listeners to just one per event and instance. The new API should allow for multiple listeners/listeners for each of the events. The bundled UI components should wherever possible be based on the same events that the public API exposes.</p></li>
+<li><p>Strive for consistency between platforms. Deviate only where it’s absolutely necessary.</p></li>
+<li><p>Settings should all be serializable from/to JSON.</p></li>
+<li><p>Avoid using exceptions wherever possible.</p></li>
+</ul>
+</div>
+<div class="section" id="sdk-structure">
+<h2>Scandit Data Capture SDK structure<a class="headerlink" href="#sdk-structure" title="Permalink to this headline"></a></h2>
+<p>There are different ways how the functionality of the data capture library could be bundled.</p>
+<div class="section" id="monolithic">
+<h3>Monolithic<a class="headerlink" href="#monolithic" title="Permalink to this headline"></a></h3>
+<p>Everything lives in the same library/package. This is more or less how the current Scandit Data Capture SDK is structured on all platforms except windows. Everything is contained in one framework/AAR file.</p>
+<p>For windows, we would still need the separation of UI/non-UI  parts because of the different UI framework choices.</p>
+<p><strong>Advantages</strong>:</p>
+<ul class="simple">
+<li><p>Easy to install, easy to deploy</p></li>
+</ul>
+<p><strong>Disadvantage</strong></p>
+<ul class="simple">
+<li><p>It couples things that should not be coupled.</p></li>
+<li><p>Users have to pay the size footprint for one feature even if they don’t need it. This makes the apps larger.</p></li>
+</ul>
+</div>
+<div class="section" id="vertical-split">
+<h3>Vertical split<a class="headerlink" href="#vertical-split" title="Permalink to this headline"></a></h3>
+<p>In this structure, the Scandit Data Capture SDK is split into multiple libraries, one for each type of capture feature. The structure would then look something like this:</p>
+<ul class="simple">
+<li><p><strong>core</strong> contains the functionality shared by all data capture features such as license management, common interfaces etc.</p></li>
+<li><p><strong>barcode</strong> contains the barcode-scanner functionality.</p></li>
+<li><p><strong>ocr</strong> contains the ocr functionality.</p></li>
+<li><p><strong>parser</strong> contains the parser functionality</p></li>
+</ul>
+<p>Each of these libraries contains both the recognition part, plus the UI part. Alternatively, the UI, non-ui part could be split into separate libraries as well, but that’s probably overkill.</p>
+<p><strong>Advantages</strong></p>
+<ul class="simple">
+<li><p>Doesn’t bundle things that don’t belong together</p></li>
+<li><p>Makes it possible to use parts without paying the price for increased app size for things that are not required</p></li>
+<li><p>Additional advantage: Support for a plugin architecture with dynamic feature detection could be added in the future.</p></li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul class="simple">
+<li><p>Slightly more complicated to setup for the users, since they will have to install multiple packages.</p></li>
+</ul>
+</div>
+<div class="section" id="horizontal-split">
+<h3>Horizontal split<a class="headerlink" href="#horizontal-split" title="Permalink to this headline"></a></h3>
+<p>Like in the vertical split, the Scandit Data Capture SDK is split into multiple libraries.</p>
+<ul class="simple">
+<li><p><strong>capture</strong> contains the capture part only</p></li>
+<li><p><strong>ui</strong> contains the UI part</p></li>
+</ul>
+<p>This structure arguably doesn’t make a lot of sense except for windows where there is a choice for a plethora of different ui frameworks that can be chosen. On Android, iOS there is only one.</p>
+</div>
+</div>
+<div class="section" id="usage-samples">
+<h2>Usage samples<a class="headerlink" href="#usage-samples" title="Permalink to this headline"></a></h2>
+<p>This is a usage example for C# (Windows Desktop)</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DataCaptureContext</span><span class="p">(</span><span class="n">licenseKey</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// setup barcode recognition</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeCaptureSettings</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// disable code duplicate filter</span>
+<span class="w">    </span><span class="n">CodeDuplicateFilter</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="c1">// enable symbologies</span>
+<span class="n">settings</span><span class="p">.</span><span class="n">Symbologies</span><span class="p">[</span><span class="n">Symbology</span><span class="p">.</span><span class="n">Qr</span><span class="p">].</span><span class="n">Enabled</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">barcodeCapture</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeCapture</span><span class="p">(</span><span class="n">settings</span><span class="p">);</span><span class="w"></span>
+<span class="n">ctx</span><span class="p">.</span><span class="n">AddMode</span><span class="p">(</span><span class="n">barcodeCapture</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// this part doesn&#39;t have to be done here, but can be done in Xaml as well.</span>
+<span class="c1">// just displays the camera preview, plus the viewfinder.</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">view</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DataCaptureView</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// returns null in case no such camera exists.</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">camera</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Camera</span><span class="p">.</span><span class="n">GetCameraOrNull</span><span class="p">(</span><span class="n">CameraPosition</span><span class="p">.</span><span class="n">WorldFacing</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// instead can also be configured in Xaml</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">bco</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BarcodeCaptureOverlay</span><span class="p">(</span><span class="n">barcodeCapture</span><span class="p">);</span><span class="w"></span>
+<span class="n">bco</span><span class="p">.</span><span class="n">Brush</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Brush</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="n">FillColor</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">...,</span><span class="w"></span>
+<span class="w">         </span><span class="n">StrokeColor</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">...,</span><span class="w"></span>
+<span class="w">         </span><span class="n">StrokeWidth</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="n">view</span><span class="p">.</span><span class="n">AddOverlay</span><span class="p">(</span><span class="n">bco</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">await</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="n">SetFrameSourceAsync</span><span class="p">(</span><span class="n">camera</span><span class="p">);</span><span class="w"></span>
+<span class="k">await</span><span class="w"> </span><span class="n">camera</span><span class="p">.</span><span class="n">SetDesiredState</span><span class="p">(</span><span class="n">State</span><span class="p">.</span><span class="n">On</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

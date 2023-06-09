@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Common Data Structures &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Context Status" href="context-status.html" />
+    <link rel="prev" title="Combined Viewfinder" href="combined-viewfinder.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">ScanditCaptureCore</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../concepts.html">Core Concepts of the Scandit Data Capture SDK</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="aimer-viewfinder.html">Aimer Viewfinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="anchor.html">Anchor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="camera.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="camera-settings.html">Camera Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="combined-viewfinder.html">Combined Viewfinder</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Common Data Structures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#geometric-types">Geometric Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#misc-types">Misc Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="context-status.html">Context Status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-capture-component.html">Data Capture Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-capture-context.html">Data Capture Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-capture-context-builder.html">Data Capture Context Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-capture-context-frame-listener.html">Data Capture Context Frame Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-capture-context-listener.html">Data Capture Context Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-capture-context-settings.html">Data Capture Context Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-capture-error.html">DataCaptureError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-capture-mode.html">Data Capture Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-capture-version.html">Data Capture Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="direction.html">Direction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="feedback.html">Feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-data.html">Frame Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-source.html">Frame Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frame-source-listener.html">Frame Source Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="image-frame-source.html">ImageFrameSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="laserline-viewfinder.html">Laserline Viewfinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="license-info.html">License Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="location-selection.html">Location Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="radius-location-selection.html">Radius Location Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rectangular-location-selection.html">Rectangular Location Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rectangular-viewfinder.html">Rectangular Viewfinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rectangular-viewfinder-animation.html">Rectangular Viewfinder Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sequence-frame-source.html">SequenceFrameSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spotlight-viewfinder.html">Spotlight Viewfinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="viewfinder.html">Viewfinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flutter/scandit-flutter-datacapture-core.html">Scandit Flutter DataCapture Core</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/brush.html">Brush</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/camera-switch-control.html">Camera Switch Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/color-fill-overlay.html">Color Fill Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/control.html">Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/data-capture-overlay.html">Data Capture Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/data-capture-view-listener.html">Data Capture View Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/data-capture-view-size-listener.html">Data Capture View Size Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/data-capture-view.html">Data Capture View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/device-orientation-mapper.html">Device Orientation Mapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/focus-gesture-listener.html">Focus Gesture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/focus-gesture.html">Focus Gestures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/linear-control-group.html">Linear Control Group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/logo-style.html">Logo Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/torch-switch-control.html">Torch Switch Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/zoom-gesture-listener.html">Zoom Gesture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/zoom-gesture.html">Zoom Gestures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/zoom-switch-control.html">Zoom Switch Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#initialization">Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#camera-and-frame-sources">Camera and Frame Sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#context-and-capture-modes">Context and Capture Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#location-selection">Location Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#user-interface">User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#misc-data-structures">Misc Data Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#misc">Misc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#deserialization">Deserialization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../overview.html">ScanditCaptureCore</a> &raquo;</li>
+          <li><a href="../api.html">ScanditCaptureCore API</a> &raquo;</li>
+      <li>Common Data Structures</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="common-data-structures">
+<h1>Common Data Structures<a class="headerlink" href="#common-data-structures" title="Permalink to this headline"></a></h1>
+<div class="section" id="geometric-types">
+<h2>Geometric Types<a class="headerlink" href="#geometric-types" title="Permalink to this headline"></a></h2>
+<p>Defined in library <em>scandit_datacapture_core</em></p>
+<dl>
+<dt class="sig sig-object unilang" id="enum-scandit.datacapture.core.MeasureUnit">
+<span class="sig-name descname"><span class="pre">MeasureUnit</span></span><a class="headerlink" href="#enum-scandit.datacapture.core.MeasureUnit" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Specifies in what units the value has been specified (fraction, device-independent pixels, pixels).</p>
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.core.MeasureUnit.Dip">
+<span class="sig-name descname"><span class="pre">dip</span></span><a class="headerlink" href="#value-scandit.datacapture.core.MeasureUnit.Dip" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Value is measured in device-independent pixels.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.core.MeasureUnit.Pixel">
+<span class="sig-name descname"><span class="pre">pixel</span></span><a class="headerlink" href="#value-scandit.datacapture.core.MeasureUnit.Pixel" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Value is measured in pixels.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.core.MeasureUnit.Fraction">
+<span class="sig-name descname"><span class="pre">fraction</span></span><a class="headerlink" href="#value-scandit.datacapture.core.MeasureUnit.Fraction" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Value is measured as a fraction. Valid values range from 0 to 1. This can be used to specify values in relative coordinates with respect to a reference, e.g. the view width or height.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="enum-scandit.datacapture.core.SizingMode">
+<span class="sig-name descname"><span class="pre">SizingMode</span></span><a class="headerlink" href="#enum-scandit.datacapture.core.SizingMode" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>An enumeration of possible ways to define a rectangular size.</p>
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.core.SizingMode.WidthAndHeight">
+<span class="sig-name descname"><span class="pre">widthAndHeight</span></span><a class="headerlink" href="#value-scandit.datacapture.core.SizingMode.WidthAndHeight" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>This value will use a <a class="reference internal" href="#struct-scandit.datacapture.core.SizeWithUnit" title="SizeWithUnit struct">SizeWithUnit</a> to determine width and the height.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.core.SizingMode.WidthAndAspectRatio">
+<span class="sig-name descname"><span class="pre">widthAndAspectRatio</span></span><a class="headerlink" href="#value-scandit.datacapture.core.SizingMode.WidthAndAspectRatio" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>This value will use a <a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> to determine the width and a float multiplier to determine the height.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.core.SizingMode.HeightAndAspectRatio">
+<span class="sig-name descname"><span class="pre">heightAndAspectRatio</span></span><a class="headerlink" href="#value-scandit.datacapture.core.SizingMode.HeightAndAspectRatio" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>This value will use a <a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> to determine the height and a float multiplier to determine the width.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.core.SizingMode.ShorterDimensionAndAspectRatio">
+<span class="sig-name descname"><span class="pre">shorterDimensionAndAspectRatio</span></span><a class="headerlink" href="#value-scandit.datacapture.core.SizingMode.ShorterDimensionAndAspectRatio" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.8.0</span></p>
+<p>This value will use a <a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> to determine the rectangle length on the short side of the reference and a float multiplier to determine the length on the long side.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="struct-scandit.datacapture.core.Point">
+<span class="sig-name descname"><span class="pre">Point</span></span><a class="headerlink" href="#struct-scandit.datacapture.core.Point" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class Point</span></pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.Point.Point">
+<span class="sig-name descname"><span class="pre">Point(x,</span> <span class="pre">y)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.Point.Point" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"> <span class="sig-name descname">Point</span>(<a class="reference external" href="https://api.flutter.dev/flutter/dart-core/double-class.html" title="double">double</a> <em>x</em>,
+        <a class="reference external" href="https://api.flutter.dev/flutter/dart-core/double-class.html" title="double">double</a> <em>y</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Construct a new point at position <em>x</em> and <em>y</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.Point.X">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#property-scandit.datacapture.core.Point.X" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/double-class.html" title="double">double</a> get x</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>X coordinate of the point.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.Point.Y">
+<span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#property-scandit.datacapture.core.Point.Y" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/double-class.html" title="double">double</a> get y</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Y coordinate of the point.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="struct-scandit.datacapture.core.PointWithUnit">
+<span class="sig-name descname"><span class="pre">PointWithUnit</span></span><a class="headerlink" href="#struct-scandit.datacapture.core.PointWithUnit" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class PointWithUnit</span></pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.PointWithUnit.PointWithUnit">
+<span class="sig-name descname"><span class="pre">PointWithUnit(x,</span> <span class="pre">y)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.PointWithUnit.PointWithUnit" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"> <span class="sig-name descname">PointWithUnit</span>(<a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> <em>x</em>,
+        <a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> <em>y</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Construct a new point at position <em>x</em> and <em>y</em>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.PointWithUnit.X">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#property-scandit.datacapture.core.PointWithUnit.X" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">final <a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> x</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>X coordinate of the point.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.PointWithUnit.Y">
+<span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#property-scandit.datacapture.core.PointWithUnit.Y" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">final <a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> y</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Y coordinate of the point.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="struct-scandit.datacapture.core.SizeWithUnit">
+<span class="sig-name descname"><span class="pre">SizeWithUnit</span></span><a class="headerlink" href="#struct-scandit.datacapture.core.SizeWithUnit" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class SizeWithUnit</span></pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.SizeWithUnit.SizeWithUnit">
+<span class="sig-name descname"><span class="pre">SizeWithUnit(width,</span> <span class="pre">height)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.SizeWithUnit.SizeWithUnit" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"> <span class="sig-name descname">SizeWithUnit</span>(<a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> <em>width</em>,
+        <a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> <em>height</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Construct a new size with unit.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.SizeWithUnit.Width">
+<span class="sig-name descname"><span class="pre">width</span></span><a class="headerlink" href="#property-scandit.datacapture.core.SizeWithUnit.Width" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> get width</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>The width.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.SizeWithUnit.Height">
+<span class="sig-name descname"><span class="pre">height</span></span><a class="headerlink" href="#property-scandit.datacapture.core.SizeWithUnit.Height" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> get height</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>The height.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="struct-scandit.datacapture.core.SizeWithAspect">
+<span class="sig-name descname"><span class="pre">SizeWithAspect</span></span><a class="headerlink" href="#struct-scandit.datacapture.core.SizeWithAspect" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class SizeWithAspect</span></pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Holds values to define a rectangular size using a dimension and an aspect ratio multiplier.</p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.SizeWithAspect.SizeWithAspect">
+<span class="sig-name descname"><span class="pre">SizeWithAspect(size,</span> <span class="pre">aspect)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.SizeWithAspect.SizeWithAspect" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"> <span class="sig-name descname">SizeWithAspect</span>(<a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> <em>size</em>,
+        <a class="reference external" href="https://api.flutter.dev/flutter/dart-core/double-class.html" title="double">double</a> <em>aspect</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Construct a new size with aspect.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.SizeWithAspect.Size">
+<span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#property-scandit.datacapture.core.SizeWithAspect.Size" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> get size</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>The size of one dimension.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.SizeWithAspect.Aspect">
+<span class="sig-name descname"><span class="pre">aspect</span></span><a class="headerlink" href="#property-scandit.datacapture.core.SizeWithAspect.Aspect" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/double-class.html" title="double">double</a> get aspect</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>The aspect ratio for the other dimension.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="struct-scandit.datacapture.core.FloatWithUnit">
+<span class="sig-name descname"><span class="pre">DoubleWithUnit</span></span><a class="headerlink" href="#struct-scandit.datacapture.core.FloatWithUnit" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class DoubleWithUnit</span></pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Holds a floating-point value plus a measure unit.</p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.FloatWithUnit.FloatWithUnit">
+<span class="sig-name descname"><span class="pre">DoubleWithUnit(value,</span> <span class="pre">unit)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.FloatWithUnit.FloatWithUnit" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">DoubleWithUnit</span>(<a class="reference external" href="https://api.flutter.dev/flutter/dart-core/double-class.html" title="double">double</a> <em>value</em>,
+        <a class="reference internal" href="#enum-scandit.datacapture.core.MeasureUnit" title="MeasureUnit enum">MeasureUnit</a> <em>unit</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Construct a new float with unit.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.FloatWithUnit.Value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#property-scandit.datacapture.core.FloatWithUnit.Value" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">final <a class="reference external" href="https://api.flutter.dev/flutter/dart-core/double-class.html" title="double">double</a> value</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.FloatWithUnit.Unit">
+<span class="sig-name descname"><span class="pre">unit</span></span><a class="headerlink" href="#property-scandit.datacapture.core.FloatWithUnit.Unit" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">final <a class="reference internal" href="#enum-scandit.datacapture.core.MeasureUnit" title="MeasureUnit enum">MeasureUnit</a> unit</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="struct-scandit.datacapture.core.MarginsWithUnit">
+<span class="sig-name descname"><span class="pre">MarginsWithUnit</span></span><a class="headerlink" href="#struct-scandit.datacapture.core.MarginsWithUnit" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class MarginsWithUnit</span></pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Holds margin values (left, top, right, bottom) that can each be expressed with a different measure unit.</p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.MarginsWithUnit.MarginsWithUnit">
+<span class="sig-name descname"><span class="pre">MarginsWithUnit(left,</span> <span class="pre">top,</span> <span class="pre">right,</span> <span class="pre">bottom)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.MarginsWithUnit.MarginsWithUnit" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"> <span class="sig-name descname">MarginsWithUnit</span>(<a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> <em>left</em>,
+        <a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> <em>top</em>,
+        <a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> <em>right</em>,
+        <a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> <em>bottom</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Constructs a new MarginsWithUnit instance.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.MarginsWithUnit.Left">
+<span class="sig-name descname"><span class="pre">left</span></span><a class="headerlink" href="#property-scandit.datacapture.core.MarginsWithUnit.Left" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">final <a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> left</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Left margin.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.MarginsWithUnit.Right">
+<span class="sig-name descname"><span class="pre">right</span></span><a class="headerlink" href="#property-scandit.datacapture.core.MarginsWithUnit.Right" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">final <a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> right</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Right margin.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.MarginsWithUnit.Top">
+<span class="sig-name descname"><span class="pre">top</span></span><a class="headerlink" href="#property-scandit.datacapture.core.MarginsWithUnit.Top" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">final <a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> top</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Top margin.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.MarginsWithUnit.Bottom">
+<span class="sig-name descname"><span class="pre">bottom</span></span><a class="headerlink" href="#property-scandit.datacapture.core.MarginsWithUnit.Bottom" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">final <a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> bottom</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Bottom margin.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="struct-scandit.datacapture.core.Quadrilateral">
+<span class="sig-name descname"><span class="pre">Quadrilateral</span></span><a class="headerlink" href="#struct-scandit.datacapture.core.Quadrilateral" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class Quadrilateral</span></pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Polygon represented by 4 corners.</p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.Quadrilateral.Quadrilateral">
+<span class="sig-name descname"><span class="pre">Quadrilateral(topLeft,</span> <span class="pre">topRight,</span> <span class="pre">bottomRight,</span> <span class="pre">bottomLeft)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.Quadrilateral.Quadrilateral" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"> <span class="sig-name descname">Quadrilateral</span>(<a class="reference internal" href="#struct-scandit.datacapture.core.Point" title="Point struct">Point</a> <em>topLeft</em>,
+        <a class="reference internal" href="#struct-scandit.datacapture.core.Point" title="Point struct">Point</a> <em>topRight</em>,
+        <a class="reference internal" href="#struct-scandit.datacapture.core.Point" title="Point struct">Point</a> <em>bottomRight</em>,
+        <a class="reference internal" href="#struct-scandit.datacapture.core.Point" title="Point struct">Point</a> <em>bottomLeft</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Constructs a new Quadrilateral instance.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.Quadrilateral.TopLeft">
+<span class="sig-name descname"><span class="pre">topLeft</span></span><a class="headerlink" href="#property-scandit.datacapture.core.Quadrilateral.TopLeft" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="#struct-scandit.datacapture.core.Point" title="Point struct">Point</a> get topLeft</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.Quadrilateral.TopRight">
+<span class="sig-name descname"><span class="pre">topRight</span></span><a class="headerlink" href="#property-scandit.datacapture.core.Quadrilateral.TopRight" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="#struct-scandit.datacapture.core.Point" title="Point struct">Point</a> get topRight</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.Quadrilateral.BottomRight">
+<span class="sig-name descname"><span class="pre">bottomRight</span></span><a class="headerlink" href="#property-scandit.datacapture.core.Quadrilateral.BottomRight" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="#struct-scandit.datacapture.core.Point" title="Point struct">Point</a> get bottomRight</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.Quadrilateral.BottomLeft">
+<span class="sig-name descname"><span class="pre">bottomLeft</span></span><a class="headerlink" href="#property-scandit.datacapture.core.Quadrilateral.BottomLeft" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="#struct-scandit.datacapture.core.Point" title="Point struct">Point</a> get bottomLeft</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="struct-scandit.datacapture.core.Size">
+<span class="sig-name descname"><span class="pre">Size</span></span><a class="headerlink" href="#struct-scandit.datacapture.core.Size" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class Size</span></pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.Size.Size">
+<span class="sig-name descname"><span class="pre">Size(width,</span> <span class="pre">height)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.Size.Size" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"> <span class="sig-name descname">Size</span>(<a class="reference external" href="https://api.flutter.dev/flutter/dart-core/double-class.html" title="double">double</a> <em>width</em>,
+        <a class="reference external" href="https://api.flutter.dev/flutter/dart-core/double-class.html" title="double">double</a> <em>height</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.Size.Width">
+<span class="sig-name descname"><span class="pre">width</span></span><a class="headerlink" href="#property-scandit.datacapture.core.Size.Width" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/double-class.html" title="double">double</a> get width</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>The width.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.Size.Height">
+<span class="sig-name descname"><span class="pre">height</span></span><a class="headerlink" href="#property-scandit.datacapture.core.Size.Height" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/double-class.html" title="double">double</a> get height</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>The height.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="class-scandit.datacapture.core.SizeWithUnitAndAspect">
+<span class="sig-name descname"><span class="pre">SizeWithUnitAndAspect</span></span><a class="headerlink" href="#class-scandit.datacapture.core.SizeWithUnitAndAspect" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class SizeWithUnitAndAspect</span></pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Holds a <a class="reference internal" href="#enum-scandit.datacapture.core.SizingMode" title="SizingMode enum">SizingMode</a> - and corresponding required values - to define a rectangular size.</p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.SizeWithUnitAndAspect.CreateFromWidthAndHeight">
+<span class="sig-name descname"><span class="pre">SizeWithUnitAndAspect.widthAndHeight(widthAndHeight)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.SizeWithUnitAndAspect.CreateFromWidthAndHeight" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">SizeWithUnitAndAspect.widthAndHeight</span>(<a class="reference internal" href="#struct-scandit.datacapture.core.SizeWithUnit" title="SizeWithUnit struct">SizeWithUnit</a> <em>widthAndHeight</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Creates a rectangular size based on the given size.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.SizeWithUnitAndAspect.CreateFromWidthAndAspectRatio">
+<span class="sig-name descname"><span class="pre">SizeWithUnitAndAspect.widthAndAspectRatio(width,</span> <span class="pre">aspectRatio)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.SizeWithUnitAndAspect.CreateFromWidthAndAspectRatio" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">SizeWithUnitAndAspect.widthAndAspectRatio</span>(
+        <a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> <em>width</em>,
+        <a class="reference external" href="https://api.flutter.dev/flutter/dart-core/double-class.html" title="double">double</a> <em>aspectRatio</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Creates a rectangular size based on the given width and aspect ratio.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.SizeWithUnitAndAspect.CreateFromHeightAndAspectRatio">
+<span class="sig-name descname"><span class="pre">SizeWithUnitAndAspect.heightAndAspectRatio(height,</span> <span class="pre">aspectRatio)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.SizeWithUnitAndAspect.CreateFromHeightAndAspectRatio" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">SizeWithUnitAndAspect.heightAndAspectRatio</span>(
+        <a class="reference internal" href="#struct-scandit.datacapture.core.FloatWithUnit" title="DoubleWithUnit struct">DoubleWithUnit</a> <em>height</em>,
+        <a class="reference external" href="https://api.flutter.dev/flutter/dart-core/double-class.html" title="double">double</a> <em>aspectRatio</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Creates a rectangular size based on the given height and aspect ratio.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.SizeWithUnitAndAspect.CreateFromShorterDimensionAndAspectRatio">
+<span class="sig-name descname"><span class="pre">SizeWithUnitAndAspect.shorterDimensionAndAspectRatio(fraction,</span> <span class="pre">aspectRatio)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.SizeWithUnitAndAspect.CreateFromShorterDimensionAndAspectRatio" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">SizeWithUnitAndAspect.shorterDimensionAndAspectRatio</span>(
+        <a class="reference external" href="https://api.flutter.dev/flutter/dart-core/double-class.html" title="double">double</a> <em>fraction</em>,
+        <a class="reference external" href="https://api.flutter.dev/flutter/dart-core/double-class.html" title="double">double</a> <em>aspectRatio</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.8.0</span></p>
+<p>Creates a rectangular size based on the given shorter dimension and aspect ratio.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.SizeWithUnitAndAspect.WidthAndHeight">
+<span class="sig-name descname"><span class="pre">widthAndHeight</span></span><a class="headerlink" href="#property-scandit.datacapture.core.SizeWithUnitAndAspect.WidthAndHeight" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="#struct-scandit.datacapture.core.SizeWithUnit" title="SizeWithUnit struct">SizeWithUnit</a>? get widthAndHeight</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>The values for width and height.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This value will always be <em>null</em> unless <a class="reference internal" href="#property-scandit.datacapture.core.SizeWithUnitAndAspect.SizingMode" title="sizingMode property">sizingMode</a> is <a class="reference internal" href="#value-scandit.datacapture.core.SizingMode.WidthAndHeight" title="SizingMode.widthAndHeight value">SizingMode.widthAndHeight</a>.</p>
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.SizeWithUnitAndAspect.WidthAndAspectRatio">
+<span class="sig-name descname"><span class="pre">widthAndAspectRatio</span></span><a class="headerlink" href="#property-scandit.datacapture.core.SizeWithUnitAndAspect.WidthAndAspectRatio" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="#struct-scandit.datacapture.core.SizeWithAspect" title="SizeWithAspect struct">SizeWithAspect</a>? get widthAndAspectRatio</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>The value for width and the aspect ratio for height.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This value will always be <em>null</em> unless <a class="reference internal" href="#property-scandit.datacapture.core.SizeWithUnitAndAspect.SizingMode" title="sizingMode property">sizingMode</a> is <a class="reference internal" href="#value-scandit.datacapture.core.SizingMode.WidthAndAspectRatio" title="SizingMode.widthAndAspectRatio value">SizingMode.widthAndAspectRatio</a>.</p>
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.SizeWithUnitAndAspect.HeightAndAspectRatio">
+<span class="sig-name descname"><span class="pre">heightAndAspectRatio</span></span><a class="headerlink" href="#property-scandit.datacapture.core.SizeWithUnitAndAspect.HeightAndAspectRatio" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="#struct-scandit.datacapture.core.SizeWithAspect" title="SizeWithAspect struct">SizeWithAspect</a>? get heightAndAspectRatio</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>The value for height and the aspect ratio for width.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This value will always be <em>null</em> unless <a class="reference internal" href="#property-scandit.datacapture.core.SizeWithUnitAndAspect.SizingMode" title="sizingMode property">sizingMode</a> is <a class="reference internal" href="#value-scandit.datacapture.core.SizingMode.HeightAndAspectRatio" title="SizingMode.heightAndAspectRatio value">SizingMode.heightAndAspectRatio</a>.</p>
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.SizeWithUnitAndAspect.ShorterDimensionAndAspectRatio">
+<span class="sig-name descname"><span class="pre">shorterDimensionAndAspectRatio</span></span><a class="headerlink" href="#property-scandit.datacapture.core.SizeWithUnitAndAspect.ShorterDimensionAndAspectRatio" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="#struct-scandit.datacapture.core.SizeWithAspect" title="SizeWithAspect struct">SizeWithAspect</a>? get shorterDimensionAndAspectRatio</pre><p><span class="versionmodified versionadded">Added in version 6.8.0</span></p>
+<p>The value for the short dimension of the reference view and the aspect ratio for the long dimension of the reference view.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This value will always be <em>null</em> unless <a class="reference internal" href="#property-scandit.datacapture.core.SizeWithUnitAndAspect.SizingMode" title="sizingMode property">sizingMode</a> is <a class="reference internal" href="#value-scandit.datacapture.core.SizingMode.ShorterDimensionAndAspectRatio" title="SizingMode.shorterDimensionAndAspectRatio value">SizingMode.shorterDimensionAndAspectRatio</a>.</p>
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.SizeWithUnitAndAspect.SizingMode">
+<span class="sig-name descname"><span class="pre">sizingMode</span></span><a class="headerlink" href="#property-scandit.datacapture.core.SizeWithUnitAndAspect.SizingMode" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="#enum-scandit.datacapture.core.SizingMode" title="SizingMode enum">SizingMode</a> get sizingMode</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>The sizing mode.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="misc-types">
+<h2>Misc Types<a class="headerlink" href="#misc-types" title="Permalink to this headline"></a></h2>
+<p>Defined in library <em>scandit_datacapture_core</em></p>
+<p>Defined in library <em>scandit_datacapture_core</em></p>
+<dl>
+<dt class="sig sig-object unilang" id="class-scandit.datacapture.core.EncodingRange">
+<span class="sig-name descname"><span class="pre">EncodingRange</span></span><a class="headerlink" href="#class-scandit.datacapture.core.EncodingRange" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class EncodingRange</span></pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Defines the encoding of a range of bytes.</p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.core.EncodingRange.EncodingRange">
+<span class="sig-name descname"><span class="pre">EncodingRange(ianaName,</span> <span class="pre">startIndex,</span> <span class="pre">endIndex)</span></span><a class="headerlink" href="#method-scandit.datacapture.core.EncodingRange.EncodingRange" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"> <span class="sig-name descname">EncodingRange</span>(<a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a> <em>ianaName</em>,
+        <a class="reference external" href="https://api.flutter.dev/flutter/dart-core/int-class.html" title="int">int</a> <em>startIndex</em>,
+        <a class="reference external" href="https://api.flutter.dev/flutter/dart-core/int-class.html" title="int">int</a> <em>endIndex</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Construct a new encoding range.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.EncodingRange.IanaName">
+<span class="sig-name descname"><span class="pre">ianaName</span></span><a class="headerlink" href="#property-scandit.datacapture.core.EncodingRange.IanaName" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a> get ianaName</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Charset encoding name as defined by <a class="reference external" href="http://www.iana.org/assignments/character-sets/character-sets.xhtml">IANA</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.EncodingRange.StartIndex">
+<span class="sig-name descname"><span class="pre">startIndex</span></span><a class="headerlink" href="#property-scandit.datacapture.core.EncodingRange.StartIndex" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/int-class.html" title="int">int</a> get startIndex</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>Start index of this encoding range.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.core.EncodingRange.EndIndex">
+<span class="sig-name descname"><span class="pre">endIndex</span></span><a class="headerlink" href="#property-scandit.datacapture.core.EncodingRange.EndIndex" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/int-class.html" title="int">int</a> get endIndex</pre><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<p>End index (first index after the last) of this encoding range.</p>
+</dd></dl>
+
+</dd></dl>
+
+<p>Defined in library <em>scandit_datacapture_core</em></p>
+<dl>
+<dt class="sig sig-object unilang" id="enum-scandit.datacapture.core.Orientation">
+<span class="sig-name descname"><span class="pre">Orientation</span></span><a class="headerlink" href="#enum-scandit.datacapture.core.Orientation" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.core.Orientation.Unknown">
+<span class="sig-name descname"><span class="pre">unknown</span></span><a class="headerlink" href="#value-scandit.datacapture.core.Orientation.Unknown" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.core.Orientation.Portrait">
+<span class="sig-name descname"><span class="pre">portrait</span></span><a class="headerlink" href="#value-scandit.datacapture.core.Orientation.Portrait" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.core.Orientation.PortraitUpsideDown">
+<span class="sig-name descname"><span class="pre">portraitUpsideDown</span></span><a class="headerlink" href="#value-scandit.datacapture.core.Orientation.PortraitUpsideDown" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.core.Orientation.LandscapeRight">
+<span class="sig-name descname"><span class="pre">landscapeRight</span></span><a class="headerlink" href="#value-scandit.datacapture.core.Orientation.LandscapeRight" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.core.Orientation.LandscapeLeft">
+<span class="sig-name descname"><span class="pre">landscapeLeft</span></span><a class="headerlink" href="#value-scandit.datacapture.core.Orientation.LandscapeLeft" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.7.0</span></p>
+</dd></dl>
+
+</dd></dl>
+
+<p>Defined in library <em>scandit_datacapture_core</em></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

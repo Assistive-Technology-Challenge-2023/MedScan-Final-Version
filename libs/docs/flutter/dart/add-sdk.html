@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add the SDK to Your App &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Best Practices for Usability" href="best-practices-for-usability.html" />
+    <link rel="prev" title="Run our Sample Apps" href="samples/run-samples.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Add the SDK to Your App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-a-license-key">Get a License Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-the-sdk">Add the SDK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-new-project-optional">1. Create a new project (optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-add-the-sdk-from-the-pub-dev-registry">2a. Add the Scandit Data Capture SDK from the pub.dev registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#b-add-the-sdk-manually">2b. Add the Scandit Data Capture SDK manually</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-sdk-flutter-plugin-s">3. Install Scandit Data Capture SDK Flutter plugin(s)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-information">Additional Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Add the SDK to Your App</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="add-the-sdk-to-your-app">
+<h1>Add the SDK to Your App<a class="headerlink" href="#add-the-sdk-to-your-app" title="Permalink to this headline"></a></h1>
+<p>This guide shows you how to add the Scandit Data Capture SDK to current existing project.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>The latest stable version of the Flutter SDK (for example through the latest Android Studio).</p></li>
+<li><p>A project with minimum iOS deployment target of 13.0 or higher. Or an Android project with target SDK version 23 (Android 6, Marshmallow) or higher, and Kotlin 1.7.21 or higher.</p></li>
+<li><p>A valid Scandit Data Capture SDK license key. You can sign up for a free test account at <a class="reference external" href="https://ssl.scandit.com/customers/new?p=test">ssl.scandit.com</a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Android devices running the Scandit Data Capture SDK need to have a GPU or the performance will drastically decrease.</p>
+</div>
+</div>
+<div class="section" id="get-a-license-key">
+<h2>Get a License Key<a class="headerlink" href="#get-a-license-key" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>If you don’t have a Scandit account yet, create a free test account at <a class="reference external" href="https://ssl.scandit.com/customers/new?p=test">ssl.scandit.com</a>.</p></li>
+<li><p>Sign in to your account at <a class="reference external" href="https://ssl.scandit.com/sessions/new/">ssl.scandit.com/sessions/new</a>.</p></li>
+<li><p>Select “License Keys” from the left-hand menu.</p></li>
+<li><p>If you don’t have a license key for your app yet, click “Create native SDK license key” and enter the <a class="reference external" href="https://support.scandit.com/hc/en-us/articles/115003452432-How-can-I-know-my-application-ID-Bundle-ID-to-create-a-License-Key-">bundle ID</a> for your project.</p></li>
+<li><p>Copy the license key.</p></li>
+</ol>
+<p>If you have a paid subscription, please reach out to <a class="reference external" href="mailto:support&#37;&#52;&#48;scandit&#46;com">support<span>&#64;</span>scandit<span>&#46;</span>com</a> if you need a new license key.</p>
+</div>
+<div class="section" id="add-the-sdk">
+<h2>Add the SDK<a class="headerlink" href="#add-the-sdk" title="Permalink to this headline"></a></h2>
+<p>Currently we support adding the Scandit Data Capture SDK Flutter plugins to your project in two ways. The simplest way is to use the <a class="reference external" href="https://pub.dev/">pub.dev</a> registry, alternatively you can manually download the plugins and add them to your project.</p>
+<div class="section" id="create-a-new-project-optional">
+<h3>1. Create a new project (optional)<a class="headerlink" href="#create-a-new-project-optional" title="Permalink to this headline"></a></h3>
+<p>If you do not have a Flutter project yet that you’ll use, you should create a new one (using your IDE of choice: Android Studio or IntelliJ).</p>
+</div>
+<div class="section" id="a-add-the-sdk-from-the-pub-dev-registry">
+<h3>2a. Add the Scandit Data Capture SDK from the pub.dev registry<a class="headerlink" href="#a-add-the-sdk-from-the-pub-dev-registry" title="Permalink to this headline"></a></h3>
+<p>To add our plugins from the pub.dev registry, you need to open the pubspec.yaml file located inside the app folder, and add required Scandit plugin(s) under dependencies. In the following snippet we’re adding <a class="reference internal" href="barcode-capture/api.html"><span class="doc">ScanditBarcodeCapture API</span></a></p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="nl">dependencies:</span><span class="w"></span>
+<span class="w">  </span><span class="nl">flutter:</span><span class="w"></span>
+<span class="w">    </span><span class="nl">sdk:</span><span class="w"> </span><span class="n">flutter</span><span class="w"></span>
+<span class="w">  </span><span class="nl">scandit_flutter_datacapture_barcode:</span><span class="w"> </span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="b-add-the-sdk-manually">
+<h3>2b. Add the Scandit Data Capture SDK manually<a class="headerlink" href="#b-add-the-sdk-manually" title="Permalink to this headline"></a></h3>
+<p>After you download the archive containing all the plugins at <a class="reference external" href="https://ssl.scandit.com/sdk">ssl.scandit.com/sdk</a>, unzip the archive. It includes the available Flutter plugins, including the scandit-flutter-datacapture-core plugin that all other plugins depend on.</p>
+<p>Move the required Scandit Data Capture SDK Flutter plugins to some subdirectory within your app folder, e.g. to libs/ and then open the pubspec.yaml file located inside the app folder, and add required Scandit plugin(s) under dependencies. In the following snippet we’re adding <a class="reference internal" href="barcode-capture/api.html"><span class="doc">ScanditBarcodeCapture API</span></a></p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="nl">dependencies:</span><span class="w"></span>
+<span class="w">  </span><span class="nl">flutter:</span><span class="w"></span>
+<span class="w">    </span><span class="nl">sdk:</span><span class="w"> </span><span class="n">flutter</span><span class="w"></span>
+<span class="w">  </span><span class="nl">scandit_flutter_datacapture_barcode:</span><span class="w"></span>
+<span class="w">    </span><span class="nl">path:</span><span class="w"> </span><span class="n">libs</span><span class="o">/</span><span class="n">scandit</span><span class="o">-</span><span class="n">flutter</span><span class="o">-</span><span class="n">datacapture</span><span class="o">-</span><span class="n">barcode</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You don’t need to add the dependency to the scandit-flutter-datacapture-core plugin in the pubspec.yaml. However, all the other Scandit Flutter plugins depend internally on it, so you still have to copy it to the same location as the other plugins.</p>
+</div>
+</div>
+<div class="section" id="install-sdk-flutter-plugin-s">
+<h3>3. Install Scandit Data Capture SDK Flutter plugin(s)<a class="headerlink" href="#install-sdk-flutter-plugin-s" title="Permalink to this headline"></a></h3>
+<p>Run from terminal</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>flutter pub get
+</pre></div>
+</div>
+<p>Or perform the install from from Android Studio/IntelliJ: click Packages get in the action ribbon at the top of pubspec.yaml.</p>
+</div>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Camera Permissions: When using the Scandit Data Capture SDK you will want to set the camera as the frame source for various capture modes. On Android, you have to request camera permissions in your own application before starting scanning. To see how you can achieve this, take a look at our samples: <a class="reference internal" href="samples/run-samples.html"><span class="doc">Run our Sample Apps</span></a>.</p></li>
+<li><p>Remember that, if you want to use the camera as the frame source for barcode, text and label capture, you need to set the “Privacy - Camera Usage Description” field in the Info.plist file for iOS.</p></li>
+</ul>
+</div>
+<div class="section" id="next-steps">
+<h2>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this headline"></a></h2>
+<p>You are now ready to tackle the following guides:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="get-started-barcode.html"><span class="doc">Get Started With Barcode Capture</span></a>: guides you through the process of adding barcode scanning to your app</p></li>
+<li><p><a class="reference internal" href="get-started-matrixscan.html"><span class="doc">Get Started With MatrixScan</span></a>: guides you through the process of scanning multiple barcodes at once and use AR overlays in your app</p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Captured ID &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Captured Result Type" href="captured-result-type.html" />
+    <link rel="prev" title="APEC Business Travel Card MRZ Result" href="apec-business-travel-card-mrz-result.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">ScanditIdCapture</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="aamva-barcode-result.html">AAMVA Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aamva-viz-barcode-comparison-verifier.html">AAMVA VIZ Barcode Comparison Verifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argentina-id-barcode-result.html">Argentina ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apec-business-travel-card-mrz-result.html">APEC Business Travel Card MRZ Result</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Captured ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="captured-result-type.html">Captured Result Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-exit-entry-permit-mrz-result.html">China Exit-Entry Permit MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-mainland-travel-permit-mrz-result.html">China Mainland Travel Permit MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-one-way-permit-back-mrz-result.html">China One-Way Permit to Hong Kong/Macau Back MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-one-way-permit-front-mrz-result.html">China One-Way Permit to Hong Kong/Macau Front MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="colombia-dl-barcode-result.html">Colombia DL Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="colombia-id-barcode-result.html">Colombia ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="date-result.html">Date Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="document-type.html">Document Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-exception.html">ID Capture Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-listener.html">ID Capture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-listener.html#id-capture-advanced-listener">ID Capture Advanced Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-session.html">ID Capture Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-settings.html">ID Capture Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture.html">ID Capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-document-type.html">ID Document Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-image-type.html">ID Image Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-supported-document-sides.html">ID Supported Sides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="localized-only-id.html">Localized Only ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mrz-result.html">MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rejected-id.html">Rejected ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scandit-flutter-datacapture-id.html">Scandit Flutter DataCapture Id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="south-africa-dl-barcode-result.html">South Africa DL Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="south-africa-id-barcode-result.html">South Africa ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us-uniformed-services-barcode-result.html">Us Uniformed Services Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="viz-result.html">VIZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/id-capture-overlay.html">ID Capture Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/id-layout.html">ID Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#deserialization">Deserialization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../overview.html">ScanditIdCapture</a> &raquo;</li>
+          <li><a href="../api.html">ScanditIdCapture API</a> &raquo;</li>
+      <li>Captured ID</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="captured-id">
+<h1>Captured ID<a class="headerlink" href="#captured-id" title="Permalink to this headline"></a></h1>
+<p>Defined in library <em>scandit_datacapture_id</em></p>
+<dl>
+<dt class="sig sig-object unilang" id="class-scandit.datacapture.id.CapturedId">
+<span class="sig-name descname"><span class="pre">CapturedId</span></span><a class="headerlink" href="#class-scandit.datacapture.id.CapturedId" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class CapturedId</span></pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A class that represents a result of a document scan. This class contains the captured information that is commonly present in all the documents, like the name or the date of birth of the holder.</p>
+<p>The class can be cast to a concrete implementation using <a class="reference internal" href="#property-scandit.datacapture.id.CapturedId.CapturedResultType" title="capturedResultType property">capturedResultType</a>.</p>
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.FirstName">
+<span class="sig-name descname"><span class="pre">firstName</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.FirstName" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get firstName</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The first name of the document holder. Separated by spaces if more than one name is present. Characters can be all uppercase for document types which don’t capitalize names (for example names encoded in ICAO Machine Readable Zones).</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.LastName">
+<span class="sig-name descname"><span class="pre">lastName</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.LastName" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get lastName</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The last name of the document holder. Separated by spaces if more than one name is present. Characters can be all uppercase for document types which don’t capitalize names (for example names encoded in ICAO Machine Readable Zones).</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.FullName">
+<span class="sig-name descname"><span class="pre">fullName</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.FullName" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a> get fullName</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The full name of the document holder. Characters can be all uppercase for document types which don’t capitalize names (for example names encoded in ICAO Machine Readable Zones).</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.Sex">
+<span class="sig-name descname"><span class="pre">sex</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.Sex" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get sex</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The sex of the document holder.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.DateOfBirth">
+<span class="sig-name descname"><span class="pre">dateOfBirth</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.DateOfBirth" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="date-result.html#class-scandit.datacapture.id.DateResult" title="DateResult class">DateResult</a>? get dateOfBirth</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The date of birth of the document holder. If the document doesn’t provide two first digits of the year then the date of birth is always set to be earlier than or equal to the scan date. For example if the year of scanning is 2021 and the document returns that the year of birth is 14 then the returned year is set to 2014. However if the document returns that the year of birth is 24 then the returned year is set to 1924.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.Nationality">
+<span class="sig-name descname"><span class="pre">nationality</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.Nationality" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get nationality</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The nationality of the document holder represented by a three-letter code (Alpha-3 codes specified in ISO 3166-1).</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.Address">
+<span class="sig-name descname"><span class="pre">address</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.Address" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get address</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The address of the document holder.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.CapturedResultType">
+<span class="sig-name descname"><span class="pre">capturedResultType</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.CapturedResultType" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="captured-result-type.html#enum-scandit.datacapture.id.CapturedResultType" title="CapturedResultType enum">CapturedResultType</a> get capturedResultType</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The captured result type. Consult the <a class="reference internal" href="captured-result-type.html#enum-scandit.datacapture.id.CapturedResultType" title="documentation enum">documentation</a> for more information about it.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.CapturedResultTypes">
+<span class="sig-name descname"><span class="pre">capturedResultTypes</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.CapturedResultTypes" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/Set-class.html" title="Set">Set</a>&lt;<a class="reference internal" href="captured-result-type.html#enum-scandit.datacapture.id.CapturedResultType" title="CapturedResultType enum">CapturedResultType</a>&gt; get capturedResultTypes</pre><p><span class="versionmodified versionadded">Added in version 6.12.0</span></p>
+<p>The captured result types. Guaranteed to contain at least one element. Consult the <a class="reference internal" href="captured-result-type.html#enum-scandit.datacapture.id.CapturedResultType" title="documentation enum">documentation</a> for more information about it.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.DocumentType">
+<span class="sig-name descname"><span class="pre">documentType</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.DocumentType" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="document-type.html#enum-scandit.datacapture.id.DocumentType" title="DocumentType enum">DocumentType</a> get documentType</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The document type. Consult the <a class="reference internal" href="document-type.html#enum-scandit.datacapture.id.DocumentType" title="documentation enum">documentation</a> for more information about it.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.IssuingCountryIso">
+<span class="sig-name descname"><span class="pre">issuingCountryIso</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.IssuingCountryIso" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get issuingCountryIso</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The ISO (Alpha-3 code) abbreviation of the issuing country of the document.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.IssuingCountry">
+<span class="sig-name descname"><span class="pre">issuingCountry</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.IssuingCountry" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get issuingCountry</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A human readable text identifying the country that issues the document.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.DocumentNumber">
+<span class="sig-name descname"><span class="pre">documentNumber</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.DocumentNumber" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/String-class.html" title="String">String</a>? get documentNumber</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The document number.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.DateOfExpiry">
+<span class="sig-name descname"><span class="pre">dateOfExpiry</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.DateOfExpiry" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="date-result.html#class-scandit.datacapture.id.DateResult" title="DateResult class">DateResult</a>? get dateOfExpiry</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The date of expiry of the document.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.DateOfIssue">
+<span class="sig-name descname"><span class="pre">dateOfIssue</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.DateOfIssue" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="date-result.html#class-scandit.datacapture.id.DateResult" title="DateResult class">DateResult</a>? get dateOfIssue</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The date of issue of the document. Please note that some documents may specify the exact date of issue, while other the month and the year only.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.AamvaBarcode">
+<span class="sig-name descname"><span class="pre">aamvaBarcode</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.AamvaBarcode" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="aamva-barcode-result.html#class-scandit.datacapture.id.AamvaBarcodeResult" title="AamvaBarcodeResult class">AamvaBarcodeResult</a>? get aamvaBarcode</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The additional information extracted from a barcode on a document that follows the American Association of Motor Vehicle Administrators (AAMVA) specification. This property is guaranteed to be non-<em>null</em> when <a class="reference internal" href="#property-scandit.datacapture.id.CapturedId.CapturedResultType" title="capturedResultType property">capturedResultType</a> is <a class="reference internal" href="captured-result-type.html#value-scandit.datacapture.id.CapturedResultType.AamvaBarcodeResult" title="CapturedResultType.aamvaBarcodeResult value">CapturedResultType.aamvaBarcodeResult</a>, and is <em>null</em> otherwise.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.ColombiaDlBarcode">
+<span class="sig-name descname"><span class="pre">colombiaDlBarcode</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.ColombiaDlBarcode" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="colombia-dl-barcode-result.html#class-scandit.datacapture.id.ColombiaDlBarcodeResult" title="ColombiaDlBarcodeResult class">ColombiaDlBarcodeResult</a>? get colombiaDlBarcode</pre><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>The additional information extracted from a barcode on a Colombia Driver’s License (Licencia de Conducción). This property is guaranteed to be non-<em>null</em> when <a class="reference internal" href="#property-scandit.datacapture.id.CapturedId.CapturedResultTypes" title="capturedResultTypes property">capturedResultTypes</a> is <a class="reference internal" href="captured-result-type.html#value-scandit.datacapture.id.CapturedResultType.ColombiaDlBarcodeResult" title="CapturedResultType.colombiaDlBarcodeResult value">CapturedResultType.colombiaDlBarcodeResult</a>, and is <em>null</em> otherwise.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.ColombiaIdBarcode">
+<span class="sig-name descname"><span class="pre">colombiaIdBarcode</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.ColombiaIdBarcode" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="colombia-id-barcode-result.html#class-scandit.datacapture.id.ColombiaIdBarcodeResult" title="ColombiaIdBarcodeResult class">ColombiaIdBarcodeResult</a>? get colombiaIdBarcode</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The additional information extracted from a barcode on a Colombia ID (Cédula de Ciudadanía). This property is guaranteed to be non-<em>null</em> when <a class="reference internal" href="#property-scandit.datacapture.id.CapturedId.CapturedResultType" title="capturedResultType property">capturedResultType</a> is <a class="reference internal" href="captured-result-type.html#value-scandit.datacapture.id.CapturedResultType.ColombiaIdBarcodeResult" title="CapturedResultType.colombiaIdBarcodeResult value">CapturedResultType.colombiaIdBarcodeResult</a>, and is <em>null</em> otherwise.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.ArgentinaIdBarcode">
+<span class="sig-name descname"><span class="pre">argentinaIdBarcode</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.ArgentinaIdBarcode" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="argentina-id-barcode-result.html#class-scandit.datacapture.id.ArgentinaIdBarcodeResult" title="ArgentinaIdBarcodeResult class">ArgentinaIdBarcodeResult</a>? get argentinaIdBarcode</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The additional information extracted from a barcode on a Argentina ID (Documento Nacional de Identidad). This property is guaranteed to be non-<em>null</em> when <a class="reference internal" href="#property-scandit.datacapture.id.CapturedId.CapturedResultType" title="capturedResultType property">capturedResultType</a> is <a class="reference internal" href="captured-result-type.html#value-scandit.datacapture.id.CapturedResultType.ArgentinaIdBarcodeResult" title="CapturedResultType.argentinaIdBarcodeResult value">CapturedResultType.argentinaIdBarcodeResult</a>, and is <em>null</em> otherwise.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.SouthAfricaDlBarcode">
+<span class="sig-name descname"><span class="pre">southAfricaDlBarcode</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.SouthAfricaDlBarcode" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="south-africa-dl-barcode-result.html#class-scandit.datacapture.id.SouthAfricaDlBarcodeResult" title="SouthAfricaDlBarcodeResult class">SouthAfricaDlBarcodeResult</a>? get southAfricaDlBarcode</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The additional information extracted from a barcode on a South Africa Driver’s License. This property is guaranteed to be non-<em>null</em> when <a class="reference internal" href="#property-scandit.datacapture.id.CapturedId.CapturedResultType" title="capturedResultType property">capturedResultType</a> is <a class="reference internal" href="captured-result-type.html#value-scandit.datacapture.id.CapturedResultType.SouthAfricaDlBarcodeResult" title="CapturedResultType.southAfricaDlBarcodeResult value">CapturedResultType.southAfricaDlBarcodeResult</a>, and is <em>null</em> otherwise.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.SouthAfricaIdBarcode">
+<span class="sig-name descname"><span class="pre">southAfricaIdBarcode</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.SouthAfricaIdBarcode" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="south-africa-id-barcode-result.html#class-scandit.datacapture.id.SouthAfricaIdBarcodeResult" title="SouthAfricaIdBarcodeResult class">SouthAfricaIdBarcodeResult</a>? get southAfricaIdBarcode</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The additional information extracted from a barcode on a South Africa identity card (Smart ID Card). This property is guaranteed to be non-<em>null</em> when <a class="reference internal" href="#property-scandit.datacapture.id.CapturedId.CapturedResultType" title="capturedResultType property">capturedResultType</a> is <a class="reference internal" href="captured-result-type.html#value-scandit.datacapture.id.CapturedResultType.SouthAfricaIdBarcodeResult" title="CapturedResultType.southAfricaIdBarcodeResult value">CapturedResultType.southAfricaIdBarcodeResult</a>, and is <em>null</em> otherwise.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.Mrz">
+<span class="sig-name descname"><span class="pre">mrz</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.Mrz" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="mrz-result.html#class-scandit.datacapture.id.MrzResult" title="MrzResult class">MrzResult</a>? get mrz</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The additional information extracted from the Machine Readable Zone (MRZ) of a Machine Readable Travel Document (MRTD). This property is guaranteed to be non-<em>null</em> when <a class="reference internal" href="#property-scandit.datacapture.id.CapturedId.CapturedResultType" title="capturedResultType property">capturedResultType</a> is <a class="reference internal" href="captured-result-type.html#value-scandit.datacapture.id.CapturedResultType.MrzResult" title="CapturedResultType.mrzResult value">CapturedResultType.mrzResult</a>, and is <em>null</em> otherwise.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.UsUniformedServicesBarcode">
+<span class="sig-name descname"><span class="pre">usUniformedServicesBarcode</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.UsUniformedServicesBarcode" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="us-uniformed-services-barcode-result.html#class-scandit.datacapture.id.UsUniformedServicesBarcodeResult" title="UsUniformedServicesBarcodeResult class">UsUniformedServicesBarcodeResult</a>? get usUniformedServicesBarcode</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The additional information extracted from a barcode on a United States Uniformed Services Identification card. This property is guaranteed to be non-<em>null</em> when <a class="reference internal" href="#property-scandit.datacapture.id.CapturedId.CapturedResultType" title="capturedResultType property">capturedResultType</a> is <a class="reference internal" href="captured-result-type.html#value-scandit.datacapture.id.CapturedResultType.UsUniformedServicesBarcodeResult" title="CapturedResultType.usUniformedServicesBarcodeResult value">CapturedResultType.usUniformedServicesBarcodeResult</a>, and is <em>null</em> otherwise.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.id.CapturedId.Viz">
+<span class="sig-name descname"><span class="pre">viz</span></span><a class="headerlink" href="#property-scandit.datacapture.id.CapturedId.Viz" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="viz-result.html#class-scandit.datacapture.id.VizResult" title="VizResult class">VizResult</a>? get viz</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>The additional information extracted from a documents or its part intended to be read by humans (for example Visual Inspection Zone (VIZ) of a Machine-Readable Travel Document (MRTD)). This property is guaranteed to be non-<em>null</em> when <a class="reference internal" href="#property-scandit.datacapture.id.CapturedId.CapturedResultType" title="capturedResultType property">capturedResultType</a> is <a class="reference internal" href="captured-result-type.html#value-scandit.datacapture.id.CapturedResultType.VizResult" title="CapturedResultType.vizResult value">CapturedResultType.vizResult</a>, and is <em>null</em> otherwise.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.id.CapturedId.GetImageBitmapForType">
+<span class="sig-name descname"><span class="pre">getImageForType(imageType)</span></span><a class="headerlink" href="#method-scandit.datacapture.id.CapturedId.GetImageBitmapForType" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/widgets/Image-class.html" title="Image">Image</a>? <span class="sig-name descname">getImageForType</span>(<a class="reference internal" href="id-image-type.html#enum-scandit.datacapture.id.IdImageType" title="IdImageType enum">IdImageType</a> <em>imageType</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>Gets a bitmap for an image type.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

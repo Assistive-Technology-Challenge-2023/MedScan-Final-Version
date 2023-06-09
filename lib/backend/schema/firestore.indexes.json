@@ -1,0 +1,18 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "drug_db_mini_flat",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "ind",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "sub_ind",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Set up the Active Scan Area and Location Selection &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Get Started With The Parser" href="get-started-parser.html" />
+    <link rel="prev" title="Advanced Camera Functionality" href="camera-advanced.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Set up the Active Scan Area</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-the-scan-area-for-your-use-case">Setting up the Scan Area for Your Use Case</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-scan-area-is-restricted-to-the-visible-part-of-the-preview">The Scan Area is Restricted to the Visible Part of the Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changing-the-point-of-interest">Changing the Point of Interest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#location-selection">Location Selection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#radius-location-selection">Radius Location Selection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rectangular-location-selection">Rectangular Location Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#debugging-the-scan-area-and-location-selection">Debugging The Scan Area And Location Selection</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Set up the Active Scan Area and Location Selection</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="set-up-the-active-scan-area-and-location-selection">
+<h1>Set up the Active Scan Area and Location Selection<a class="headerlink" href="#set-up-the-active-scan-area-and-location-selection" title="Permalink to this headline"></a></h1>
+<p>By default capture modes will try to read barcodes, text etc anywhere in the camera frames. However, in some cases you want to restrict the area in which the capture modes search. For example, you may want to scan codes only at one location to let users pick a barcode by precisely pointing at it. Or part of the camera preview is covered by UI elements and you want to ensure that no codes are scanned below these elements.</p>
+<p>This page describes how to setup the scan area for data capture modes to get the optimal behavior for your app.</p>
+<div class="section" id="setting-up-the-scan-area-for-your-use-case">
+<h2>Setting up the Scan Area for Your Use Case<a class="headerlink" href="#setting-up-the-scan-area-for-your-use-case" title="Permalink to this headline"></a></h2>
+<div class="section" id="the-scan-area-is-restricted-to-the-visible-part-of-the-preview">
+<span id="scan-area-margins"></span><h3>The Scan Area is Restricted to the Visible Part of the Preview<a class="headerlink" href="#the-scan-area-is-restricted-to-the-visible-part-of-the-preview" title="Permalink to this headline"></a></h3>
+<p>When displaying the processed frames in the <a class="reference internal" href="core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a>, the scan area is automatically restricted to what is visible. This avoids unexpected scans as the code first has to be visible on screen before it can be scanned. This is especially important when the preview only shows a small part of the whole camera frame, e.g. when using a cropped view.</p>
+<p>If you want to scan codes in the whole visible area, no further configuration is required. If there are some UI elements overlaying the camera preview you might want to further restrict the scan area to really only be the final visible part of the preview and avoid picking up codes that the user can’t see yet. For this you can change the <a class="reference internal" href="core/api/ui/data-capture-view.html#property-scandit.datacapture.core.ui.DataCaptureView.ScanAreaMargins" title="DataCaptureView.scanAreaMargins property">DataCaptureView.scanAreaMargins</a> property on the <a class="reference internal" href="core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If there is nothing laying on top of the camera preview but you still want to reduce the scan area please have a look at <a class="reference internal" href="#scan-area-location-selection"><span class="std std-ref">location selections</span></a> for this instead of scan area margins. Location selections are centered on the <a class="reference internal" href="#scan-area-point-of-interest"><span class="std std-ref">point of interest</span></a> and are sized like viewfinders which makes them a much better fit for such use cases.</p>
+</div>
+<p>Here is an example of restricting the scanning area by 200 device independent pixels from the bottom because a view is covering the bottom of the screen.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataCaptureView</span><span class="p">.</span><span class="n">forContext</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nl">scanAreaMargins:</span><span class="w"> </span><span class="n">MarginsWithUnit</span><span class="p">(</span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">dip</span><span class="p">),</span><span class="w"> </span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">dip</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">dip</span><span class="p">),</span><span class="w"> </span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">200</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">dip</span><span class="p">)));</span><span class="w"></span>
+</pre></div>
+</div>
+<p id="view-dimension-changes">If you want to adjust margins based on the view dimensions or orientation, e.g. to use different margins based on the device orientation, you can observe view size and orientation changes on the data capture view by registering a <a class="reference internal" href="core/api/ui/data-capture-view-listener.html#interface-scandit.datacapture.core.ui.IDataCaptureViewListener" title="DataCaptureViewListener interface">DataCaptureViewListener</a> on the data capture view.</p>
+</div>
+<div class="section" id="changing-the-point-of-interest">
+<span id="scan-area-point-of-interest"></span><h3>Changing the Point of Interest<a class="headerlink" href="#changing-the-point-of-interest" title="Permalink to this headline"></a></h3>
+<p>By default, scanning is optimized for the center of the visible part of the preview (or the center of the frame if the frame is not displayed in a <a class="reference internal" href="core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a>). This is specified through what we call the point of interest. This point is also where code selection happens if it is enabled, more on that in the next section.</p>
+<p>If you want to shift the scanning to another point, you can pass the desired point of interest to the <a class="reference internal" href="core/api/ui/data-capture-view.html#class-scandit.datacapture.core.ui.DataCaptureView" title="DataCaptureView class">DataCaptureView</a> constructor. For example, the code below shifts the point of interest vertically to a fourth of the height:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataCaptureView</span><span class="p">.</span><span class="n">forContext</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nl">pointOfInterest:</span><span class="w"></span>
+<span class="w">        </span><span class="n">PointWithUnit</span><span class="p">(</span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">fraction</span><span class="p">),</span><span class="w"> </span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">0.25</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">fraction</span><span class="p">)));</span><span class="w"></span>
+</pre></div>
+</div>
+<p>When specifying fractions, they are relative to the visible area minus the margins. This means that a point of interest of 0.5/0.5 is always centered in the scan area defined through the size of the view and potentially added margins.</p>
+<p>As indicated <a class="reference internal" href="#view-dimension-changes"><span class="std std-ref">above</span></a>, register a <a class="reference internal" href="core/api/ui/data-capture-view-listener.html#interface-scandit.datacapture.core.ui.IDataCaptureViewListener" title="DataCaptureViewListener interface">DataCaptureViewListener</a> on the data capture view to change the point of interest whenever the view dimension or orientation changes.</p>
+</div>
+<div class="section" id="location-selection">
+<span id="scan-area-location-selection"></span><h3>Location Selection<a class="headerlink" href="#location-selection" title="Permalink to this headline"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Location selection is not available for every <a class="reference internal" href="core/api/data-capture-mode.html#interface-scandit.datacapture.core.IDataCaptureMode" title="DataCaptureMode interface">DataCaptureMode</a>. This section will concentrate on <a class="reference internal" href="barcode-capture/api/barcode-capture.html#class-scandit.datacapture.barcode.BarcodeCapture" title="BarcodeCapture class">BarcodeCapture</a> but it can be applied exactly the same to other modes that allow setting a <a class="reference internal" href="core/api/location-selection.html#interface-scandit.datacapture.core.ILocationSelection" title="LocationSelection interface">LocationSelection</a> in their settings.</p>
+</div>
+<p>Sometimes it is necessary to let the user select which code to scan, e.g. to select one code from a dense stack of barcodes. Enabling full-image scanning is not desired in that case as any of the codes currently visible on screen could be returned as part of the results. To not return a random code but clearly target specific codes, a <a class="reference internal" href="core/api/location-selection.html#interface-scandit.datacapture.core.ILocationSelection" title="LocationSelection interface">LocationSelection</a> can be set in the <a class="reference internal" href="barcode-capture/api/barcode-capture-settings.html#class-scandit.datacapture.barcode.BarcodeCaptureSettings" title="BarcodeCaptureSettings class">BarcodeCaptureSettings</a>. Location selections implement a specific strategy to select barcodes by their location.</p>
+<div class="section" id="radius-location-selection">
+<span id="scan-area-radius-location-selection"></span><h4>Radius Location Selection<a class="headerlink" href="#radius-location-selection" title="Permalink to this headline"></a></h4>
+<p>The <a class="reference internal" href="core/api/radius-location-selection.html#class-scandit.datacapture.core.RadiusLocationSelection" title="RadiusLocationSelection class">RadiusLocationSelection</a> is the simplest and for barcode scanning the preferred way of location selection. It lets you define a radius around the point of interest (see previous section). Any barcode touched by the circle will be recognized and returned, any barcode not touched by the circle will be entirely ignored. Radius location selection can resolve all of the following scenarios that could not be handled properly with full-image scanning:</p>
+<p>Selecting stacked codes, e.g. a sheet of vertically-stacked Code 128. Here the middle code will be returned as it is touched by the circle while the code above and below are not.</p>
+<blockquote>
+<div><img alt="_images/scan-area-radius1.png" class="align-center" src="_images/scan-area-radius1.png" />
+</div></blockquote>
+<p>Selecting codes printed next to each other. Once again only the middle code is returned as it is the only one touched by the circle.</p>
+<blockquote>
+<div><img alt="_images/scan-area-radius3.png" class="align-center" src="_images/scan-area-radius3.png" />
+</div></blockquote>
+<p>Both of those scenarios work with any symbology, here an example of Data Matrix codes printed next to each other.</p>
+<blockquote>
+<div><img alt="_images/scan-area-radius6.png" class="align-center" src="_images/scan-area-radius6.png" />
+</div></blockquote>
+<p>As the code selection is done through a circle it works just as well for vertical codes, or codes at any other angle.</p>
+<blockquote>
+<div><img alt="_images/scan-area-radius5.png" class="align-center" src="_images/scan-area-radius5.png" />
+</div></blockquote>
+<p>A <a class="reference internal" href="core/api/radius-location-selection.html#class-scandit.datacapture.core.RadiusLocationSelection" title="RadiusLocationSelection class">RadiusLocationSelection</a> is created by specifying a radius and then setting it on the barcode capture settings with <a class="reference internal" href="barcode-capture/api/barcode-capture-settings.html#property-scandit.datacapture.barcode.BarcodeCaptureSettings.LocationSelection" title="BarcodeCaptureSettings.locationSelection property">BarcodeCaptureSettings.locationSelection</a>. For example, the code below creates a radius location selection for a radius of 0 (a valid radius forcing barcodes to contain the point of interest):</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">barcodeCaptureSettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w"></span>
+<span class="n">barcodeCaptureSettings</span><span class="p">.</span><span class="n">locationSelection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RadiusLocationSelection</span><span class="p">(</span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">fraction</span><span class="p">));</span><span class="w"></span>
+</pre></div>
+</div>
+<p>When choosing the radius it is important to consider two potential issues:</p>
+<p>If the radius chosen is too large, it might often be touching multiple barcodes at the same time. In this case it is not a given that the central barcode will be returned and it is advicable to reduce the radius.</p>
+<blockquote>
+<div><img alt="_images/scan-area-radius2.png" class="align-center" src="_images/scan-area-radius2.png" />
+</div></blockquote>
+<p>If the radius chosen is too small, higher precision is needed to touch a barcode. It can be helpful to the user experience to increase the radius in this case.</p>
+<blockquote>
+<div><img alt="_images/scan-area-radius4.png" class="align-center" src="_images/scan-area-radius4.png" />
+</div></blockquote>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Reference a guide about code selection UIs</p>
+</div>
+</div>
+<div class="section" id="rectangular-location-selection">
+<span id="scan-area-rectangular-location-selection"></span><h4>Rectangular Location Selection<a class="headerlink" href="#rectangular-location-selection" title="Permalink to this headline"></a></h4>
+<p>The <a class="reference internal" href="core/api/rectangular-location-selection.html#class-scandit.datacapture.core.RectangularLocationSelection" title="RectangularLocationSelection class">RectangularLocationSelection</a> lets you define the size of a rectangle around the point of interest (see previous section). Any code outside of the rectangle will not be recognized. One of the main use cases for the rectangular location selection is to restrict <a class="reference internal" href="text-capture/api/text-capture.html#class-scandit.datacapture.text.TextCapture" title="TextCapture class">TextCapture</a> to only capture text inside a small area instead of the whole screen or restrict <a class="reference internal" href="barcode-capture/api/barcode-capture.html#class-scandit.datacapture.barcode.BarcodeCapture" title="BarcodeCapture class">BarcodeCapture</a> to a small area if <a class="reference internal" href="core/api/radius-location-selection.html#class-scandit.datacapture.core.RadiusLocationSelection" title="RadiusLocationSelection class">RadiusLocationSelection</a> is not a good fit.</p>
+<p>A <a class="reference internal" href="core/api/rectangular-location-selection.html#class-scandit.datacapture.core.RectangularLocationSelection" title="RectangularLocationSelection class">RectangularLocationSelection</a> is created by specifying the size of the rectangle and then setting it on the barcode/text capture settings with <a class="reference internal" href="barcode-capture/api/barcode-capture-settings.html#property-scandit.datacapture.barcode.BarcodeCaptureSettings.LocationSelection" title="BarcodeCaptureSettings.locationSelection property">BarcodeCaptureSettings.locationSelection</a>. For example, the code below creates a rectangular location selection for a very thin area taking 10% of the view’s height and 90% of the view’s width:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">barcodeCaptureSettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w"></span>
+<span class="n">barcodeCaptureSettings</span><span class="p">.</span><span class="n">locationSelection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RectangularLocationSelection</span><span class="p">.</span><span class="n">withSize</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">SizeWithUnit</span><span class="p">(</span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">0.9</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">fraction</span><span class="p">),</span><span class="w"> </span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">0.1</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">fraction</span><span class="p">)));</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The size of the rectangle can also be set by only providing either the width or the height and then an aspect ratio to calculate the other dimension. This can be especially useful for defining a square area:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">barcodeCaptureSettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w"></span>
+<span class="n">barcodeCaptureSettings</span><span class="p">.</span><span class="n">locationSelection</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="n">RectangularLocationSelection</span><span class="p">.</span><span class="n">withWidthAndAspect</span><span class="p">(</span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">fraction</span><span class="p">),</span><span class="w"> </span><span class="m">1</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="debugging-the-scan-area-and-location-selection">
+<h3>Debugging The Scan Area And Location Selection<a class="headerlink" href="#debugging-the-scan-area-and-location-selection" title="Permalink to this headline"></a></h3>
+<p>It can be important to visually debug the scan area to make sure that it is configured exactly how it should be.</p>
+<p>To this purpose you can enable an overlay that visualizes everything that was set in the scan area through <a class="reference internal" href="barcode-capture/api/ui/barcode-capture-overlay.html#property-scandit.datacapture.barcode.ui.BarcodeCaptureOverlay.ShouldShowScanAreaGuides" title="BarcodeCaptureOverlay.shouldShowScanAreaGuides property">BarcodeCaptureOverlay.shouldShowScanAreaGuides</a>:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">overlay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w"></span>
+<span class="n">overlay</span><span class="p">.</span><span class="n">shouldShowScanAreaGuides</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<img alt="_images/scan-area-guides.png" class="align-center" src="_images/scan-area-guides.png" />
+<p>Visualized are:</p>
+<ul class="simple">
+<li><p>The scan area including the margins by a light grey rectangle</p></li>
+<li><p>The radius location selection by a green crosshair</p></li>
+</ul>
+<p>The above visualization is for the following example settings:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">barcodeCaptureSettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w"></span>
+<span class="n">barcodeCaptureSettings</span><span class="p">.</span><span class="n">locationSelection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RadiusLocationSelection</span><span class="p">(</span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">5.0</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">dip</span><span class="p">));</span><span class="w"></span>
+
+<span class="kd">var</span><span class="w"> </span><span class="n">view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataCaptureView</span><span class="p">.</span><span class="n">forContext</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nl">pointOfInterest:</span><span class="w"></span>
+<span class="w">    </span><span class="n">PointWithUnit</span><span class="p">(</span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">fraction</span><span class="p">),</span><span class="w"> </span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">0.25</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">fraction</span><span class="p">)),</span><span class="w"></span>
+<span class="w">    </span><span class="nl">scanAreaMargins:</span><span class="w"> </span><span class="n">MarginsWithUnit</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">40.0</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">dip</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">dip</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">40.0</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">dip</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">DoubleWithUnit</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="n">MeasureUnit</span><span class="p">.</span><span class="n">fraction</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

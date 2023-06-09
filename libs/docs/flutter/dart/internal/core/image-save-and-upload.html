@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frame Save and Upload &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Frame Save and Upload</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="frame-save-and-upload">
+<h1>Frame Save and Upload<a class="headerlink" href="#frame-save-and-upload" title="Permalink to this headline"></a></h1>
+<p>Frame save and upload capability is based on three concepts: (1) deciding what
+to save, (2) buffering the frames and (3) storing the frames.</p>
+<p>Making a decision what should be saved, when and how</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>what:</strong> full frame vs. region of interest</p></li>
+<li><p><strong>when:</strong> current frame vs. next frame</p></li>
+<li><p><strong>how:</strong> burst of last N frames vs. sequence of consecutive frames</p></li>
+</ul>
+</div></blockquote>
+<p>Enqueueing frames</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>For small storage sizes the buffer could be kept in memory</p></li>
+<li><p>For large storage sizes the buffer would be written to the disk</p></li>
+<li><dl class="simple">
+<dt>Burst of frames</dt><dd><ul>
+<li><p>The size of the storage buffer is fixed and implies the number of N
+latest frames that are to be saved</p></li>
+<li><p>More frames can be added to the storage buffer than is its size. If the
+buffer fills up then the oldest frames will be dropped from the queue</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Sequence of frames</dt><dd><ul>
+<li><p>All consecutive frames in the given sequence will be added to the
+storage buffer</p></li>
+<li><p>The size of the storage buffer is not fixed as it can be difficult to
+determine the appropriate buffer size beforehand</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>Dequeueing frames</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The storage location can be on the device itself or on the server</p></li>
+<li><p>Processing the queue works the same for both the local storage and the
+server</p></li>
+<li><p>It makes possible to save locally a sequence of large frames that could
+not be saved synchronously in real time without affecting the frame
+rate</p></li>
+<li><p>If the storage is on the local device then the dequeueing operation could
+be skipped depending on whether (and how) the frames were buffered to
+memory or disk</p></li>
+</ul>
+</div></blockquote>
+<p>Defined in library <em>scandit_datacapture_core</em></p>
+<p>Code example to illustrate the workflow</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// This lambda illustrates that it is possible to get signal when the</span>
+<span class="c1">// storage task has been completed. All details are omitted.</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">waitFor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">Delegate</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="cm">/* when the delegate is ready */</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Delegate</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">IFrameStorageDelegate</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">didComplete</span><span class="p">(</span><span class="n">FrameStorageTask</span><span class="w"> </span><span class="n">task</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Storage queue processed successfully. Details omitted.</span>
+<span class="w">        </span><span class="n">ready_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">isReady</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ready_</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">ready_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// Use Case 1: Burst Mode</span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Create a session that uploads frames as Raw files to the server. The</span>
+<span class="w">    </span><span class="c1">// session has a circular buffer to keep the 3 latest frames.</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">buffer_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">BurstModeConfiguration</span><span class="w"> </span><span class="nf">configuration</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">FrameStorageFormat</span><span class="o">::</span><span class="n">Raw</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">FrameStorageLocation</span><span class="o">::</span><span class="n">Server</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">buffer_size</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Calling the contructor of BurstModeSaveSession could trigger the</span>
+<span class="w">    </span><span class="c1">// an asynchronous process that starts adding frames to the storage</span>
+<span class="w">    </span><span class="c1">// queue.</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">delegate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Delegate</span><span class="p">{</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="n">BurstModeSaveSession</span><span class="w"> </span><span class="nf">burst_mode</span><span class="p">(</span><span class="n">delegate</span><span class="p">,</span><span class="w"> </span><span class="n">configuration</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Nothing is uploaded at this point. Frames are just added to the queue</span>
+<span class="w">    </span><span class="c1">// to be uploaded later. There needs to some event that triggers the</span>
+<span class="w">    </span><span class="c1">// burst mode to start saving.</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">task_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">burst_mode</span><span class="p">.</span><span class="n">save</span><span class="p">();</span><span class="w"> </span><span class="c1">// Triggers the uploading task</span>
+
+<span class="w">    </span><span class="c1">// It is possible that new frames are still added to the queue, while</span>
+<span class="w">    </span><span class="c1">// the task is running but those new frames are not included in the set</span>
+<span class="w">    </span><span class="c1">// that is uploaded to the server.</span>
+<span class="w">    </span><span class="n">waitFor</span><span class="p">(</span><span class="w"> </span><span class="n">delegate</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">assert</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">FrameStorageTask</span><span class="o">::</span><span class="n">Completed</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">task_1</span><span class="p">.</span><span class="n">getState</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// The previous task has been completed successfully and now we trigger</span>
+<span class="w">    </span><span class="c1">// a second collection of frames to be uploaded. Although, this session</span>
+<span class="w">    </span><span class="c1">// goes out of scope the upload task would still continue processing.</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">task_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">burst_mode</span><span class="p">.</span><span class="n">save</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// Use Case 2: Sequence mode</span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Create a session that uploads a sequence of frames as Raw files to</span>
+<span class="w">    </span><span class="c1">// the server.</span>
+<span class="w">    </span><span class="n">SequenceModeConfiguration</span><span class="w"> </span><span class="nf">configuration</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">FrameStorageFormat</span><span class="o">::</span><span class="n">Raw</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">FrameStorageLocation</span><span class="o">::</span><span class="n">Server</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">delegate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Delegate</span><span class="p">{</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="n">SequenceModeSaveSession</span><span class="w"> </span><span class="nf">sequence_mode</span><span class="p">(</span><span class="n">delegate</span><span class="p">,</span><span class="w"> </span><span class="n">configuration</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// No frames are enqueued until the sequence is explicitly started</span>
+<span class="w">    </span><span class="n">sequence_mode</span><span class="p">.</span><span class="n">start</span><span class="p">();</span><span class="w"> </span><span class="c1">// Start adding frames to the queue asynchronously</span>
+
+<span class="w">    </span><span class="c1">// Nothing is uploaded at this point. Frames are just queued to be</span>
+<span class="w">    </span><span class="c1">// uploaded. Something happens that stops the saving of the sequence.</span>
+<span class="w">    </span><span class="c1">// While this session goes out of scope, the upload task would still</span>
+<span class="w">    </span><span class="c1">// continue processing.</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sequence_mode</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Implementation details.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// FrameStorageQueue would be responsible for processing the queue, that is,</span>
+<span class="c1">// pop items and save them either locally or upload to the server.</span>
+<span class="c1">//</span>
+<span class="c1">// TODO: Who owns the FrameStorageQueue and manages its lifetime?</span>
+<span class="c1">//</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FrameStorageQueue</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Called in the context where FrameData is available</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="c1">// Returns `true` if the data was added to the queue successfully.</span>
+<span class="w">    </span><span class="c1">// The returned `true` does not mean that the frame data has</span>
+<span class="w">    </span><span class="c1">// been processed and saved successfully.</span>
+<span class="w">    </span><span class="c1">//</span>
+<span class="w">    </span><span class="c1">// The meta data is the free form Json object that can be added to the</span>
+<span class="w">    </span><span class="c1">// Image Submission API Request.</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">enqueue</span><span class="p">(</span><span class="n">FrameData</span><span class="w"> </span><span class="n">frame</span><span class="p">,</span><span class="w"> </span><span class="n">Json</span><span class="w"> </span><span class="n">meta_data</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// Internally an id is needed when saving the sequence of frames. The type</span>
+<span class="c1">// is &quot;typedeffed&quot; here to unsigned int, but in the first round it could be</span>
+<span class="c1">// mapped to timestamp.</span>
+<span class="k">using</span><span class="w"> </span><span class="n">FrameSequenceId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="cm">/* or type_of_timestamp */</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

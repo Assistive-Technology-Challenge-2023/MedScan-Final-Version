@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Requirements for Scandit Data Capture SDK 6.16 &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Requirements for Scandit Data Capture SDK 6.15" href="6.15.html" />
+    <link rel="prev" title="Requirements for Scandit Data Capture SDK 6.17" href="6.17.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../requirements.html">System Requirements</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../requirements.html#requirements-for-sdk-6-17">Requirements for Scandit Data Capture SDK 6.17</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../requirements.html#previous-versions">Previous Versions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="6.17.html">6.17</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">6.16</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#native-platforms">Native Platforms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#web-platforms">Web Platforms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#framework-platforms">Framework Platforms</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="6.15.html">6.15</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.14.html">6.14</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.13.html">6.13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.12.html">6.12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.11.html">6.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.10.html">6.10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.9.html">6.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.8.html">6.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6.7.html">6.7</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../requirements.html">Scandit Data Capture SDK System Requirements</a> &raquo;</li>
+      <li>Requirements for Scandit Data Capture SDK 6.16</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="requirements-for-sdk-6-16">
+<h1>Requirements for Scandit Data Capture SDK 6.16<a class="headerlink" href="#requirements-for-sdk-6-16" title="Permalink to this headline"></a></h1>
+<div class="section" id="native-platforms">
+<h2>Native Platforms<a class="headerlink" href="#native-platforms" title="Permalink to this headline"></a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Platform</strong></p></th>
+<th class="head"><p><strong>Requirements</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Android</p></td>
+<td><ul class="simple">
+<li><p>Android 7.0 (API level 24) for 6.16.0 and 6.16.1</p></li>
+<li><p>Android 6.0 (API level 23) for 6.16.2+</p></li>
+<li><p>Java 8</p></li>
+<li><p>OkHttp 3.12+ (tested up to: 4.9.0)</p></li>
+<li><p>ARMv7, ARM64, x86, x86_64</p></li>
+<li><p>Camera resolution of 720p or higher is recommended</p></li>
+<li><p>GPU required <a class="footnote-reference brackets" href="#gpu" id="id1">1</a></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>iOS</p></td>
+<td><ul class="simple">
+<li><p>iOS 13.0</p></li>
+<li><p>ARM64, x86_64</p></li>
+<li><p>Camera resolution of 720p or higher is recommended</p></li>
+<li><p>GPU required</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="footnote brackets">
+<dt class="label" id="gpu"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>On Android hardware acceleration has to be enabled for the camera preview to work. Hardware acceleration is enabled by default since API level 14 but can potentially be turned off in the Manifest, do not do this if you use the camera.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="web-platforms">
+<h2>Web Platforms<a class="headerlink" href="#web-platforms" title="Permalink to this headline"></a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Requirements</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ul class="simple">
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">Blob</a> (<a class="reference external" href="https://caniuse.com/#feat=blobbuilder">supported browser versions</a>)</p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL">URL/createObjectURL</a> (<a class="reference external" href="https://caniuse.com/#feat=bloburls">supported browser versions</a>)</p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API">Web Workers</a> (<a class="reference external" href="https://caniuse.com/#feat=webworkers">supported browser versions</a>)</p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/WebAssembly">WebAssembly</a> (<a class="reference external" href="https://caniuse.com/#feat=wasm">supported browser versions</a>)</p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia">MediaDevices/getUserMedia</a> (<a class="reference external" href="https://caniuse.com/#feat=stream">supported browser versions</a>)
+- optional, required for camera video streaming</p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas">OffscreenCanvas</a> (<a class="reference external" href="https://caniuse.com/#feat=offscreencanvas">supported browser versions</a>)
+- optional, allows for GPU acceleration in Web Worker</p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API">WebGL</a> (<a class="reference external" href="https://caniuse.com/#feat=webgl">supported browser versions</a>)
+- optional, allows for GPU acceleration in Web Worker</p></li>
+<li><p><a class="reference external" href="https://www.chromestatus.com/feature/6533147810332672">WebAssembly SIMD</a>
+- optional, allows for OCR computation acceleratio</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This results in the current browser compatibility list:</p>
+<ul class="simple">
+<li><p>Desktop</p>
+<ul>
+<li><p>Chrome 61+</p></li>
+<li><p>Firefox 60+</p></li>
+<li><p>Opera 44+</p></li>
+<li><p>Safari 11+</p></li>
+<li><p>Edge 79+</p></li>
+</ul>
+</li>
+<li><p>Mobile - Android</p>
+<ul>
+<li><p>Chrome 61+</p></li>
+<li><p>Firefox 60+</p></li>
+<li><p>Samsung Internet 7+</p></li>
+<li><p>Opera 46+</p></li>
+</ul>
+</li>
+<li><p>Mobile - iOS <a class="footnote-reference brackets" href="#ios" id="id2">2</a></p>
+<ul>
+<li><p>Safari 11+</p></li>
+<li><p>Chrome 61+</p></li>
+<li><p>Firefox 60+</p></li>
+</ul>
+</li>
+</ul>
+<dl class="footnote brackets">
+<dt class="label" id="ios"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>iOS 13.4+ / 14.3+ required for camera video streaming in PWAs / Chrome, Firefox or webviews</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="framework-platforms">
+<h2>Framework Platforms<a class="headerlink" href="#framework-platforms" title="Permalink to this headline"></a></h2>
+<p>These platforms are based on the native platforms and therefore the requirements of native platforms apply to the framework platforms as well. Should a framework have stricter requirements (e.g. it only supports newer versions of Android/iOS) then it is explicitly stated.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Platform</strong></p></th>
+<th class="head"><p><strong>Requirements</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Capacitor</p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://www.npmjs.com/package/&#64;capacitor/core">Capacitor</a> 2.0.0</p></li>
+<li><p>Swift 4.0+</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Cordova</p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://www.npmjs.com/package/cordova">cordova</a> 8.0.0</p></li>
+<li><p><a class="reference external" href="https://www.npmjs.com/package/cordova-android">cordova-android</a> 7.0.0</p></li>
+<li><p><a class="reference external" href="https://www.npmjs.com/package/cordova-ios">cordova-ios</a> 4.5.5</p></li>
+<li><p>Swift 4.0+</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Flutter</p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://flutter.dev/docs/development/tools/sdk/overview">Flutter</a> 1.17.3 (Dart 2.7.0)</p></li>
+<li><p>Swift 4.0+</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Xamarin.Android</p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/xamarin/android/release-notes/10/10.1">Xamarin.Android</a> 10.1</p></li>
+<li><p><a class="reference external" href="https://www.nuget.org/packages/Xamarin.Kotlin.StdLib/1.5.31.2">Kotlin</a> 1.5.31</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Xamarin.iOS</p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/xamarin/xamarin-macios/releases/tag/xamarin-ios-16.0.0.72">Xamarin.iOS</a> 16.0.0.72</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Xamarin.Forms</p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://www.nuget.org/packages/Xamarin.Forms/4.8.0.1687">Xamarin.Forms</a> 4.8</p></li>
+<li><p><a class="reference external" href="https://www.nuget.org/packages/Xamarin.Kotlin.StdLib/1.5.31.2">Kotlin</a> 1.5.31</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>React Native</p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://www.npmjs.com/package/react-native">react-native</a> 0.60 (0.63 if using Fast Refresh)</p></li>
+<li><p>Kotlin 1.5.31</p></li>
+<li><p>Swift 4.0+</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Titanium</p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://titaniumsdk.com/guide/Titanium_SDK/Titanium_SDK_Release_Notes/Titanium_SDK_Release_Notes_10.x/Titanium_SDK_10.1.0.GA_Release_Note.html">Titanium</a> 10.1.0.GA</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>.NET for iOS</p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">.NET SDK</a> 6.0.403+</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>.NET for Android</p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">.NET SDK</a> 6.0.403+</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

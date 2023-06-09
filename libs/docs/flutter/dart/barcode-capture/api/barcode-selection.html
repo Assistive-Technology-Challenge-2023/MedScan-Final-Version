@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barcode Selection &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../id-capture/supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../id-capture/overview.html">ScanditIdCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Barcode Selection</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="barcode-selection">
+<h1>Barcode Selection<a class="headerlink" href="#barcode-selection" title="Permalink to this headline"></a></h1>
+<p>Defined in library <em>scandit_datacapture_barcode_selection</em></p>
+<dl>
+<dt class="sig sig-object unilang" id="class-scandit.datacapture.barcode.selection.BarcodeSelection">
+<span class="sig-name descname"><span class="pre">BarcodeSelection</span></span><a class="headerlink" href="#class-scandit.datacapture.barcode.selection.BarcodeSelection" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">class BarcodeSelection</span> : <a class="reference internal" href="../../core/api/data-capture-mode.html#interface-scandit.datacapture.core.IDataCaptureMode" title="DataCaptureMode interface">DataCaptureMode</a></pre><p><span class="versionmodified versionadded">Added in version 6.10.0</span></p>
+<p>Data capture mode that implements barcode selection.</p>
+<p>Learn more on how to use barcode selection in our <a class="reference internal" href="../../get-started-barcode-selection.html"><span class="doc">Get Started With Barcode Selection</span></a> guide.</p>
+<p>This capture mode uses the <em>barcode scanning</em> and <em>tracking</em> capabilities. It cannot be used together with other capture modes that require the same capabilities, e.g. <a class="reference internal" href="barcode-capture.html#class-scandit.datacapture.barcode.BarcodeCapture" title="BarcodeCapture class">BarcodeCapture</a>.</p>
+<p>Learn more on how to use barcode selection in our <a class="reference internal" href="../../get-started-barcode-selection.html"><span class="doc">Get Started With Barcode Selection</span></a> guide.</p>
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.selection.BarcodeSelection.ForDataCaptureContext">
+<span class="sig-name descname"><span class="pre">BarcodeSelection.forContext(context,</span> <span class="pre">settings)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.selection.BarcodeSelection.ForDataCaptureContext" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><span class="sig-name descname">BarcodeSelection.forContext</span>(<a class="reference internal" href="../../core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="DataCaptureContext class">DataCaptureContext</a> <em>context</em>,
+        <a class="reference internal" href="barcode-selection-settings.html#class-scandit.datacapture.barcode.selection.BarcodeSelectionSettings" title="BarcodeSelectionSettings class">BarcodeSelectionSettings</a> <em>settings</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.10.0</span></p>
+<p>Constructs a new barcode selection mode with the provided context and settings.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.selection.BarcodeSelection.IsEnabled">
+<span class="sig-name descname"><span class="pre">isEnabled</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.selection.BarcodeSelection.IsEnabled" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-core/bool-class.html" title="bool">bool</a> isEnabled</pre><p><span class="versionmodified versionadded">Added in version 6.10.0</span></p>
+<p>Implemented from <a class="reference internal" href="../../core/api/data-capture-mode.html#interface-scandit.datacapture.core.IDataCaptureMode" title="DataCaptureMode interface">DataCaptureMode</a>. See <a class="reference internal" href="../../core/api/data-capture-mode.html#property-scandit.datacapture.core.IDataCaptureMode.IsEnabled" title="DataCaptureMode.isEnabled property">DataCaptureMode.isEnabled</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.selection.BarcodeSelection.Feedback">
+<span class="sig-name descname"><span class="pre">feedback</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.selection.BarcodeSelection.Feedback" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="barcode-selection-feedback.html#class-scandit.datacapture.barcode.selection.BarcodeSelectionFeedback" title="BarcodeSelectionFeedback class">BarcodeSelectionFeedback</a> feedback</pre><p><span class="versionmodified versionadded">Added in version 6.10.0</span></p>
+<p>Instance of <a class="reference internal" href="barcode-selection-feedback.html#class-scandit.datacapture.barcode.selection.BarcodeSelectionFeedback" title="BarcodeSelectionFeedback class">BarcodeSelectionFeedback</a> that is used by barcode selection to notify users about the selection of a barcode.</p>
+<p>The default instance of the Feedback will have the sound enabled but no vibration. A default click tone will be used for the sound.</p>
+<p>To change the feedback emitted, the <a class="reference internal" href="barcode-selection-feedback.html#class-scandit.datacapture.barcode.selection.BarcodeSelectionFeedback" title="BarcodeSelectionFeedback class">BarcodeSelectionFeedback</a> can be modified as shown below, or a new one can be assigned.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="n">barcodeSelection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w"></span>
+<span class="n">barcodeSelection</span><span class="p">.</span><span class="n">feedback</span><span class="p">.</span><span class="n">selection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Feedback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="n">Sound</span><span class="p">.</span><span class="n">defaultSound</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.selection.BarcodeSelection.Context">
+<span class="sig-name descname"><span class="pre">context</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.selection.BarcodeSelection.Context" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../../core/api/data-capture-context.html#class-scandit.datacapture.core.DataCaptureContext" title="DataCaptureContext class">DataCaptureContext</a>? get context</pre><p><span class="versionmodified versionadded">Added in version 6.10.0</span></p>
+<p>Implemented from <a class="reference internal" href="../../core/api/data-capture-mode.html#interface-scandit.datacapture.core.IDataCaptureMode" title="DataCaptureMode interface">DataCaptureMode</a>. See <a class="reference internal" href="../../core/api/data-capture-mode.html#property-scandit.datacapture.core.IDataCaptureMode.Context" title="DataCaptureMode.context property">DataCaptureMode.context</a>.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="property-scandit.datacapture.barcode.selection.BarcodeSelection.PointOfInterest">
+<span class="sig-name descname"><span class="pre">pointOfInterest</span></span><a class="headerlink" href="#property-scandit.datacapture.barcode.selection.BarcodeSelection.PointOfInterest" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference internal" href="../../core/api/common.html#struct-scandit.datacapture.core.PointWithUnit" title="PointWithUnit struct">PointWithUnit</a>? pointOfInterest</pre><p><span class="versionmodified versionadded">Added in version 6.10.0</span></p>
+<p>The point of interest overwriting the <a class="reference internal" href="../../core/api/ui/data-capture-view.html#property-scandit.datacapture.core.ui.DataCaptureView.PointOfInterest" title="point of interest of the data capture view property">point of interest of the data capture view</a>.
+By default, this overwriting point of interest is not set and the one from the data capture view is used.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.selection.BarcodeSelection.ApplySettingsAsync">
+<span class="sig-name descname"><span class="pre">applySettings(settings)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.selection.BarcodeSelection.ApplySettingsAsync" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-async/Future-class.html" title="Future">Future</a>&lt;<code class="docutils literal notranslate"><span class="pre">void</span></code>&gt; <span class="sig-name descname">applySettings</span>(<a class="reference internal" href="barcode-selection-settings.html#class-scandit.datacapture.barcode.selection.BarcodeSelectionSettings" title="BarcodeSelectionSettings class">BarcodeSelectionSettings</a> <em>settings</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.10.0</span></p>
+<blockquote>
+<div><p>Asynchronously applies the new settings to the barcode selection. If the barcode selection is currently running, the task will complete when the next frame is processed, and will use the new settings for that frame. If the barcode selection is currently <em>not</em> running, the task will complete as soon as the settings have been stored and won’t wait until the next frame is going to be processed.</p>
+</div></blockquote>
+<div class="admonition" id="implnote-0">
+<p class="admonition-title">Internal</p>
+<p>Implementation note: The settings should be copied prior to passing them to the other thread, so no concurrent modifications can happen.</p>
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.selection.BarcodeSelection.CreateRecommendedCameraSettings">
+<span class="sig-name descname"><span class="pre">recommendedCameraSettings</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.selection.BarcodeSelection.CreateRecommendedCameraSettings" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature">static <a class="reference internal" href="../../core/api/camera-settings.html#class-scandit.datacapture.core.CameraSettings" title="CameraSettings class">CameraSettings</a> get recommendedCameraSettings</pre><p><span class="versionmodified versionadded">Added in version 6.10.0</span></p>
+<p>Returns the recommended camera settings for use with barcode selection.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.selection.BarcodeSelection.AddListener">
+<span class="sig-name descname"><span class="pre">addListener(listener)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.selection.BarcodeSelection.AddListener" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">addListener</span>(<a class="reference internal" href="barcode-selection-listener.html#interface-scandit.datacapture.barcode.selection.IBarcodeSelectionListener" title="BarcodeSelectionListener interface">BarcodeSelectionListener</a> <em>listener</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.10.0</span></p>
+<p>Adds the listener to this barcode selection instance.</p>
+<p>In case the same listener is already observing this instance, calling this method will not add the listener again.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.selection.BarcodeSelection.AddAdvancedListener">
+<span class="sig-name descname"><span class="pre">addAdvancedListener(listener)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.selection.BarcodeSelection.AddAdvancedListener" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">addAdvancedListener</span>(<a class="reference internal" href="barcode-selection-listener.html#interface-scandit.datacapture.barcode.selection.IBarcodeSelectionAdvancedListener" title="BarcodeSelectionAdvancedListener interface">BarcodeSelectionAdvancedListener</a> <em>listener</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.14.0</span></p>
+<p>Adds the advanced listener to this barcode selection instance.</p>
+<p>In case the same listener is already observing this instance, calling this method will not add the listener again.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.selection.BarcodeSelection.RemoveListener">
+<span class="sig-name descname"><span class="pre">removeListener(listener)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.selection.BarcodeSelection.RemoveListener" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">removeListener</span>(<a class="reference internal" href="barcode-selection-listener.html#interface-scandit.datacapture.barcode.selection.IBarcodeSelectionListener" title="BarcodeSelectionListener interface">BarcodeSelectionListener</a> <em>listener</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.10.0</span></p>
+<p>Removes a previously added listener from this barcode selection instance.</p>
+<p>In case the listener is not currently observing this instance, calling this method has no effect.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.selection.BarcodeSelection.RemoveAdvancedListener">
+<span class="sig-name descname"><span class="pre">removeAdvancedListener(listener)</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.selection.BarcodeSelection.RemoveAdvancedListener" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><code class="docutils literal notranslate"><span class="pre">void</span></code> <span class="sig-name descname">removeAdvancedListener</span>(<a class="reference internal" href="barcode-selection-listener.html#interface-scandit.datacapture.barcode.selection.IBarcodeSelectionAdvancedListener" title="BarcodeSelectionAdvancedListener interface">BarcodeSelectionAdvancedListener</a> <em>listener</em>)</pre><p><span class="versionmodified versionadded">Added in version 6.14.0</span></p>
+<p>Removes a previously added advanced listener from this barcode selection instance.</p>
+<p>In case the listener is not currently observing this instance, calling this method has no effect.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.selection.BarcodeSelection.Reset">
+<span class="sig-name descname"><span class="pre">reset()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.selection.BarcodeSelection.Reset" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-async/Future-class.html" title="Future">Future</a>&lt;<code class="docutils literal notranslate"><span class="pre">void</span></code>&gt; <span class="sig-name descname">reset</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.10.0</span></p>
+<p>Asynchronously resets the barcode selection session, effectively clearing the history of selected codes.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="method-scandit.datacapture.barcode.selection.BarcodeSelection.UnfreezeCamera">
+<span class="sig-name descname"><span class="pre">unfreezeCamera()</span></span><a class="headerlink" href="#method-scandit.datacapture.barcode.selection.BarcodeSelection.UnfreezeCamera" title="Permalink to this definition"></a></dt>
+<dd><pre class="full-signature"><a class="reference external" href="https://api.flutter.dev/flutter/dart-async/Future-class.html" title="Future">Future</a>&lt;<code class="docutils literal notranslate"><span class="pre">void</span></code>&gt; <span class="sig-name descname">unfreezeCamera</span>()</pre><p><span class="versionmodified versionadded">Added in version 6.10.0</span></p>
+<p>Unfreeze the camera.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>

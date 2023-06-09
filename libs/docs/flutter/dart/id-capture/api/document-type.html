@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Type &mdash; Data Capture SDK 6.17.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ID Capture Exception" href="id-capture-exception.html" />
+    <link rel="prev" title="Date Result" href="date-result.html" />
+  <!-- Hotjar Tracking Code for documentation to learn how devs use it and how we can improve it -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3436222,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Data Capture SDK
+          </a>
+              <div class="version">
+                6.17.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">First Steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../samples/run-samples.html">Run our Sample Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-sdk.html">Add the SDK to Your App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../best-practices-for-usability.html">Best Practices for Usability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Scanning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode.html">Get Started With Barcode Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-symbologies.html">Barcode Symbologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configure-barcodes.html">Configure Which Barcodes Are Read</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../optimize-performance.html">Optimize Scanning Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan + Augmented Reality</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-matrixscan.html">Get Started With MatrixScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../add-augmented-reality-overlay.html">Add AR Overlays in MatrixScan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MatrixScan Count</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode-count.html">Get Started With MatrixScan Count</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Barcode Selection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-barcode-selection.html">Get Started With Barcode Selection</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Text Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-text-capture.html">Get Started With Text Capture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ID Capture</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-id-capture.html">Get Started With ID Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../supported-documents.html">List of supported documents</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All Capture Modes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../camera-advanced.html">Advanced Camera Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scan-area.html">Set up the Active Scan Area</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parser</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get-started-parser.html">Get Started With The Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/formats.html">Supported Data Formats</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../core/overview.html">ScanditCaptureCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../barcode-capture/overview.html">ScanditBarcodeCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parser/overview.html">ScanditParser</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">ScanditIdCapture</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="aamva-barcode-result.html">AAMVA Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aamva-viz-barcode-comparison-verifier.html">AAMVA VIZ Barcode Comparison Verifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="argentina-id-barcode-result.html">Argentina ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apec-business-travel-card-mrz-result.html">APEC Business Travel Card MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="captured-id.html">Captured ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="captured-result-type.html">Captured Result Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-exit-entry-permit-mrz-result.html">China Exit-Entry Permit MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-mainland-travel-permit-mrz-result.html">China Mainland Travel Permit MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-one-way-permit-back-mrz-result.html">China One-Way Permit to Hong Kong/Macau Back MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="china-one-way-permit-front-mrz-result.html">China One-Way Permit to Hong Kong/Macau Front MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="colombia-dl-barcode-result.html">Colombia DL Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="colombia-id-barcode-result.html">Colombia ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="date-result.html">Date Result</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Document Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-exception.html">ID Capture Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-listener.html">ID Capture Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-listener.html#id-capture-advanced-listener">ID Capture Advanced Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-session.html">ID Capture Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture-settings.html">ID Capture Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-capture.html">ID Capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-document-type.html">ID Document Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-image-type.html">ID Image Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="id-supported-document-sides.html">ID Supported Sides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="localized-only-id.html">Localized Only ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mrz-result.html">MRZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rejected-id.html">Rejected ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scandit-flutter-datacapture-id.html">Scandit Flutter DataCapture Id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="south-africa-dl-barcode-result.html">South Africa DL Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="south-africa-id-barcode-result.html">South Africa ID Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="us-uniformed-services-barcode-result.html">Us Uniformed Services Barcode Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="viz-result.html">VIZ Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/id-capture-overlay.html">ID Capture Overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui/id-layout.html">ID Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#deserialization">Deserialization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../text-capture/overview.html">ScanditTextCapture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">System Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support.html">Support &amp; FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features-by-platform.html">Features By Platform</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.scandit.com/barcode-scanner-sdk.html">SDK 5.x Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrate-to-6.html">Migrate from Barcode Scanner 5.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://ssl.scandit.com">Dashboard</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data Capture SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../overview.html">ScanditIdCapture</a> &raquo;</li>
+          <li><a href="../api.html">ScanditIdCapture API</a> &raquo;</li>
+      <li>Document Type</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="document-type">
+<h1>Document Type<a class="headerlink" href="#document-type" title="Permalink to this headline"></a></h1>
+<p>Defined in library <em>scandit_datacapture_id</em></p>
+<dl>
+<dt class="sig sig-object unilang" id="enum-scandit.datacapture.id.DocumentType">
+<span class="sig-name descname"><span class="pre">DocumentType</span></span><a class="headerlink" href="#enum-scandit.datacapture.id.DocumentType" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.None">
+<span class="sig-name descname"><span class="pre">none</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.None" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A document of unrecognized type.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.ConsularId">
+<span class="sig-name descname"><span class="pre">consularId</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.ConsularId" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Consular ID Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.DrivingLicense">
+<span class="sig-name descname"><span class="pre">drivingLicense</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.DrivingLicense" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Driver’s License Card (for example an AAMVA Driver License).</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.DrivingLicensePublicServicesCard">
+<span class="sig-name descname"><span class="pre">drivingLicensePublicServicesCard</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.DrivingLicensePublicServicesCard" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A British Colombia Driver’s License and Services Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.EmploymentPass">
+<span class="sig-name descname"><span class="pre">employmentPass</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.EmploymentPass" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Singapore Employment Pass.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.FinCard">
+<span class="sig-name descname"><span class="pre">finCard</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.FinCard" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Singapore FIN (Foreign Identification Number) Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.Id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.Id" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>An ID Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.MultipurposeId">
+<span class="sig-name descname"><span class="pre">multipurposeId</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.MultipurposeId" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Multipurpose ID Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.MyKad">
+<span class="sig-name descname"><span class="pre">myKad</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.MyKad" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Malaysia ID Card (MyKad)</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.MyKid">
+<span class="sig-name descname"><span class="pre">myKid</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.MyKid" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Malaysia MyKid Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.MyPR">
+<span class="sig-name descname"><span class="pre">myPR</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.MyPR" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Malaysia MyPR Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.MyTentera">
+<span class="sig-name descname"><span class="pre">myTentera</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.MyTentera" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Malaysia MyTentera Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.PanCard">
+<span class="sig-name descname"><span class="pre">panCard</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.PanCard" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>An India Pan Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.ProfessionalId">
+<span class="sig-name descname"><span class="pre">professionalId</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.ProfessionalId" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Philippines Professional ID Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.PublicServicesCard">
+<span class="sig-name descname"><span class="pre">publicServicesCard</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.PublicServicesCard" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A British Colombia Services Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.ResidencePermit">
+<span class="sig-name descname"><span class="pre">residencePermit</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.ResidencePermit" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Residence Permit.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.ResidentId">
+<span class="sig-name descname"><span class="pre">residentId</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.ResidentId" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Resident ID Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.TemporaryResidencePermit">
+<span class="sig-name descname"><span class="pre">temporaryResidencePermit</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.TemporaryResidencePermit" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Temporary Residence Permit.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.VoterId">
+<span class="sig-name descname"><span class="pre">voterId</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.VoterId" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Voter ID Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.WorkPermit">
+<span class="sig-name descname"><span class="pre">workPermit</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.WorkPermit" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Work Permit.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.IKad">
+<span class="sig-name descname"><span class="pre">iKad</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.IKad" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Malaysia IKad Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.MilitaryId">
+<span class="sig-name descname"><span class="pre">militaryId</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.MilitaryId" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Military ID card (for example a US Uniformed Services ID).</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.MyKas">
+<span class="sig-name descname"><span class="pre">myKas</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.MyKas" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Malaysia MyKas Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.SocialSecurityCard">
+<span class="sig-name descname"><span class="pre">socialSecurityCard</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.SocialSecurityCard" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Social Security Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.HealthInsuranceCard">
+<span class="sig-name descname"><span class="pre">healthInsuranceCard</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.HealthInsuranceCard" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Health Insurance Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.Passport">
+<span class="sig-name descname"><span class="pre">passport</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.Passport" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Passport.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.DiplomaticPassport">
+<span class="sig-name descname"><span class="pre">diplomaticPassport</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.DiplomaticPassport" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.12.0</span></p>
+<p>A Diplomatic Passport.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.ServicePassport">
+<span class="sig-name descname"><span class="pre">servicePassport</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.ServicePassport" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.12.0</span></p>
+<p>A Service Passport.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.TemporaryPassport">
+<span class="sig-name descname"><span class="pre">temporaryPassport</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.TemporaryPassport" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.12.0</span></p>
+<p>A Temporary Passport.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.Visa">
+<span class="sig-name descname"><span class="pre">visa</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.Visa" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Visa.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.SPass">
+<span class="sig-name descname"><span class="pre">sPass</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.SPass" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Singapore S Pass.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.AddressCard">
+<span class="sig-name descname"><span class="pre">addressCard</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.AddressCard" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>An Address Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.AlienId">
+<span class="sig-name descname"><span class="pre">alienId</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.AlienId" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>An Alien ID Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.AlienPassport">
+<span class="sig-name descname"><span class="pre">alienPassport</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.AlienPassport" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>An Alien Passport.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.GreenCard">
+<span class="sig-name descname"><span class="pre">greenCard</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.GreenCard" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>An US Permanent Resident Card (commonly known as a Green Card).</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.MinorsId">
+<span class="sig-name descname"><span class="pre">minorsId</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.MinorsId" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Minors ID Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.PostalId">
+<span class="sig-name descname"><span class="pre">postalId</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.PostalId" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Postal ID Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.ProfessionalDl">
+<span class="sig-name descname"><span class="pre">professionalDl</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.ProfessionalDl" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Professional Driver’s License.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.TaxId">
+<span class="sig-name descname"><span class="pre">taxId</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.TaxId" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Tax ID Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.WeaponPermit">
+<span class="sig-name descname"><span class="pre">weaponPermit</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.WeaponPermit" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Weapon Permit.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.BorderCrossingCard">
+<span class="sig-name descname"><span class="pre">borderCrossingCard</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.BorderCrossingCard" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A US Border Crossing Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.DriverCard">
+<span class="sig-name descname"><span class="pre">driverCard</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.DriverCard" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Driver Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.GlobalEntryCard">
+<span class="sig-name descname"><span class="pre">globalEntryCard</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.GlobalEntryCard" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A US Global Entry Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.MyPolis">
+<span class="sig-name descname"><span class="pre">myPolis</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.MyPolis" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Malaysia MyPolis Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.NexusCard">
+<span class="sig-name descname"><span class="pre">nexusCard</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.NexusCard" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A US Nexus Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.PassportCard">
+<span class="sig-name descname"><span class="pre">passportCard</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.PassportCard" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Passport Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.ProofOfAgeCard">
+<span class="sig-name descname"><span class="pre">proofOfAgeCard</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.ProofOfAgeCard" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A South Australia Proof of Age Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.RefugeeId">
+<span class="sig-name descname"><span class="pre">refugeeId</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.RefugeeId" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Refugee ID.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.TribalId">
+<span class="sig-name descname"><span class="pre">tribalId</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.TribalId" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Tribal ID.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.VeteranId">
+<span class="sig-name descname"><span class="pre">veteranId</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.VeteranId" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Veteran ID.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.CitizenshipCertificate">
+<span class="sig-name descname"><span class="pre">citizenshipCertificate</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.CitizenshipCertificate" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.11.0</span></p>
+<p>A Citizenship Certificate.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.MyNumberCard">
+<span class="sig-name descname"><span class="pre">myNumberCard</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.MyNumberCard" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.14.0</span></p>
+<p>A Japanese My Number Card.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.MinorsPassport">
+<span class="sig-name descname"><span class="pre">minorsPassport</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.MinorsPassport" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>A Minors Passport.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object unilang" id="value-scandit.datacapture.id.DocumentType.MinorsPublicServicesCard">
+<span class="sig-name descname"><span class="pre">minorsPublicServicesCard</span></span><a class="headerlink" href="#value-scandit.datacapture.id.DocumentType.MinorsPublicServicesCard" title="Permalink to this definition"></a></dt>
+<dd><p><span class="versionmodified versionadded">Added in version 6.15.0</span></p>
+<p>A Minor Public Services Card.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Scandit AG.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23556890-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23556890-7', {
+          'anonymize_ip': false,
+      });
+    </script>
+  <!-- Start of scandit Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=df0234ee-7451-4189-8d1c-17c8a624b5f1"> 
+  </script>
+  <!-- End of scandit Zendesk Widget script -->
+
+</body>
+</html>
